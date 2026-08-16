@@ -220,25 +220,25 @@ nav a:hover::after{transform:scaleX(1);}
   0%,100%{background-position:0% 0%, 100% 100%;}
   50%{background-position:100% 40%, 0% 60%;}
 }
-.quote::before,.quote::after{
-  content:'';
+.quote-aurora{
+  --aurora: repeating-linear-gradient(100deg,#E9D53A 10%,#F4E98A 15%,#FBF3B8 20%,#FFF7D6 25%,#D8B93A 30%);
+  pointer-events:none;
   position:absolute;
-  border-radius:50%;
-  filter:blur(80px);
-  opacity:.55;
+  inset:-10px;
   z-index:0;
+  opacity:.35;
+  filter:blur(30px);
+  will-change:transform;
+  background-image: var(--aurora);
+  background-size:300% 200%;
+  background-position:50% 50%;
+  animation:auroraMove 60s ease-in-out infinite alternate;
+  mask-image:radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
 }
-.quote::before{
-  width:460px;height:460px;
-  background:radial-gradient(circle, var(--gold-soft), transparent 70%);
-  top:-140px;left:-100px;
-  animation:float1 14s ease-in-out infinite;
-}
-.quote::after{
-  width:400px;height:400px;
-  background:radial-gradient(circle, #4a4f57, transparent 70%);
-  bottom:-160px;right:-80px;
-  animation:float2 18s ease-in-out infinite;
+@keyframes auroraMove{
+  0%{background-position:30% 50%;}
+  100%{background-position:170% 50%;}
 }
 @keyframes float1{
   0%,100%{transform:translate(0,0) scale(1);}
@@ -251,12 +251,12 @@ nav a:hover::after{transform:scaleX(1);}
 .quote-inner{max-width:960px;width:100%;margin:0 auto;position:relative;z-index:1;}
 .quote p{font-size:clamp(22px,3vw,34px);line-height:1.6;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:400;}
 .quote-text{
+  position:relative;
   color:var(--white);
-  opacity:0;transform:translateY(24px);
-  transition:opacity 1s ease, transform 1s ease;
+  opacity:0;
+  transition:opacity .6s ease;
 }
-.quote-text.in-view{opacity:1;transform:translateY(0);}
-
+.quote-text.in-view{opacity:1;}
 /* EQUIPE */
 .equipe{background:var(--bg-alt);min-height:100vh;display:flex;align-items:center;padding:110px 0;}
 .equipe .container{width:100%;}
@@ -273,6 +273,7 @@ nav a:hover::after{transform:scaleX(1);}
 .team-card:hover .photo{filter:grayscale(0%) contrast(1.02);}
 .team-card h4{font-size:17px;font-weight:600;margin-top:20px;}
 .team-card span{font-size:14px;color:var(--gold-soft);}
+.team-card span.oab{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
 
 /* ÁREAS DE ATUAÇÃO */
 .areas{
@@ -635,6 +636,7 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
 </section>
 
 <section class="quote">
+  <div class="quote-aurora"></div>
   <div class="container quote-inner">
     <p class="quote-text">Toda empresa tem uma história, um jeito de fazer e planos para o futuro. Nosso papel é conhecer essa realidade de perto e colocar o conhecimento jurídico a serviço de decisões que ajudem o negócio a <a href="#equipe" class="gold-underline">seguir em frente</a>.</p>
   </div>
@@ -649,6 +651,7 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
         <img class="photo" src="imagens/felipequege.jpg" alt="Felipe Quege">
         <h4>Felipe Quege</h4>
         <span>Sócio</span>
+        <span class="oab">OAB nº 10.547</span>
       </div>
       <div class="team-card">
         <img class="photo" src="imagens/amigodofelipe.jpg" alt="Amigo do Felipe">
