@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quege Advogados</title>
 <link rel="icon" type="image/webp" href="imagens/favicon.ico">
+<meta property="og:image" content="imagens/ogimage.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -139,7 +140,25 @@ nav a:hover::after{transform:scaleX(1);}
 }
 .hero-content{max-width:860px;padding:0 24px; animation: fadeInUp 1.1s cubic-bezier(.22,1,.36,1);}
 .hero h1{font-size:clamp(30px,3.8vw,46px);line-height:1.2;margin-bottom:20px;font-weight:300;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);}
-.hero h1 span{display:block;}
+.hero h1 span{display:inline-block;position:relative;}
+.hero h1 span::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:#fff;transform-origin:left;transform:scaleX(0);}
+.hero h1 span:nth-child(1)::after{transform-origin:left;animation:underlineLTR 3.4s linear infinite;}
+.hero h1 span:nth-child(2)::after{transform-origin:right;animation:underlineRTL 3.4s linear infinite;}
+@keyframes underlineLTR{
+  0%{transform:scaleX(0);opacity:1;}
+  25.9%{transform:scaleX(1);opacity:1;}
+  26%{transform:scaleX(1);opacity:0;}
+  100%{transform:scaleX(0);opacity:0;}
+}
+@keyframes underlineRTL{
+  0%{transform:scaleX(0);opacity:0;}
+  25.9%{transform:scaleX(0);opacity:0;}
+  26%{transform:scaleX(0);opacity:1;}
+  52%{transform:scaleX(1);opacity:1;}
+  70%{transform:scaleX(1);opacity:1;}
+  70.1%{transform:scaleX(1);opacity:0;}
+  100%{transform:scaleX(0);opacity:0;}
+}
 .hero p{font-size:17px;color:#d8d6d2;max-width:680px;margin:0 auto;}
 .wa-float{
   position:fixed;right:32px;bottom:32px;z-index:40;
