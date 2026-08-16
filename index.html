@@ -53,8 +53,15 @@ header{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
-  background:linear-gradient(to bottom, rgba(10,11,12,.92), transparent);
+  background:transparent;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  transition:background .3s ease, backdrop-filter .3s ease;
+}
+header.scrolled{
+  background:rgba(10,11,12,.75);
   backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
 }
 .logo{display:flex;align-items:center;gap:10px;}
 .logo-mark{
@@ -157,18 +164,29 @@ nav a:hover::after{transform:scaleX(1);}
 .exp-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;gap:20px;flex-wrap:wrap;}
 .exp-head h2{font-size:clamp(26px,3.5vw,36px);}
 .exp-head p{color:var(--muted);font-size:16px;margin-top:12px;max-width:480px;}
-.testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
+.testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
 @media(max-width:860px){.testimonials{grid-template-columns:1fr;}}
+.t-card{padding:28px;}
+.t-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.t-avatar-row{display:flex;align-items:center;gap:12px;}
+.t-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,#4a4a4a,#2a2a2a);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:'Montserrat';font-weight:700;font-size:16px;
+}
+.t-who-block .who-name{font-family:'Montserrat';font-weight:700;font-size:14px;color:#fff;}
+.t-who-block .who-loc{font-size:12.5px;color:var(--muted);margin-top:2px;}
+.t-google-icon{width:20px;height:20px;flex-shrink:0;}
 .t-card{
   background:#1a1d20;border:1px solid var(--line);border-radius:8px;
   padding:36px; transition: transform 0.35s ease, border-color .35s ease, box-shadow .35s ease;
   position:relative;
 }
 .t-card:hover { transform: translateY(-6px); border-color: rgba(233,213,58,0.35); box-shadow:var(--shadow-soft); }
-.t-card .stars{color:var(--gold);font-size:15px;margin-bottom:18px;letter-spacing:3px;}
-.t-card p{font-size:16px;color:#d3d1cd;line-height:1.75;margin-bottom:24px;}
-.t-card .who{font-family:'Montserrat';font-weight:700;font-size:14px;padding-top:16px;border-top:1px solid var(--line);}
-.t-card .who span{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:4px;}
+.t-card .stars{color:#fbbc04;font-size:15px;margin-bottom:0;letter-spacing:2px;}
+.t-card p{font-size:15.5px;color:#d3d1cd;line-height:1.7;margin-bottom:0;}
+.t-card .who{display:none;}
 
 /* QUOTE */
 .quote{
@@ -290,40 +308,59 @@ nav a:hover::after{transform:scaleX(1);}
 .cursos-palestras-head { margin-bottom: 50px; max-width: 680px;}
 .cursos-palestras h2 {font-size:clamp(28px,3.5vw,36px); margin-bottom: 16px;}
 .cursos-palestras p {color:var(--muted);font-size:17px;line-height:1.7;}
+.cursos-layout{
+  display:grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap:56px;
+  align-items:stretch;
+}
+@media(max-width:900px){.cursos-layout{grid-template-columns:1fr;}}
+.cursos-media{
+  border-radius:10px;
+  overflow:hidden;
+  min-height:420px;
+  background:linear-gradient(160deg, rgba(233,213,58,.08), rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  background-size:cover;
+  background-position:center;
+}
+.cursos-media img{width:100%;height:100%;object-fit:cover;display:block;}
 .cursos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  gap: 28px;
 }
 .curso-card {
   background: rgba(255,255,255,0.02);
   border: 1px solid var(--line);
-  padding: 40px 32px;
+  padding: 30px 32px;
   border-radius: 8px;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  display:flex;
+  gap:22px;
+  align-items:flex-start;
 }
 .curso-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: rgba(233,213,58,0.4);
   box-shadow: var(--shadow-soft);
 }
 .curso-card .icon-wrapper {
   width: 54px;
   height: 54px;
+  min-width:54px;
   border-radius: 10px;
   background: rgba(233, 213, 58, 0.1);
   color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
   transition: background .35s ease, transform .35s ease;
 }
 .curso-card:hover .icon-wrapper{background:var(--gold);color:#111315;transform:scale(1.06);}
 .curso-card .icon-wrapper svg { width: 28px; height: 28px; }
 .curso-card h3 {
   font-size: 20px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: #fff;
 }
 .curso-card p {
@@ -633,6 +670,21 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
 </section>
 
 <script>
+const siteHeader = document.querySelector('header');
+const heroSection = document.querySelector('.hero');
+if(siteHeader && heroSection){
+  const toggleHeader = function(){
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    if(heroBottom <= siteHeader.offsetHeight){
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  };
+  toggleHeader();
+  window.addEventListener('scroll', toggleHeader, {passive:true});
+}
+
 const quoteText = document.querySelector('.quote-text');
 if(quoteText){
   const quoteObserver = new IntersectionObserver(function(entries){
@@ -668,29 +720,40 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
       <p>Nossa equipe de especialistas está pronta para capacitar seus líderes e colaboradores, oferecendo imersões focadas na prevenção de passivos e atualização jurídica contínua.</p>
     </div>
     
-    <div class="cursos-grid">
-      <div class="curso-card">
-        <div class="icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <h3>Treinamentos In Company</h3>
-        <p>Capacitação presencial ou remota dentro da sua empresa, focada nas rotinas do seu time. Abordamos compliance, regras trabalhistas, LGPD e condutas preventivas.</p>
+    <div class="cursos-layout">
+      <div class="cursos-media">
+        <img src="imagens/capacitacao.webp" alt="Treinamento e capacitação jurídica" onerror="this.parentElement.style.background='linear-gradient(160deg, rgba(233,213,58,.08), rgba(255,255,255,.02))'; this.remove();">
       </div>
-
-      <div class="curso-card">
-        <div class="icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+      <div class="cursos-grid">
+        <div class="curso-card">
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <h3>Treinamentos In Company</h3>
+            <p>Capacitação presencial ou remota dentro da sua empresa, focada nas rotinas do seu time. Abordamos compliance, regras trabalhistas, LGPD e condutas preventivas.</p>
+          </div>
         </div>
-        <h3>Palestras e Workshops</h3>
-        <p>Participação em eventos corporativos, Semanas de Compliance ou SIPATs, levando consciência sobre o cenário jurídico e os impactos de decisões no dia a dia do negócio.</p>
-      </div>
 
-      <div class="curso-card">
-        <div class="icon-wrapper">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 00-16 0"/></svg>
+        <div class="curso-card">
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <h3>Palestras e Workshops</h3>
+            <p>Participação em eventos corporativos, Semanas de Compliance ou SIPATs, levando consciência sobre o cenário jurídico e os impactos de decisões no dia a dia do negócio.</p>
+          </div>
         </div>
-        <h3>Mentoria para Gestores</h3>
-        <p>Programas direcionados a diretores e lideranças, equipando os tomadores de decisão com uma base jurídica sólida para agir com segurança legal e estratégia empresarial.</p>
+
+        <div class="curso-card">
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 00-16 0"/></svg>
+          </div>
+          <div>
+            <h3>Mentoria para Gestores</h3>
+            <p>Programas direcionados a diretores e lideranças, equipando os tomadores de decisão com uma base jurídica sólida para agir com segurança legal e estratégia empresarial.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -706,14 +769,32 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
     </div>
     <div class="testimonials">
       <div class="t-card">
+        <div class="t-top">
+          <div class="t-avatar-row">
+            <div class="t-avatar">E</div>
+            <div class="t-who-block">
+              <div class="who-name">Empresário do setor industrial</div>
+              <div class="who-loc">Canoinhas/SC</div>
+            </div>
+          </div>
+          <svg class="t-google-icon" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20.4H24v7.2h11.3c-1.6 4.5-5.9 7.7-11.3 7.7-6.9 0-12.5-5.6-12.5-12.5S17.1 10.3 24 10.3c3.2 0 6.1 1.2 8.3 3.2l5.1-5.1C34.5 5.4 29.5 3.5 24 3.5 12.7 3.5 3.5 12.7 3.5 24S12.7 44.5 24 44.5c11.3 0 20.5-8.2 20.5-20.5 0-1.4-.1-2.7-.4-4z"/><path fill="#FF3D00" d="M6.3 14.7l6 4.4C13.9 15.6 18.6 12.7 24 12.7c3.2 0 6.1 1.2 8.3 3.2l5.1-5.1C34.5 7.4 29.5 5.5 24 5.5c-7.5 0-14 4.2-17.7 10.3z"/><path fill="#4CAF50" d="M24 44.5c5.4 0 10.3-1.8 14.1-5l-6.5-5.3c-2.1 1.4-4.7 2.3-7.6 2.3-5.4 0-10-3.4-11.7-8.2l-6.4 4.9C9.9 39.9 16.4 44.5 24 44.5z"/><path fill="#1976D2" d="M43.6 20.5H42V20.4H24v7.2h11.3c-.9 2.6-2.5 4.7-4.6 6.1l6.5 5.3c-.5.4 6.9-4.9 6.9-14.6 0-1.4-.2-2.7-.5-4z"/></svg>
+        </div>
         <div class="stars">★★★★★</div>
         <p>Atendimento ágil e técnico. A equipe conduziu nosso caso com total transparência, trazendo segurança jurídica em todas as etapas do processo.</p>
-        <div class="who">Empresário do setor industrial<span>Canoinhas/SC</span></div>
       </div>
       <div class="t-card">
+        <div class="t-top">
+          <div class="t-avatar-row">
+            <div class="t-avatar">D</div>
+            <div class="t-who-block">
+              <div class="who-name">Diretora administrativa</div>
+              <div class="who-loc">Planalto Norte/SC</div>
+            </div>
+          </div>
+          <svg class="t-google-icon" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20.4H24v7.2h11.3c-1.6 4.5-5.9 7.7-11.3 7.7-6.9 0-12.5-5.6-12.5-12.5S17.1 10.3 24 10.3c3.2 0 6.1 1.2 8.3 3.2l5.1-5.1C34.5 5.4 29.5 3.5 24 3.5 12.7 3.5 3.5 12.7 3.5 24S12.7 44.5 24 44.5c11.3 0 20.5-8.2 20.5-20.5 0-1.4-.1-2.7-.4-4z"/><path fill="#FF3D00" d="M6.3 14.7l6 4.4C13.9 15.6 18.6 12.7 24 12.7c3.2 0 6.1 1.2 8.3 3.2l5.1-5.1C34.5 7.4 29.5 5.5 24 5.5c-7.5 0-14 4.2-17.7 10.3z"/><path fill="#4CAF50" d="M24 44.5c5.4 0 10.3-1.8 14.1-5l-6.5-5.3c-2.1 1.4-4.7 2.3-7.6 2.3-5.4 0-10-3.4-11.7-8.2l-6.4 4.9C9.9 39.9 16.4 44.5 24 44.5z"/><path fill="#1976D2" d="M43.6 20.5H42V20.4H24v7.2h11.3c-.9 2.6-2.5 4.7-4.6 6.1l6.5 5.3c-.5.4 6.9-4.9 6.9-14.6 0-1.4-.2-2.7-.5-4z"/></svg>
+        </div>
         <div class="stars">★★★★★</div>
         <p>Suporte constante em questões trabalhistas e tributárias. Recomendo pela clareza nas orientações e pelo comprometimento com resultados.</p>
-        <div class="who">Diretora administrativa<span>Planalto Norte/SC</span></div>
       </div>
     </div>
   </div>
