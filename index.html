@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quege Advogados</title>
-<link rel="icon" type="image/webp" href="favicon.ico">
+<link rel="icon" type="image/webp" href="logofavicon.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -52,7 +52,7 @@ header{
 }
 .logo{display:flex;align-items:center;gap:10px;}
 .logo-mark{
-  width:92px;height:92px;
+  width:130px;height:130px;
   display:flex;align-items:center;justify-content:center;
   transition: transform .5s ease, filter .5s ease;
 }
@@ -77,19 +77,19 @@ nav a::after{
   transition:transform .35s ease;
 }
 nav a:hover::after{transform:scaleX(1);}
-.social{display:flex;gap:14px;align-items:center;}
+.social{display:flex;gap:12px;align-items:center;}
 .social a{
-  width:38px;height:38px;
-  border:1px solid rgba(255,255,255,.25);
+  width:40px;height:40px;
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, color .3s ease;
-  color: var(--white);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  color:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.25);
 }
-.social a.ig{background:#E1306C;border-color:#E1306C;color:#fff;}
-.social a.wa{background:#25D366;border-color:#25D366;color:#fff;}
-.social a.ig:hover{transform:translateY(-3px);filter:brightness(1.1);}
-.social a.wa:hover{transform:translateY(-3px);filter:brightness(1.1);}
+.social a.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+.social a.wa{background:#25D366;}
+.social a.ig:hover,.social a.wa:hover{transform:translateY(-3px) scale(1.06);filter:brightness(1.08);box-shadow:0 8px 18px rgba(0,0,0,.35);}
+.social a svg{width:19px;height:19px;}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:26px;cursor:pointer;}
 
 @media(max-width:960px){
@@ -209,19 +209,11 @@ nav a:hover::after{transform:scaleX(1);}
 .quote-inner{max-width:960px;width:100%;margin:0 auto;position:relative;z-index:1;}
 .quote p{font-size:clamp(22px,3vw,34px);line-height:1.6;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:400;}
 .quote-text{
-  background:linear-gradient(100deg, var(--white) 30%, var(--gold) 45%, var(--white) 60%);
-  background-size:250% auto;
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  color:var(--white);
   opacity:0;transform:translateY(24px);
   transition:opacity 1s ease, transform 1s ease;
-  animation:shine 6s linear infinite;
-  animation-play-state:paused;
 }
-.quote-text.in-view{opacity:1;transform:translateY(0);animation-play-state:running;}
-@keyframes shine{
-  0%{background-position:200% center;}
-  100%{background-position:-200% center;}
-}
+.quote-text.in-view{opacity:1;transform:translateY(0);}
 
 /* EQUIPE */
 .equipe{background:var(--bg-alt);min-height:100vh;display:flex;align-items:center;padding:110px 0;}
