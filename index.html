@@ -65,12 +65,12 @@ header.scrolled{
 }
 .logo{display:flex;align-items:center;gap:10px;}
 .logo-mark{
-  width:92px;height:92px;
+  width:120px;height:120px;
   display:flex;align-items:center;justify-content:center;
-  transition: transform .5s ease, filter .5s ease;
+  transition: transform .5s ease;
 }
 .logo-mark img{width:100%;height:100%;object-fit:contain;}
-.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.08);filter:drop-shadow(0 0 10px rgba(233,213,58,.5));}
+.logo:hover .logo-mark{transform:scale(1.08);}
 .logo-text{font-family:'Montserrat';font-weight:700;font-size:15px;letter-spacing:.08em;line-height:1.1;}
 .logo-text span{display:block;font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--gold-soft);}
 
@@ -448,9 +448,11 @@ nav a:hover::after{transform:scaleX(1);}
 .ig-avatar {
   width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: #111315;
   display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Montserrat', sans-serif; font-size: 15px;
+  overflow: hidden;
 }
+.ig-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .ig-user { font-weight: 600; font-size: 14px; color: var(--white); }
-.ig-image { width: 100%; height: 360px; background: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop') center/cover; }
+.ig-image { width: 100%; height: 360px; background: url('imagens/post.jpg') center/cover; }
 .ig-actions { display: flex; gap: 16px; padding: 16px 16px 8px; }
 .ig-icon { width: 26px; height: 26px; color: var(--white); cursor: pointer; transition: color 0.2s; }
 .ig-icon:hover { color: var(--gold); }
@@ -601,7 +603,7 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
 <section class="hero" id="top">
   <div class="hero-content">
     <h1><span>Segurança jurídica para o</span><span>crescimento do seu negócio</span></h1>
-    <p><span>Assessoria preventiva e lógica em direito</span><br><span>empresarial, trabalhista empresarial, tributário, agronegócio e recuperação de crédito.</span></p>
+    <p><span>Assessoria tributária estratégica e preventiva</span><br><span>planejamento fiscal, recuperação de créditos, proteção patrimonial e sucessória.</span></p>
   </div>
 </section>
 
@@ -611,8 +613,8 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
 
 <section class="tradicao" id="tradicao">
   <div class="container grid">
-    <h2>Tradição e Inovação na Advocacia Empresarial</h2>
-    <p>Fundado em 2002, o Quege Advogados consolidou sua reputação a partir de uma atuação pautada pela ética, excelência técnica e segurança jurídica. Com presença estratégica nas áreas do Direito Empresarial, Trabalhista Empresarial, Tributário e Recuperação de Crédito, o escritório dispõe de estrutura física contemporânea e cuidadosamente planejada, que reflete seu padrão de atendimento, discrição e eficiência.</p>
+    <h2>Tradição e Inovação na Advocacia Tributária</h2>
+    <p>Fundado em 2002, o Quege Advogados consolidou sua reputação a partir de uma atuação pautada pela ética, excelência técnica e segurança jurídica. Com presença estratégica em planejamento tributário, recuperação de créditos, proteção patrimonial e sucessória, o escritório dispõe de estrutura física contemporânea e cuidadosamente planejada, que reflete seu padrão de atendimento, discrição e eficiência.</p>
   </div>
 </section>
 
@@ -650,20 +652,20 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
     </div>
     <div class="faq-list" id="faq-list">
       <div class="faq-item open">
-        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop">Direito Empresarial<span class="icon">+</span></button>
-        <div class="faq-a">Consultoria e assessoria jurídica preventiva e extrajudicial em rotinas empresariais. Elaboração de contratos. Representação em negociações. Elaboração de pareceres. Intervenção e defesa administrativa junto a agências reguladoras. Atuação no âmbito judicial.</div>
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop">Planejamento e Consultoria Tributária<span class="icon">+</span></button>
+        <div class="faq-a">Planejamento tributário e revisão fiscal, com consultoria estratégica voltada à redução de carga tributária e à conformidade fiscal do negócio.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop">Trabalhista Empresarial<span class="icon">+</span></button>
-        <div class="faq-a">Assessoria preventiva em rotinas trabalhistas, elaboração de políticas internas, due diligence, defesa em ações e negociações coletivas, com foco na redução de passivos e riscos para a empresa.</div>
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop">Recuperação de Créditos Tributários<span class="icon">+</span></button>
+        <div class="faq-a">Recuperação de créditos tributários (ICMS, PIS/COFINS, IRPJ/CSLL), com identificação de oportunidades e condução do processo de restituição ou compensação.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto=format&fit=crop">Tributário<span class="icon">+</span></button>
-        <div class="faq-a">Planejamento tributário, consultoria preventiva, revisão de rotinas fiscais e defesa administrativa e judicial em autuações, buscando segurança jurídica e eficiência fiscal para o negócio.</div>
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto=format&fit=crop">Defesa e Contencioso Tributário<span class="icon">+</span></button>
+        <div class="faq-a">Defesa em autuações fiscais e contencioso tributário, administrativo e judicial, buscando segurança jurídica para o negócio.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop">Recuperação de Crédito<span class="icon">+</span></button>
-        <div class="faq-a">Estratégias judiciais e extrajudiciais para recuperação de valores, cobrança de dívidas e proteção do fluxo de caixa da empresa, com acompanhamento próximo em cada etapa.</div>
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop">Proteção Patrimonial e Sucessória<span class="icon">+</span></button>
+        <div class="faq-a">Proteção patrimonial, reestruturação societária e planejamento sucessório, com soluções personalizadas para a continuidade segura do negócio e do patrimônio familiar.</div>
       </div>
     </div>
   </div>
@@ -731,7 +733,7 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
           </div>
           <div>
             <h3>Treinamentos In Company</h3>
-            <p>Capacitação presencial ou remota dentro da sua empresa, focada nas rotinas do seu time. Abordamos compliance, regras trabalhistas, LGPD e condutas preventivas.</p>
+            <p>Capacitação presencial ou remota dentro da sua empresa, focada nas rotinas do seu time. Abordamos compliance fiscal, rotinas tributárias e condutas preventivas.</p>
           </div>
         </div>
 
@@ -794,7 +796,7 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
           <svg class="t-google-icon" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20.4H24v7.2h11.3c-1.6 4.5-5.9 7.7-11.3 7.7-6.9 0-12.5-5.6-12.5-12.5S17.1 10.3 24 10.3c3.2 0 6.1 1.2 8.3 3.2l5.1-5.1C34.5 5.4 29.5 3.5 24 3.5 12.7 3.5 3.5 12.7 3.5 24S12.7 44.5 24 44.5c11.3 0 20.5-8.2 20.5-20.5 0-1.4-.1-2.7-.4-4z"/><path fill="#FF3D00" d="M6.3 14.7l6 4.4C13.9 15.6 18.6 12.7 24 12.7c3.2 0 6.1 1.2 8.3 3.2l5.1-5.1C34.5 7.4 29.5 5.5 24 5.5c-7.5 0-14 4.2-17.7 10.3z"/><path fill="#4CAF50" d="M24 44.5c5.4 0 10.3-1.8 14.1-5l-6.5-5.3c-2.1 1.4-4.7 2.3-7.6 2.3-5.4 0-10-3.4-11.7-8.2l-6.4 4.9C9.9 39.9 16.4 44.5 24 44.5z"/><path fill="#1976D2" d="M43.6 20.5H42V20.4H24v7.2h11.3c-.9 2.6-2.5 4.7-4.6 6.1l6.5 5.3c-.5.4 6.9-4.9 6.9-14.6 0-1.4-.2-2.7-.5-4z"/></svg>
         </div>
         <div class="stars">★★★★★</div>
-        <p>Suporte constante em questões trabalhistas e tributárias. Recomendo pela clareza nas orientações e pelo comprometimento com resultados.</p>
+        <p>Suporte constante em questões tributárias e fiscais. Recomendo pela clareza nas orientações e pelo comprometimento com resultados.</p>
       </div>
     </div>
   </div>
@@ -819,7 +821,7 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
       <div class="conteudo-mockup">
         <div class="ig-post">
           <div class="ig-header">
-            <div class="ig-avatar">Q</div>
+            <div class="ig-avatar"><img src="imagens/favicon.ico" alt="Quege Advogados"></div>
             <div class="ig-user">quegeadvogados</div>
           </div>
           <div class="ig-image"></div>
@@ -844,12 +846,12 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
   <div class="container visit-wrap">
     
     <div class="visit-info">
-      <h2>Venha nos visitar e conversar sobre o futuro da sua empresa</h2>
+      <h2>Vamos conversar sobre o futuro da sua empresa</h2>
       <p class="lead">Mais do que um escritório, uma estrutura jurídica pensada para o cliente.</p>
       
       <div class="item">
         <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-        <p>Rua Matos Costa, 783, Centro, Porto União/SC</p>
+        <p>Atendimento em Canoinhas/SC e Curitiba/PR</p>
       </div>
       <div class="item">
         <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
