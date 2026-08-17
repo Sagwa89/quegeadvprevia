@@ -5,7 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quege Advogados</title>
 <link rel="icon" type="image/webp" href="imagens/favicon.ico">
-<meta property="og:image" content="imagens/ogimage.jpg">
+<meta property="og:image" content="https://previaquegeadv.vercel.app/imagens/ogimage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://previaquegeadv.vercel.app/">
+<meta property="og:title" content="Quege Advogados">
+<meta property="og:description" content="Assessoria tributária estratégica e preventiva, planejamento fiscal, recuperação de créditos, proteção patrimonial e sucessória.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://previaquegeadv.vercel.app/imagens/ogimage.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -761,14 +769,14 @@ if(siteHeader && heroSection){
     path.style.opacity = '1';
     path.getBoundingClientRect();
     requestAnimationFrame(function(){
-      path.style.transition = 'stroke-dashoffset .9s linear';
+      path.style.transition = 'stroke-dashoffset .55s linear';
       path.style.strokeDashoffset = '0';
     });
     loopTimer = setTimeout(function(){
       path.style.transition = 'opacity 1.4s ease';
       path.style.opacity = '0';
-    }, 900 + 300);
-    restartTimer = setTimeout(run, 900 + 300 + 1400 + 2000);
+    }, 550 + 200);
+    restartTimer = setTimeout(run, 550 + 200 + 1400 + 2000);
   }
 
   let resizeTimer;
