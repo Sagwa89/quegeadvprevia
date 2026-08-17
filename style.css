@@ -603,3 +603,16 @@ footer{padding:60px 0;text-align:center;background:var(--bg);border-top:1px soli
 footer .logo{justify-content:center;margin-bottom:14px;opacity:.85;}
 footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
 </style>
+
+/* PAGE BANNER (páginas internas) */
+.page-banner{
+  padding:170px 0 70px;
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--line);
+}
+.page-banner .eyebrow{display:block;margin-bottom:14px;}
+.page-banner h1{font-size:clamp(28px,3.6vw,44px);font-weight:400;line-height:1.25;max-width:760px;}
+.page-banner p{color:var(--muted);margin-top:16px;font-size:16px;max-width:640px;line-height:1.7;}
+.breadcrumb{margin-top:22px;font-size:13px;color:var(--muted);letter-spacing:.02em;}
+.breadcrumb a{color:var(--gold-soft);}
+.breadcrumb a:hover{color:var(--gold);}
