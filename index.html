@@ -139,26 +139,11 @@ nav a:hover::after{transform:scaleX(1);}
   z-index:1;
 }
 .hero-content{max-width:860px;padding:0 24px; animation: fadeInUp 1.1s cubic-bezier(.22,1,.36,1);}
-.hero h1{font-size:clamp(30px,3.8vw,46px);line-height:1.2;margin-bottom:20px;font-weight:300;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);}
+.hero h1{font-size:clamp(30px,3.8vw,46px);line-height:1.2;margin-bottom:20px;font-weight:300;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);position:relative;}
 .hero h1 span{display:inline-block;position:relative;}
-.hero h1 span::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:#fff;transform-origin:left;transform:scaleX(0);}
-.hero h1 span:nth-child(1)::after{transform-origin:left;animation:underlineLTR 3.4s linear infinite;}
-.hero h1 span:nth-child(2)::after{transform-origin:right;animation:underlineRTL 3.4s linear infinite;}
-@keyframes underlineLTR{
-  0%{transform:scaleX(0);opacity:1;}
-  25.9%{transform:scaleX(1);opacity:1;}
-  26%{transform:scaleX(1);opacity:0;}
-  100%{transform:scaleX(0);opacity:0;}
-}
-@keyframes underlineRTL{
-  0%{transform:scaleX(0);opacity:0;}
-  25.9%{transform:scaleX(0);opacity:0;}
-  26%{transform:scaleX(0);opacity:1;}
-  52%{transform:scaleX(1);opacity:1;}
-  70%{transform:scaleX(1);opacity:1;}
-  70.1%{transform:scaleX(1);opacity:0;}
-  100%{transform:scaleX(0);opacity:0;}
-}
+.hero h1 span:nth-child(2){margin-top:14px;}
+.hero-underline{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
+.hero-underline path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;opacity:0;}
 .hero p{font-size:17px;color:#d8d6d2;max-width:680px;margin:0 auto;}
 .wa-float{
   position:fixed;right:32px;bottom:32px;z-index:40;
@@ -638,7 +623,7 @@ footer p{color:var(--muted);font-size:13px;letter-spacing:.03em;}
 
 <section class="hero" id="top">
   <div class="hero-content">
-    <h1><span>Estratégia jurídica para a</span><span>evolução do seu negócio</span></h1>
+    <h1><span>Estratégia jurídica para a</span><span>evolução do seu negócio</span><svg class="hero-underline" id="heroUnderline"><path id="heroUnderlinePath" d=""></path></svg></h1>
     <p><span>Assessoria tributária estratégica e preventiva, planejamento fiscal,</span><br><span> recuperação de créditos, proteção patrimonial e sucessória.</span></p>
   </div>
 </section>
@@ -728,6 +713,80 @@ if(siteHeader && heroSection){
   toggleHeader();
   window.addEventListener('scroll', toggleHeader, {passive:true});
 }
+
+(function(){
+  const h1 = document.querySelector('.hero h1');
+  const svg = document.getElementById('heroUnderline');
+  const path = document.getElementById('heroUnderlinePath');
+  if(!h1 || !svg || !path) return;
+  const spans = h1.querySelectorAll(':scope > span');
+  if(spans.length < 2) return;
+  let loopTimer, restartTimer;
+
+  function buildPath(){
+    const h1Rect = h1.getBoundingClientRect();
+    const r2 = spans[1].getBoundingClientRect();
+    const pad = 8;
+    const R = (r2.height / 2) + pad;
+    const cy = (r2.top + r2.bottom) / 2 - h1Rect.top;
+    const leftX = r2.left - h1Rect.left;
+    const rightX = r2.right - h1Rect.left;
+    const topY = cy - R;
+    const botY = cy + R;
+    const arcSteps = 24;
+    let pts = [];
+    pts.push(leftX.toFixed(1) + ',' + topY.toFixed(1));
+    pts.push(rightX.toFixed(1) + ',' + topY.toFixed(1));
+    for(let i = 1; i <= arcSteps; i++){
+      const t = (180 * i / arcSteps);
+      const rad = t * Math.PI / 180;
+      pts.push((rightX + R * Math.sin(rad)).toFixed(1) + ',' + (cy - R * Math.cos(rad)).toFixed(1));
+    }
+    pts.push(leftX.toFixed(1) + ',' + botY.toFixed(1));
+    for(let i = 1; i <= arcSteps; i++){
+      const t = 180 + (180 * i / arcSteps);
+      const rad = t * Math.PI / 180;
+      pts.push((leftX + R * Math.sin(rad)).toFixed(1) + ',' + (cy - R * Math.cos(rad)).toFixed(1));
+    }
+    const d = `M ${pts[0]} L ${pts.join(' L ')}`;
+    path.setAttribute('d', d);
+    return path.getTotalLength();
+  }
+
+  function run(){
+    const len = buildPath();
+    path.style.transition = 'none';
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+    path.style.opacity = '1';
+    path.getBoundingClientRect();
+    requestAnimationFrame(function(){
+      path.style.transition = 'stroke-dashoffset .9s linear';
+      path.style.strokeDashoffset = '0';
+    });
+    loopTimer = setTimeout(function(){
+      path.style.transition = 'opacity 1.4s ease';
+      path.style.opacity = '0';
+    }, 900 + 300);
+    restartTimer = setTimeout(run, 900 + 300 + 1400 + 2000);
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      clearTimeout(loopTimer);
+      clearTimeout(restartTimer);
+      run();
+    }, 200);
+  });
+
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(run);
+  } else {
+    run();
+  }
+})();
 
 const quoteText = document.querySelector('.quote-text');
 if(quoteText){
