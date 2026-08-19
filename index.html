@@ -8,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0f1113;
-  --bg-alt:#15181b;
+  --bg:#f4f3f0;
+  --bg-alt:#e9e7e2;
   --gold:#E9D53A;
-  --gold-soft:#E9D53A99;
-  --white:#f5f4f2;
-  --muted:#a9a9a4;
-  --line:#26282b;
-  --shadow-soft:0 20px 50px -20px rgba(0,0,0,.5);
+  --gold-soft:#c9ab00;
+  --white:#1a1a1a;
+  --muted:#5c5c58;
+  --line:#dedbd4;
+  --shadow-soft:0 20px 50px -20px rgba(0,0,0,.15);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -186,18 +186,17 @@ nav a:hover::after{transform:scaleX(1);}
 .solucao-card p{font-size:14.5px;color:#cfcdc9;line-height:1.7;}
 
 /* COMO TRABALHAMOS */
-.trabalho-wrap{display:flex;flex-direction:column;gap:50px;}
-.team-mini-grid{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
-.team-mini{width:100%;max-width:420px;transition:transform .4s cubic-bezier(.22,1,.36,1);}
-.team-mini:hover{transform:translateY(-8px);}
-.team-mini .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);border-radius:6px;box-shadow:var(--shadow-soft);transition:filter .4s ease;}
-.team-mini:hover .photo{filter:grayscale(0%) contrast(1.02);}
-.team-mini h4{font-size:14.5px;font-weight:600;margin-top:14px;}
-.team-mini span{font-size:12.5px;color:var(--gold-soft);}
-.trabalho-steps{display:flex;flex-direction:column;gap:22px;margin:28px 0 32px;}
-.trabalho-step{display:flex;gap:16px;align-items:flex-start;}
-.trabalho-step .num{font-family:'Montserrat';font-weight:700;color:var(--gold);font-size:15px;min-width:28px;}
-.trabalho-step p{font-size:15px;color:#cfcdc9;line-height:1.7;}
+.trabalho-wrap{display:flex;flex-direction:column;}
+.trabalho-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+.trabalho-track{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+.trabalho-track::before{content:'';position:absolute;top:34px;left:calc(16.66% + 10px);right:calc(16.66% + 10px);height:1px;background:linear-gradient(90deg, var(--gold), var(--line) 60%);opacity:.5;}
+@media(max-width:860px){.trabalho-track{grid-template-columns:1fr;gap:8px;}.trabalho-track::before{display:none;}}
+.trabalho-card{position:relative;padding:6px 6px 0;}
+.trabalho-card .num{display:flex;align-items:center;justify-content:center;width:68px;height:68px;border-radius:50%;background:var(--bg);border:1px solid var(--line);color:var(--gold);font-family:'Montserrat';font-weight:700;font-size:22px;margin-bottom:26px;position:relative;z-index:1;transition:border-color .35s ease, transform .35s ease;}
+.trabalho-card:hover .num{border-color:var(--gold);transform:translateY(-4px);}
+.trabalho-card h3{font-size:18.5px;font-weight:600;margin-bottom:12px;}
+.trabalho-card p{font-size:14.5px;color:var(--muted);line-height:1.75;}
+.trabalho-foot{text-align:center;margin-top:52px;}
 
 /* EQUIPE (Quem Somos) */
 .team-grid{display:flex;flex-wrap:wrap;gap:40px;}
@@ -344,40 +343,27 @@ footer::before{content:'';position:absolute;top:-1px;left:0;width:140px;height:2
 }
 
 
-/* THEME TOGGLE */
-html[data-theme="light"]{
-  --bg:#f4f3f0;
-  --bg-alt:#e9e7e2;
-  --white:#1a1a1a;
-  --muted:#5c5c58;
-  --line:#dedbd4;
-  --shadow-soft:0 20px 50px -20px rgba(0,0,0,.15);
-}
-html[data-theme="light"] body{background:var(--bg);color:#1a1a1a;}
-html[data-theme="light"] .section-light{background:#fff;color:#1a1a1a;}
-html[data-theme="light"] header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--line);}
-html[data-theme="light"] .mobile-nav{background:rgba(244,243,240,.98);}
-html[data-theme="light"] .mobile-nav a{color:#1a1a1a;}
-html[data-theme="light"] .mobile-close{color:#1a1a1a;}
-html[data-theme="light"] .check-card,html[data-theme="light"] .solucao-card,html[data-theme="light"] .team-card,
-html[data-theme="light"] .blog-card,html[data-theme="light"] .blog-featured,html[data-theme="light"] .calc-card,
-html[data-theme="light"] .calc-result,html[data-theme="light"] .atendimento-box{background:rgba(0,0,0,.025);}
-html[data-theme="light"] .check-card p,html[data-theme="light"] .solucao-card p,html[data-theme="light"] .blog-card p,
-html[data-theme="light"] .trabalho-step p,html[data-theme="light"] .team-card p.bio{color:#4a4a46;}
-html[data-theme="light"] .check-card h4,html[data-theme="light"] .solucao-card h3,html[data-theme="light"] .blog-card h3{color:#1a1a1a;}
-html[data-theme="light"] .field input,html[data-theme="light"] .field textarea,html[data-theme="light"] .field select{color:#1a1a1a;border-bottom-color:rgba(0,0,0,.25);}
-html[data-theme="light"] .field input::placeholder,html[data-theme="light"] .field textarea::placeholder{color:#7a7a76;}
-html[data-theme="light"] .calc-field input,html[data-theme="light"] .calc-field select{background:#fff;color:#1a1a1a;border-color:var(--line);}
-html[data-theme="light"] .btn-outline{color:#1a1a1a !important;border-color:rgba(0,0,0,.3);}
-html[data-theme="light"] .visit,html[data-theme="light"] .hero,html[data-theme="light"] .page-hero,
-html[data-theme="light"] .quote,html[data-theme="light"] .areas{color:#f5f4f2;}
-html[data-theme="light"] .visit-info .item p,html[data-theme="light"] .visit-info .note,html[data-theme="light"] .privacy{color:#e8e6e2;}
-html[data-theme="light"] .theme-toggle svg.icon-sun{display:none;}
-html[data-theme="light"] .theme-toggle svg.icon-moon{display:block;}
-.theme-toggle{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--white);transition:border-color .3s ease, background .3s ease;flex-shrink:0;}
-.theme-toggle:hover{border-color:var(--gold);color:var(--gold);}
-.theme-toggle svg.icon-moon{display:none;}
-.theme-toggle svg{width:18px;height:18px;}
+/* AJUSTES TEMA CLARO (permanente) */
+.section-light{background:#fff;color:#1a1a1a;}
+header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--line);}
+.mobile-nav{background:rgba(244,243,240,.98);}
+.mobile-nav a{color:#1a1a1a;}
+.mobile-close{color:#1a1a1a;}
+.check-card,.solucao-card,.team-card,
+.blog-card,.blog-featured,.calc-card,
+.calc-result,.atendimento-box{background:#fff;box-shadow:0 4px 18px -8px rgba(0,0,0,.12);}
+.check-card p,.solucao-card p,.blog-card p,
+.trabalho-card p,.team-card p.bio,.faq-a,.calc-row .label{color:#4a4a46;}
+.check-card h4,.solucao-card h3,.blog-card h3{color:#1a1a1a;}
+.field input,.field textarea,.field select{color:#1a1a1a;border-bottom-color:rgba(0,0,0,.25);}
+.field input::placeholder,.field textarea::placeholder{color:#7a7a76;}
+.calc-field input,.calc-field select{background:#fff;color:#1a1a1a;border-color:var(--line);}
+.btn-outline{color:#1a1a1a !important;border-color:rgba(0,0,0,.3);}
+.visit,.hero,.page-hero,
+.quote,.areas{color:#f5f4f2;}
+.visit-info .item p,.visit-info .note,.privacy{color:#e8e6e2;}
+.privacy a{color:#e8e6e2;}
+.calc-row.highlight .label{color:#1a1a1a;}
 
 </style>
 <title>Home | Quege Advogados</title>
@@ -400,11 +386,6 @@ html[data-theme="light"] .theme-toggle svg.icon-moon{display:block;}
     <div class="social">
       <a class="ig" href="https://www.instagram.com/quegeadv/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
       <a class="wa" href="https://wa.me/554435228080" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
-    
-      <button class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
     </div>
   </div>
   <button class="menu-btn" aria-label="Abrir menu">☰</button>
@@ -539,29 +520,30 @@ html[data-theme="light"] .theme-toggle svg.icon-moon{display:block;}
 
 <section class="section" id="como-trabalhamos">
   <div class="container trabalho-wrap">
-    <div class="reveal-up">
+    <div class="trabalho-head reveal-up">
       <span class="eyebrow">Como nós trabalhamos</span>
-      <h2 style="font-size:clamp(26px,3.5vw,36px);margin:16px 0 22px;">Perto do cliente, orientados a resultado</h2>
-      <div class="trabalho-steps">
-        <div class="trabalho-step"><span class="num">01</span><p>Diagnóstico completo da situação tributária, societária e patrimonial da empresa.</p></div>
-        <div class="trabalho-step"><span class="num">02</span><p>Estratégia personalizada, com plano de ação claro e prioridades definidas.</p></div>
-        <div class="trabalho-step"><span class="num">03</span><p>Execução acompanhada de perto pela equipe, com comunicação direta e transparente.</p></div>
-      </div>
-      <a href="quem-somos.html#equipe" class="btn-outline">Sobre a Equipe<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      <h2 style="font-size:clamp(26px,3.5vw,36px);margin:16px 0 14px;">Perto do cliente, orientados a resultado</h2>
+      <p style="color:var(--muted);font-size:16px;line-height:1.8;">Um método claro, em três etapas, do primeiro diagnóstico à execução acompanhada de perto.</p>
     </div>
-    <div class="reveal-up">
-      <div class="team-mini-grid">
-        <div class="team-mini">
-          <img class="photo" src="imagens/felipequege.jpg" alt="Felipe Quege">
-          <h4>Felipe Quege</h4>
-          <span>Sócio-Fundador</span>
-        </div>
-        <div class="team-mini">
-          <img class="photo" src="imagens/amigodofelipe.jpg" alt="Amigo do Felipe">
-          <h4>Amigo do Felipe</h4>
-          <span>Sócio Parceiro</span>
-        </div>
+    <div class="trabalho-track reveal-up">
+      <div class="trabalho-card">
+        <div class="num">01</div>
+        <h3>Diagnóstico</h3>
+        <p>Análise completa da situação tributária, societária e patrimonial da empresa.</p>
       </div>
+      <div class="trabalho-card">
+        <div class="num">02</div>
+        <h3>Estratégia</h3>
+        <p>Plano de ação personalizado, com prioridades claras e objetivos definidos.</p>
+      </div>
+      <div class="trabalho-card">
+        <div class="num">03</div>
+        <h3>Execução</h3>
+        <p>Acompanhamento próximo da equipe, com comunicação direta e transparente.</p>
+      </div>
+    </div>
+    <div class="trabalho-foot reveal-up">
+      <a href="quem-somos.html#equipe" class="btn-outline">Sobre a Equipe<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
   </div>
 </section>
@@ -604,14 +586,6 @@ html[data-theme="light"] .theme-toggle svg.icon-moon{display:block;}
       </div>
     </div>
     <div style="text-align:center;margin-top:50px;" class="reveal-up"><a href="blog.html" class="btn-outline">Ver todos os artigos<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="container">
-    <h2>Vamos conversar sobre o futuro da sua empresa?</h2>
-    <p>Mais do que um escritório, uma estrutura jurídica pensada para o cliente.</p>
-    <a href="contato.html" class="btn-primary">Fale Conosco<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
   </div>
 </section>
 
@@ -730,20 +704,6 @@ if(calcForm){
   calcular();
 }
 
-
-// THEME TOGGLE (claro/escuro)
-(function(){
-  const root = document.documentElement;
-  const saved = localStorage.getItem('quege-theme');
-  if(saved === 'light') root.setAttribute('data-theme','light');
-  document.querySelectorAll('.theme-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isLight = root.getAttribute('data-theme') === 'light';
-      if(isLight){ root.removeAttribute('data-theme'); localStorage.setItem('quege-theme','dark'); }
-      else { root.setAttribute('data-theme','light'); localStorage.setItem('quege-theme','light'); }
-    });
-  });
-})();
 
 </script>
 </body>
