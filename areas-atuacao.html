@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Utilitários | Quege Advocacia</title>
-<meta name="description" content="Calculadora de redução de impostos na revenda de veículos: tributação sobre valor total versus tributação sobre a margem.">
+<title>Áreas de Atuação | Quege Advocacia</title>
+<meta name="description" content="Planejamento tributário, recuperação de créditos, defesa fiscal, proteção patrimonial, Reforma Tributária e consultoria contínua.">
 <link rel="icon" href="imagens/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,9 +20,9 @@
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="quem-somos.html">Quem Somos</a>
-      <a href="areas-atuacao.html">Áreas de Atuação</a>
+      <a href="areas-atuacao.html" class="active">Áreas de Atuação</a>
       <a href="blog.html">Blog</a>
-      <a href="utilitarios.html" class="active">Utilitários</a>
+      <a href="utilitarios.html">Utilitários</a>
       <a href="contato.html">Fale Conosco</a>
     </nav>
     <div class="nav-right">
@@ -35,36 +35,32 @@
 
 <section class="page-hero">
   <div class="wrap">
-    <div class="eyebrow">Utilitários</div>
-    <h1>Calculadora de Impostos na Revenda de Veículos</h1>
-    <p>Compare quanto se paga de imposto sobre o valor total da venda e quanto se paga tributando apenas a margem (venda menos compra). A diferença mostra a economia possível com o enquadramento correto.</p>
+    <div class="eyebrow">Áreas de Atuação</div>
+    <h1>Seis frentes, uma única estratégia tributária</h1>
+    <p>Cada área abaixo pode ser contratada isoladamente ou combinada dentro de um plano contínuo de gestão fiscal e patrimonial.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="calc-panel" id="calcForm">
-      <div class="calc-form">
-        <div class="field">
-          <label for="valorCompra">Valor de compra do veículo (R$)</label>
-          <input type="number" id="valorCompra" min="0" step="0.01" value="35000">
-        </div>
-        <div class="field">
-          <label for="valorVenda">Valor de venda do veículo (R$)</label>
-          <input type="number" id="valorVenda" min="0" step="0.01" value="42000">
-        </div>
-        <div class="field">
-          <label for="aliquota">Alíquota do imposto (%)</label>
-          <input type="number" id="aliquota" min="0" step="0.01" value="18">
-        </div>
-        <p class="calc-note">Ferramenta de simulação para fins ilustrativos. O enquadramento tributário correto depende do regime da empresa; consulte um advogado tributarista antes de decidir.</p>
+    <div class="grid-3" style="gap:24px;background:none;border:none;">
+      <div class="area-card" style="background-image:url('imagens/labirinto.jpg');">
+        <div><div class="badge">⚖</div><h3>Planejamento Tributário</h3><p>Reorganização legal da carga fiscal com base no regime e na operação da empresa.</p></div>
       </div>
-
-      <div class="calc-result">
-        <div class="result-row"><span class="lbl">Margem de revenda</span><span class="val" id="resMargem">R$ 0,00</span></div>
-        <div class="result-row"><span class="lbl">Imposto sobre o valor total</span><span class="val" id="resImpostoTotal">R$ 0,00</span></div>
-        <div class="result-row"><span class="lbl">Imposto sobre a margem</span><span class="val" id="resImpostoMargem">R$ 0,00</span></div>
-        <div class="result-row total"><span class="lbl">Economia estimada</span><span class="val" id="resEconomia">R$ 0,00</span></div>
+      <div class="area-card" style="background-image:url('imagens/labirinto.jpg');">
+        <div><div class="badge">↺</div><h3>Recuperação de Créditos</h3><p>Identificação de tributos pagos a maior nos últimos cinco anos e recuperação via administrativa ou judicial.</p></div>
+      </div>
+      <div class="area-card" style="background-image:url('imagens/labirinto.jpg');">
+        <div><div class="badge">⚑</div><h3>Defesa e Contencioso</h3><p>Defesa técnica em autuações, execuções fiscais e processos administrativos e judiciais.</p></div>
+      </div>
+      <div class="area-card" style="background-image:url('imagens/labirinto.jpg');">
+        <div><div class="badge">◈</div><h3>Proteção Patrimonial</h3><p>Estruturação societária para separar o patrimônio pessoal dos riscos da empresa.</p></div>
+      </div>
+      <div class="area-card" style="background-image:url('imagens/labirinto.jpg');">
+        <div><div class="badge">⇄</div><h3>Reforma Tributária</h3><p>Diagnóstico de impacto e adequação antecipada da empresa ao novo sistema tributário.</p></div>
+      </div>
+      <div class="area-card" style="background-image:url('imagens/labirinto.jpg');">
+        <div><div class="badge">◷</div><h3>Consultoria Contínua</h3><p>Acompanhamento permanente das decisões fiscais e societárias ao longo do ano.</p></div>
       </div>
     </div>
   </div>
@@ -72,8 +68,8 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Quer aplicar essa economia na prática?</h2>
-    <p>Fale com a Quege Advocacia e descubra o enquadramento tributário correto para o seu negócio.</p>
+    <h2>Não sabe por onde começar?</h2>
+    <p>Conte o cenário da sua empresa e indicamos a frente de atuação mais adequada.</p>
     <div class="hero-actions"><a href="contato.html" class="btn-pill solid">Fale conosco</a></div>
   </div>
 </section>
