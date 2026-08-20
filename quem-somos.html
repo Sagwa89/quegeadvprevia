@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/webp" href="imagens/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Preload da imagem LCP (Maior elemento acima da dobra) -->
+<link rel="preload" as="image" href="imagens/palestra.webp">
+
 <style>
 :root{
   --bg:#f4f3f0;
@@ -28,6 +32,7 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  position:relative;
 }
 ::selection{background:var(--gold);color:#f5f4f2;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
@@ -46,7 +51,6 @@ a{color:inherit;text-decoration:none; transition: color 0.3s ease;}
 a:hover {color:var(--gold);}
 .gold-underline{color:var(--gold);text-decoration:underline;text-underline-offset:4px;}
 ul{list-style:none;}
-body{position:relative;}
 body::before{
   content:"";
   position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -125,14 +129,7 @@ nav a:hover::after{transform:scaleX(1);}
 .breadcrumb{font-size:13px;color:var(--muted);margin-top:22px;}
 .breadcrumb a:hover{color:var(--gold);}
 
-/* HERO (home) */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.85)), url('../imagens/palestra.webp') center/cover;}
-.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:220px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none;z-index:1;}
-.hero-content{max-width:900px;padding:0 24px;animation: fadeInUp 1.1s cubic-bezier(.22,1,.36,1);}
-.hero h1{font-size:clamp(30px,3.8vw,46px);line-height:1.2;margin-bottom:20px;font-weight:300;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);}
-.hero p{font-size:17px;color:#d8d6d2;max-width:680px;margin:0 auto 34px;}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-
+/* COMPONENTES GERAIS */
 .btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#f5f4f2 !important;padding:15px 30px;font-family:'Montserrat';font-weight:700;font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;transition:all .3s ease;border:1px solid var(--gold);}
 .btn-primary .arrow{transition:transform .3s ease;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,55,65,.25);color:#f5f4f2 !important;}
@@ -149,7 +146,7 @@ nav a:hover::after{transform:scaleX(1);}
 @keyframes waPulse{0%{box-shadow:0 6px 18px rgba(0,0,0,.5), 0 0 0 0 rgba(37,211,102,.55);}70%{box-shadow:0 6px 18px rgba(0,0,0,.5), 0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 6px 18px rgba(0,0,0,.5), 0 0 0 0 rgba(37,211,102,0);}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
-/* SECTION GENERIC */
+/* SECTIONS */
 .section{padding:110px 0;}
 .section-alt{background:var(--bg-alt);}
 .section-light{background:#e8e7e4;color:#1c1d1f;}
@@ -166,52 +163,6 @@ nav a:hover::after{transform:scaleX(1);}
 .section-light .section-num{-webkit-text-stroke:1px rgba(28,29,31,.1);}
 @media(max-width:760px){.section-num{display:none;}}
 
-/* CHECKLIST (Home) */
-.checklist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-@media(max-width:760px){.checklist-grid{grid-template-columns:1fr;}}
-.check-card{display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:26px 28px;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;overflow:hidden;}
-.check-card:hover{transform:translateY(-4px);border-color:rgba(31,55,65,.4);box-shadow:var(--shadow-soft);}
-.check-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:2;}
-.check-card:hover::before{transform:scaleX(1);}
-.check-card .check-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.1;transition:opacity .35s ease;z-index:0;}
-.check-card:hover .check-bg{opacity:.16;}
-.check-card::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg, rgba(255,255,255,.94) 30%, rgba(255,255,255,.8));z-index:0;}
-.check-card > *{position:relative;z-index:1;}
-.check-ic{width:34px;height:34px;min-width:34px;border-radius:50%;background:rgba(31,55,65,.12);color:var(--gold);display:flex;align-items:center;justify-content:center;}
-.check-card h4{font-size:16.5px;font-weight:600;margin-bottom:8px;color:#fff;}
-.check-card p{font-size:14.5px;color:#cfcdc9;line-height:1.65;}
-
-/* SOLUÇÕES (cards) */
-.solucoes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-@media(max-width:960px){.solucoes-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.solucoes-grid{grid-template-columns:1fr;}}
-.solucao-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;}
-.solucao-card:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.4);box-shadow:var(--shadow-soft);}
-.solucao-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3;}
-.solucao-card:hover::before{transform:scaleX(1);}
-.solucao-card .solucao-img{height:150px;background-size:cover;background-position:center;position:relative;}
-.solucao-card .solucao-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,17,19,0) 40%, rgba(15,17,19,.95));}
-.solucao-card .solucao-body{padding:26px 30px 32px;position:relative;}
-.solucao-card .icon-wrapper{width:52px;height:52px;border-radius:10px;background:rgba(31,55,65,.1);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-top:-48px;margin-bottom:18px;position:relative;z-index:1;border:1px solid var(--line);transition:background .35s ease, transform .35s ease;}
-.solucao-card:hover .icon-wrapper{background:var(--gold);color:#f5f4f2;transform:scale(1.06);}
-.solucao-card h3{font-size:19px;margin-bottom:12px;color:#fff;}
-.solucao-card p{font-size:14.5px;color:#cfcdc9;line-height:1.7;}
-
-/* COMO TRABALHAMOS */
-.trabalho-wrap{display:flex;flex-direction:column;gap:50px;}
-.team-mini-grid{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
-.team-mini{width:100%;max-width:420px;transition:transform .4s cubic-bezier(.22,1,.36,1);}
-.team-mini:hover{transform:translateY(-8px);}
-.team-mini{overflow:hidden;border-radius:6px;}
-.team-mini .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);box-shadow:var(--shadow-soft);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
-.team-mini:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
-.team-mini h4{font-size:14.5px;font-weight:600;margin-top:14px;}
-.team-mini span{font-size:12.5px;color:var(--gold-soft);}
-.trabalho-steps{display:flex;flex-direction:column;gap:22px;margin:28px 0 32px;}
-.trabalho-step{display:flex;gap:16px;align-items:flex-start;}
-.trabalho-step .num{font-family:'Montserrat';font-weight:700;color:var(--gold);font-size:15px;min-width:28px;}
-.trabalho-step p{font-size:15px;color:#cfcdc9;line-height:1.7;}
-
 /* EQUIPE (Quem Somos) */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
 @media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr);}}
@@ -225,50 +176,6 @@ nav a:hover::after{transform:scaleX(1);}
 .team-card span.role{font-size:14px;color:var(--gold-soft);display:block;margin-top:2px;}
 .team-card span.oab{display:block;font-size:12px;color:var(--muted);margin-top:2px;margin-bottom:14px;}
 .team-card p.bio{font-size:13.5px;color:#cfcdc9;line-height:1.7;}
-
-/* ÁREAS DE ATUAÇÃO (cards com imagem+icone) */
-.areas-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
-@media(max-width:960px){.areas-cards-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.areas-cards-grid{grid-template-columns:1fr;}}
-.area-card{position:relative;border-radius:12px;overflow:hidden;min-height:340px;display:flex;align-items:flex-end;background-size:cover;background-position:center;box-shadow:var(--shadow-soft);transition:transform .4s ease;}
-.area-card:hover{transform:translateY(-6px);}
-.area-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,11,12,.15) 0%, rgba(10,11,12,.92) 85%);}
-.area-card-inner{position:relative;padding:28px 26px;z-index:1;}
-.area-card .icon-wrapper{width:46px;height:46px;border-radius:10px;background:var(--gold);color:#f5f4f2;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-.area-card h3{font-size:19px;margin-bottom:10px;color:#fff;}
-.area-card p{font-size:14px;color:#d8d6d2;line-height:1.65;}
-
-/* FAQ (reuso) */
-.faq-list{border-top:1px solid var(--line);}
-.faq-item{border-bottom:1px solid var(--line);transition:background .3s ease;}
-.faq-item.open{background:rgba(255,255,255,.02);}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 4px;cursor:pointer;font-family:'Montserrat';font-size:17px;font-weight:400;background:none;border:none;color:var(--white);width:100%;text-align:left;transition: color 0.3s ease;}
-.faq-item.open .faq-q{color:var(--gold);}
-.faq-q .icon{font-size:22px;color:var(--gold);flex-shrink:0;margin-left:16px;transition:transform .3s cubic-bezier(.22,1,.36,1);}
-.faq-item.open .faq-q .icon{transform:rotate(45deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;color:#cfcdc9;font-size:15px;line-height:1.8;font-weight:300;padding:0 4px;}
-.faq-item.open .faq-a{max-height:300px;padding:0 4px 24px;}
-
-/* BLOG */
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
-@media(max-width:960px){.blog-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.blog-grid{grid-template-columns:1fr;}}
-.blog-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;}
-.blog-card:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
-.blog-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3;}
-.blog-card:hover::before{transform:scaleX(1);}
-.blog-card .thumb{height:190px;background-size:cover;background-position:center;}
-.blog-card .body{padding:24px 26px 28px;}
-.blog-card .tag{font-family:'Montserrat';font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
-.blog-card h3{font-size:17px;margin:12px 0 10px;line-height:1.4;}
-.blog-card p{font-size:14px;color:#cfcdc9;line-height:1.65;margin-bottom:16px;}
-.blog-card .meta{font-size:12.5px;color:var(--muted);}
-.blog-card .readmore{display:inline-block;margin-top:14px;font-family:'Montserrat';font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);}
-.blog-featured{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:60px;}
-@media(max-width:860px){.blog-featured{grid-template-columns:1fr;}}
-.blog-featured .thumb{height:100%;min-height:300px;background-size:cover;background-position:center;}
-.blog-featured .body{padding:40px 44px 40px 0;}
-@media(max-width:860px){.blog-featured .body{padding:8px 30px 36px;}}
 
 /* CONTATO (form) */
 .visit-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:100px;align-items:start;}
@@ -300,34 +207,6 @@ nav a:hover::after{transform:scaleX(1);}
 .map-embed{width:100%;height:340px;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:50px;}
 .map-embed iframe{width:100%;height:100%;border:0;}
 
-/* UTILITÁRIOS / CALCULADORA */
-.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-@media(max-width:900px){.calc-wrap{grid-template-columns:1fr;gap:40px;}}
-.calc-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;padding:44px;}
-.calc-card h3{font-size:20px;margin-bottom:8px;}
-.calc-card .sub{font-size:14px;color:var(--muted);margin-bottom:30px;line-height:1.6;}
-.calc-field{margin-bottom:26px;}
-.calc-field label{display:block;font-size:13px;font-family:'Montserrat';letter-spacing:.03em;color:var(--muted);margin-bottom:8px;text-transform:uppercase;}
-.calc-field input, .calc-field select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:6px;color:var(--white);font-size:16px;padding:12px 14px;font-family:inherit;}
-.calc-field select option{background:#fff;color:#1a1a1a;}
-.calc-field input:focus, .calc-field select:focus{outline:none;border-color:var(--gold);}
-.calc-result{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;padding:44px;position:sticky;top:120px;}
-.calc-result h3{font-size:20px;margin-bottom:26px;}
-.calc-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);}
-.calc-row:last-of-type{border-bottom:none;}
-.calc-row .label{font-size:14.5px;color:#cfcdc9;}
-.calc-row .value{font-family:'Montserrat';font-weight:600;font-size:16px;}
-.calc-row.highlight{margin-top:14px;padding-top:22px;border-top:2px solid var(--gold);}
-.calc-row.highlight .label{color:#fff;font-weight:500;}
-.calc-row.highlight .value{color:var(--gold);font-size:22px;}
-.calc-disclaimer{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);}
-.util-cta{margin-top:50px;text-align:center;}
-
-/* CTA BAND */
-.cta-band{background:linear-gradient(135deg, rgba(31,55,65,.08), rgba(255,255,255,.02));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0;text-align:center;}
-.cta-band h2{font-size:clamp(24px,3vw,32px);margin-bottom:16px;font-weight:400;}
-.cta-band p{color:var(--muted);font-size:16px;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto;}
-
 /* FOOTER */
 footer{padding:70px 0 0;background:var(--bg);border-top:1px solid var(--line);position:relative;}
 footer::before{content:'';position:absolute;top:-1px;left:0;width:140px;height:2px;background:var(--gold);}
@@ -358,43 +237,33 @@ footer::before{content:'';position:absolute;top:-1px;left:0;width:140px;height:2
   .footer-bottom{flex-direction:column;text-align:center;}
 }
 
-
 /* AJUSTES TEMA CLARO (permanente) */
 .section-light{background:#fff;color:#1a1a1a;}
 header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px 24px -12px rgba(0,0,0,.18);}
 .mobile-nav{background:rgba(244,243,240,.98);}
 .mobile-nav a{color:#1a1a1a;}
 .mobile-close{color:#1a1a1a;}
-.check-card,.solucao-card,.team-card,
-.blog-card,.blog-featured,.calc-card,
-.calc-result,.atendimento-box{background:#fff;box-shadow:0 4px 18px -8px rgba(0,0,0,.12);}
-.check-card p,.solucao-card p,.blog-card p,
-.trabalho-step p,.team-card p.bio,.faq-a,.calc-row .label{color:#4a4a46;}
-.check-card h4,.solucao-card h3,.blog-card h3{color:#1a1a1a;}
+.team-card,.atendimento-box{background:#fff;box-shadow:0 4px 18px -8px rgba(0,0,0,.12);}
+.team-card p.bio{color:#4a4a46;}
 .field input,.field textarea,.field select{color:#1a1a1a;border-bottom-color:rgba(0,0,0,.25);}
 .field input::placeholder,.field textarea::placeholder{color:#7a7a76;}
-.calc-field input,.calc-field select{background:#fff;color:#1a1a1a;border-color:var(--line);}
-.btn-outline{color:#1a1a1a !important;border-color:rgba(0,0,0,.3);}
-.hero .btn-outline,.page-hero .btn-outline{color:#f5f4f2 !important;border-color:rgba(255,255,255,.5);}
-.hero .eyebrow,.page-hero .eyebrow,.quote .eyebrow,.areas .eyebrow{color:var(--gold-light);}
+.page-hero .btn-outline{color:#f5f4f2 !important;border-color:rgba(255,255,255,.5);}
+.page-hero .eyebrow{color:var(--gold-light);}
 .page-hero .breadcrumb{color:#d8d6d2;}
 .page-hero .breadcrumb a:hover{color:var(--gold-light);}
-.hero .btn-outline:hover,.page-hero .btn-outline:hover{color:var(--gold) !important;border-color:var(--gold);}
-.visit,.hero,.page-hero,
-.quote,.areas{color:#f5f4f2;}
+.page-hero .btn-outline:hover{color:var(--gold) !important;border-color:var(--gold);}
+.visit,.page-hero{color:#f5f4f2;}
 .visit-info .item p{color:#2a2a28;}
 .privacy a{color:#4a4a46;}
-.calc-row.highlight .label{color:#1a1a1a;}
-
 </style>
 <title>Quem Somos | Quege Advogados</title>
 <meta name="description" content="Conheça a história da Quege Sociedade de Advocacia e a equipe por trás da assessoria tributária estratégica.">
 </head>
 <body>
-<div class="top-maze-strip"><img src="imagens/labirintoquege.jpg" alt=""></div>
+<div class="top-maze-strip"><img src="imagens/labirintoquege.jpg" alt="Padrão labirinto"></div>
 <header>
   <div class="logo">
-    <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Quege Advogados"></div></a>
+    <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Logotipo Quege Advogados"></div></a>
   </div>
   <div class="header-right">
     <nav class="desktop-nav">
@@ -407,8 +276,8 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
       <a href="contato.html" class="">Fale Conosco</a>
     </nav>
     <div class="social">
-      <a class="ig" href="https://www.instagram.com/quegeadv/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-      <a class="wa" href="https://wa.me/554435228080" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
+      <a class="ig" href="https://www.instagram.com/quegeadv/" aria-label="Acessar Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+      <a class="wa" href="https://wa.me/554435228080" aria-label="Acessar WhatsApp" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
     </div>
   </div>
   <button class="menu-btn" aria-label="Abrir menu">☰</button>
@@ -417,14 +286,13 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
 <div class="mobile-nav">
   <button class="mobile-close" aria-label="Fechar menu">✕</button>
   <a href="index.html" class="">Home</a>
-      <a href="quem-somos.html" class="active">Quem Somos</a>
-      <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
-      <a href="blog.html" class="">Blog</a>
-      <a href="utilitarios.html" class="">Utilitários</a>
-      <a href="cursos.html" class="">Cursos</a>
-      <a href="contato.html" class="">Fale Conosco</a>
+  <a href="quem-somos.html" class="active">Quem Somos</a>
+  <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
+  <a href="blog.html" class="">Blog</a>
+  <a href="utilitarios.html" class="">Utilitários</a>
+  <a href="cursos.html" class="">Cursos</a>
+  <a href="contato.html" class="">Fale Conosco</a>
 </div>
-
 
 <section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/palestra.webp');">
   <div>
@@ -454,7 +322,7 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
     </div>
     <div class="team-grid">
       <div class="team-card reveal-up">
-        <img class="photo" src="imagens/felipequege.jpg" alt="Felipe Quege">
+        <img class="photo" src="imagens/felipequege.jpg" alt="Foto do Felipe Quege" loading="lazy">
         <div class="info">
           <h4>Felipe Quege</h4>
           <span class="role">Sócio-Fundador</span>
@@ -464,7 +332,7 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
         </div>
       </div>
       <div class="team-card reveal-up">
-        <img class="photo" src="imagens/marcelo.jpg" alt="Marcelo Bitencourt de Campos">
+        <img class="photo" src="imagens/marcelo.jpg" alt="Foto do Marcelo Bitencourt de Campos" loading="lazy">
         <div class="info">
           <h4>Marcelo Bitencourt de Campos</h4>
           <span class="role">Advogado Tributarista e Contador</span>
@@ -473,7 +341,7 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
         </div>
       </div>
       <div class="team-card reveal-up">
-        <img class="photo" src="imagens/paola.jpg" alt="Paola">
+        <img class="photo" src="imagens/paola.jpg" alt="Foto da Paola" loading="lazy">
         <div class="info">
           <h4>Paola Cozzolino dos Santos</h4>
           <span class="role">Advogada</span>
@@ -482,7 +350,7 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
         </div>
       </div>
       <div class="team-card reveal-up">
-        <img class="photo" src="imagens/pedro.jpg" alt="Pedro">
+        <img class="photo" src="imagens/pedro.jpg" alt="Foto do Pedro" loading="lazy">
         <div class="info">
           <h4>Pedro</h4>
           <span class="role">Advogado</span>
@@ -541,7 +409,7 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
         <div class="field"><input id="telefone" type="tel" placeholder="Telefone"></div>
       </div>
       <div class="field field-full">
-        <select id="assunto">
+        <select id="assunto" aria-label="Assunto da mensagem">
           <option value="">Assunto (opcional)</option>
           <option>Planejamento Tributário</option>
           <option>Recuperação de Créditos</option>
@@ -551,7 +419,7 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
           <option>Outro assunto</option>
         </select>
       </div>
-      <div class="field field-full"><textarea id="mensagem" placeholder="Mensagem"></textarea></div>
+      <div class="field field-full"><textarea id="mensagem" placeholder="Mensagem" aria-label="Sua mensagem"></textarea></div>
 
       <button type="submit" class="btn2">Enviar mensagem</button>
       <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
@@ -560,12 +428,12 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
 
   <div class="container">
     <div class="map-embed reveal-up">
-      <iframe src="https://www.google.com/maps?q=Canoinhas,SC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa - Canoinhas/SC"></iframe>
+      <iframe src="https://www.google.com/maps?q=Canoinhas,SC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa com localização em Canoinhas/SC"></iframe>
     </div>
   </div>
 </section>
 
-<a class="wa-float" href="https://wa.me/554435228080" aria-label="WhatsApp" target="_blank" rel="noopener">
+<a class="wa-float" href="https://wa.me/554435228080" aria-label="Falar pelo WhatsApp" target="_blank" rel="noopener">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
 </a>
 
@@ -573,12 +441,12 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Quege Advogados">
+        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Logotipo Quege Advogados no rodapé" loading="lazy">
         <p class="footer-about">Quege Sociedade de Advocacia. Assessoria tributária estratégica e preventiva, proteção patrimonial e sucessória para empresas.</p>
         <div class="footer-social">
-          <a class="ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-          <a class="wa" href="https://wa.me/554435228080" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
-          <a class="li" href="https://www.linkedin.com/in/felipequege/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+          <a class="ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Acessar Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a class="wa" href="https://wa.me/554435228080" target="_blank" rel="noopener" aria-label="Acessar WhatsApp"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
+          <a class="li" href="https://www.linkedin.com/in/felipequege/" target="_blank" rel="noopener" aria-label="Acessar LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
         </div>
       </div>
 
@@ -635,7 +503,7 @@ if(revealEls.length){
   revealEls.forEach(el => io.observe(el));
 }
 
-// FAQ ACCORDION (áreas de atuação)
+// FAQ ACCORDION
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
@@ -644,43 +512,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     item.classList.toggle('open');
   });
 });
-
-// CALCULADORA - REDUÇÃO DE IMPOSTOS NA REVENDA DE VEÍCULOS
-// Base: regime de tributação pela margem (diferença entre venda e compra) x regime pela receita bruta total,
-// usado por revendedoras de veículos usados (equiparação a operação de consignação / redução de base de cálculo).
-const calcForm = document.getElementById('calc-form');
-if(calcForm){
-  const fmt = (v) => v.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-
-  function calcular(){
-    const compra = parseFloat(document.getElementById('valorCompra').value) || 0;
-    const venda = parseFloat(document.getElementById('valorVenda').value) || 0;
-    const aliqIntegral = parseFloat(document.getElementById('aliqIntegral').value) || 0;
-    const aliqReduzida = parseFloat(document.getElementById('aliqReduzida').value) || 0;
-
-    const margem = Math.max(venda - compra, 0);
-
-    // Regime "cheio": alíquota incide sobre o valor total da venda
-    const impostoCheio = venda * (aliqIntegral / 100);
-
-    // Regime "sobre a margem": alíquota reduzida incide apenas sobre a margem (diferença compra/venda)
-    const impostoMargem = margem * (aliqReduzida / 100);
-
-    const economia = impostoCheio - impostoMargem;
-    const economiaPct = impostoCheio > 0 ? (economia / impostoCheio) * 100 : 0;
-
-    document.getElementById('resMargem').textContent = fmt(margem);
-    document.getElementById('resImpostoCheio').textContent = fmt(impostoCheio);
-    document.getElementById('resImpostoMargem').textContent = fmt(impostoMargem);
-    document.getElementById('resEconomia').textContent = fmt(economia > 0 ? economia : 0);
-    document.getElementById('resEconomiaPct').textContent = (economiaPct > 0 ? economiaPct.toFixed(1) : '0,0') + '% de economia estimada';
-  }
-
-  calcForm.addEventListener('input', calcular);
-  calcular();
-}
-
-
 </script>
 </body>
 </html>
