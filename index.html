@@ -283,15 +283,15 @@ nav a:hover::after{transform:scaleX(1);}
 .area-card p{font-size:14px;color:#d8d6d2;line-height:1.65;}
 
 /* QUOTE */
-.quote{position:relative;min-height:60vh;display:flex;align-items:center;padding:130px 0;text-align:center;overflow:hidden;background:#f4f3f0;background-image:radial-gradient(circle at 30% 30%, rgba(233,213,58,.18), transparent 60%),radial-gradient(circle at 70% 70%, rgba(127,176,188,.25), transparent 60%);background-size:200% 200%;animation:bgshift 16s ease-in-out infinite;color:#1a1a1a;}
-@keyframes bgshift{0%,100%{background-position:0% 0%, 100% 100%;}50%{background-position:100% 40%, 0% 60%;}}
-.quote-aurora{--aurora: repeating-linear-gradient(100deg,#E9D53A 10%,#F4E98A 15%,#FBF3B8 20%,#FFF7D6 25%,#D8B93A 30%);pointer-events:none;position:absolute;inset:-10px;z-index:0;opacity:.5;filter:blur(30px);will-change:transform;background-image: var(--aurora);background-size:300% 200%;background-position:50% 50%;animation:auroraMove 60s ease-in-out infinite alternate;mask-image:radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);}
-@keyframes auroraMove{0%{background-position:30% 50%;}100%{background-position:170% 50%;}}
+.quote{position:relative;min-height:60vh;display:flex;align-items:center;padding:130px 0;text-align:center;overflow:hidden;background:#0c0d0e;background-image:linear-gradient(120deg,#0c0d0e 0%,#1F3741 45%,#163037 65%,#0c0d0e 100%);background-size:300% 300%;animation:quoteSweep 14s ease-in-out infinite;color:#f5f4f2;}
+@keyframes quoteSweep{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.quote-aurora{--aurora: repeating-linear-gradient(115deg,#E9D53A 8%,#7fb0bc 16%,transparent 24%,#E9D53A 32%);pointer-events:none;position:absolute;inset:-10px;z-index:0;opacity:.22;filter:blur(40px);will-change:transform;background-image: var(--aurora);background-size:280% 200%;background-position:50% 50%;animation:auroraMove 22s linear infinite;mask-image:radial-gradient(ellipse at 50% 50%, black 0%, transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%, black 0%, transparent 75%);}
+@keyframes auroraMove{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
 .quote-inner{max-width:960px;width:100%;margin:0 auto;position:relative;z-index:1;}
 .quote p{font-size:clamp(22px,3vw,34px);line-height:1.6;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:400;}
-.quote-text{position:relative;color:#1a1a1a;opacity:0;transition:opacity .6s ease;}
-.quote-text.in-view{opacity:1;}
-.quote .gold-underline{color:var(--gold);text-decoration:underline;text-underline-offset:4px;}
+.quote-text{position:relative;color:#f5f4f2;opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s cubic-bezier(.22,1,.36,1);}
+.quote-text.in-view{opacity:1;transform:translateY(0);}
+.quote .gold-underline{color:var(--gold-light);text-decoration:underline;text-underline-offset:4px;}
 
 /* ÁREAS DE ATUAÇÃO (accordion escuro) */
 .areas{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0;background-position:center;background-size:cover;background-image:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.8)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop');transition:background-image 0.6s ease-in-out;color:#f5f4f2;}
