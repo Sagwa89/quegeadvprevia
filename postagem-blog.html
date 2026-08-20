@@ -57,20 +57,19 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background-image:url('imagens/labirintoquege.jpg');background-repeat:no-repeat;background-position:center;background-size:100% auto;}
-.top-maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background:#0c0d0e;}
+.top-maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);}
 .top-maze-strip img{width:100%;height:auto;display:block;margin-top:calc((100vw) * 1409 / 8000 * -5 / 12);}
 header{
-  position:fixed;top:calc(100vw * 1409 / 8000 / 6);left:0;right:0;z-index:50;
+  position:sticky;top:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
-  background:transparent;
-  color:#f5f4f2;
-  border-bottom:none;
-  box-shadow:none;
-  transition:background .3s ease, box-shadow .3s ease, border-color .3s ease, color .3s ease, top .3s ease;
+  background:#fff;
+  color:#1a1a1a;
+  border-bottom:4px solid #cc9a3f;
+  box-shadow:0 4px 18px -10px rgba(0,0,0,.18);
+  transition:box-shadow .3s ease;
 }
 header.scrolled{
-  top:0;
   background:#fff;
   border-bottom:4px solid #cc9a3f;
   box-shadow:0 6px 24px -12px rgba(0,0,0,.18);
@@ -83,9 +82,8 @@ header.scrolled .menu-btn{color:#1a1a1a;}
 .logo:hover .logo-mark{transform:scale(1.06);}
 .header-right { display:flex; align-items:center; gap:26px; }
 nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
-nav a{font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;color:#f5f4f2;}
-nav a:hover{color:#f5f4f2;opacity:1;}
-header.scrolled nav a{color:#1a1a1a;}
+nav a{font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;color:#1a1a1a;}
+nav a:hover{color:#1a1a1a;opacity:1;}
 header.scrolled nav a:hover{color:#1a1a1a;}
 nav a.active{color:#cc9a3f;opacity:1;}
 header.scrolled nav a.active{color:#cc9a3f;}
