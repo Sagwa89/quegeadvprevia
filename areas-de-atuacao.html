@@ -56,34 +56,40 @@ body::before{
 header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
+.maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background-image:url('imagens/labirintoquege.jpg');background-repeat:no-repeat;background-position:center;background-size:100% auto;}
+.top-maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background:#0c0d0e;}
+.top-maze-strip img{width:100%;height:auto;display:block;margin-top:calc((100vw) * 1409 / 8000 * -5 / 12);}
 header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
+  position:fixed;top:calc(100vw * 1409 / 8000 / 6);left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
   background:transparent;
   color:#f5f4f2;
-  transition:background .3s ease, backdrop-filter .3s ease, color .3s ease;
+  border-bottom:none;
+  box-shadow:none;
+  transition:background .3s ease, box-shadow .3s ease, border-color .3s ease, color .3s ease, top .3s ease;
 }
 header.scrolled{
-  background:rgba(244,243,240,.92);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line);
+  top:0;
+  background:#fff;
+  border-bottom:4px solid #cc9a3f;
+  box-shadow:0 6px 24px -12px rgba(0,0,0,.18);
   color:#1a1a1a;
 }
 header.scrolled .menu-btn{color:#1a1a1a;}
 .logo{display:flex;align-items:center;gap:10px;}
-.logo-mark{width:min(220px,22vw);height:auto;display:flex;align-items:center;justify-content:center;transition: transform .5s ease;overflow:visible;position:relative;z-index:2;}
+.logo-mark{width:min(100px,22vw);height:auto;display:flex;align-items:center;justify-content:center;transition: transform .5s ease;overflow:visible;position:relative;z-index:2;}
 .logo-mark img{width:100%;height:100%;object-fit:contain;}
 .logo:hover .logo-mark{transform:scale(1.06);}
 .header-right { display:flex; align-items:center; gap:26px; }
 nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
-nav a{font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;}
+nav a{font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;color:#f5f4f2;}
 nav a:hover{color:#f5f4f2;opacity:1;}
+header.scrolled nav a{color:#1a1a1a;}
 header.scrolled nav a:hover{color:#1a1a1a;}
-nav a.active{color:var(--gold-light);opacity:1;}
-header.scrolled nav a.active{color:var(--gold);}
-nav a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+nav a.active{color:#cc9a3f;opacity:1;}
+header.scrolled nav a.active{color:#cc9a3f;}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:#cc9a3f;transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
 nav a:hover::after{transform:scaleX(1);}
 .social{display:flex;gap:12px;align-items:center;}
 .social a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.25);}
@@ -196,8 +202,9 @@ nav a:hover::after{transform:scaleX(1);}
 .team-mini-grid{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
 .team-mini{width:100%;max-width:420px;transition:transform .4s cubic-bezier(.22,1,.36,1);}
 .team-mini:hover{transform:translateY(-8px);}
-.team-mini .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);border-radius:6px;box-shadow:var(--shadow-soft);transition:filter .4s ease;}
-.team-mini:hover .photo{filter:grayscale(0%) contrast(1.02);}
+.team-mini{overflow:hidden;border-radius:6px;}
+.team-mini .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);box-shadow:var(--shadow-soft);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
+.team-mini:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
 .team-mini h4{font-size:14.5px;font-weight:600;margin-top:14px;}
 .team-mini span{font-size:12.5px;color:var(--gold-soft);}
 .trabalho-steps{display:flex;flex-direction:column;gap:22px;margin:28px 0 32px;}
@@ -206,11 +213,13 @@ nav a:hover::after{transform:scaleX(1);}
 .trabalho-step p{font-size:15px;color:#cfcdc9;line-height:1.7;}
 
 /* EQUIPE (Quem Somos) */
-.team-grid{display:flex;flex-wrap:wrap;gap:40px;}
-.team-card{width:100%;max-width:420px;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+@media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr;}}
+.team-card{width:100%;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
 .team-card:hover{transform:translateY(-10px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
-.team-card .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease;}
-.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);}
+.team-card .photo{width:100%;height:380px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
+.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
 .team-card .info{padding:22px 24px 26px;}
 .team-card h4{font-size:17px;font-weight:600;}
 .team-card span.role{font-size:14px;color:var(--gold-soft);display:block;margin-top:2px;}
@@ -352,7 +361,7 @@ footer::before{content:'';position:absolute;top:-1px;left:0;width:140px;height:2
 
 /* AJUSTES TEMA CLARO (permanente) */
 .section-light{background:#fff;color:#1a1a1a;}
-header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--line);box-shadow:0 6px 24px -12px rgba(0,0,0,.12);}
+header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px 24px -12px rgba(0,0,0,.18);}
 .mobile-nav{background:rgba(244,243,240,.98);}
 .mobile-nav a{color:#1a1a1a;}
 .mobile-close{color:#1a1a1a;}
@@ -379,9 +388,10 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 
 </style>
 <title>Áreas de Atuação | Quege Advogados</title>
-<meta name="description" content="Conheça as áreas de atuação da Quege Advogados: tributário, recuperação de créditos, contencioso, patrimonial e sucessório.">
+<meta name="description" content="Planejamento tributário, recuperação de créditos, defesa fiscal, proteção patrimonial, Reforma Tributária e consultoria contínua.">
 </head>
 <body>
+<div class="top-maze-strip"><img src="imagens/labirintoquege.jpg" alt=""></div>
 <header>
   <div class="logo">
     <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Quege Advogados"></div></a>
@@ -393,6 +403,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="areas-de-atuacao.html" class="active">Áreas de Atuação</a>
       <a href="blog.html" class="">Blog</a>
       <a href="utilitarios.html" class="">Utilitários</a>
+      <a href="cursos.html" class="">Cursos</a>
       <a href="contato.html" class="">Fale Conosco</a>
     </nav>
     <div class="social">
@@ -410,63 +421,123 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="areas-de-atuacao.html" class="active">Áreas de Atuação</a>
       <a href="blog.html" class="">Blog</a>
       <a href="utilitarios.html" class="">Utilitários</a>
+      <a href="cursos.html" class="">Cursos</a>
       <a href="contato.html" class="">Fale Conosco</a>
 </div>
 
 
-<section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.88)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop');">
+<section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/labirintoquege.jpg');">
   <div>
     <span class="eyebrow">Áreas de Atuação</span>
-    <h1>O Direito como vetor de segurança, estratégia e soluções para a dinâmica empresarial</h1>
+    <h1>Seis frentes, uma única estratégia tributária</h1>
     <p class="breadcrumb"><a href="index.html">Home</a> / Áreas de Atuação</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
+    <div class="section-head reveal-up">
+      <span class="section-num">01</span>
+      <div class="section-tag"><span class="dot"></span><span class="eyebrow">O que fazemos</span><span class="line"></span></div>
+      <h2>Cada área pode ser contratada isoladamente ou combinada dentro de um plano contínuo de gestão fiscal e patrimonial.</h2>
+    </div>
     <div class="areas-cards-grid">
-      <div class="area-card reveal-up" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1200&auto=format&fit=crop')">
-        <div class="area-card-inner">
-          <div class="icon-wrapper"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div>
-          <h3>Planejamento e Consultoria Tributária</h3>
-          <p>Planejamento tributário e revisão fiscal, com consultoria estratégica voltada à redução de carga tributária e conformidade fiscal.</p>
-        </div>
+      <a href="#" class="area-card reveal-up" style="background-image:url('imagens/labirinto.jpg');">
+        <div class="area-card-inner"><h3>Planejamento Tributário</h3></div>
+      </a>
+      <a href="#" class="area-card reveal-up" style="background-image:url('imagens/labirinto.jpg');">
+        <div class="area-card-inner"><h3>Recuperação de Créditos</h3></div>
+      </a>
+      <a href="#" class="area-card reveal-up" style="background-image:url('imagens/labirinto.jpg');">
+        <div class="area-card-inner"><h3>Defesa e Contencioso</h3></div>
+      </a>
+      <a href="#" class="area-card reveal-up" style="background-image:url('imagens/labirinto.jpg');">
+        <div class="area-card-inner"><h3>Proteção Patrimonial</h3></div>
+      </a>
+      <a href="#" class="area-card reveal-up" style="background-image:url('imagens/labirinto.jpg');">
+        <div class="area-card-inner"><h3>Reforma Tributária</h3></div>
+      </a>
+      <a href="#" class="area-card reveal-up" style="background-image:url('imagens/labirinto.jpg');">
+        <div class="area-card-inner"><h3>Consultoria Contínua</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Não sabe por onde começar?</h2>
+    <p>Conte o cenário da sua empresa e indicamos a frente de atuação mais adequada.</p>
+    <a href="contato.html" class="btn-primary">Fale conosco<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+  </div>
+</section>
+
+<section class="section" id="contato-areas">
+  <div class="container">
+    <div class="section-head reveal-up" style="margin-bottom:40px;">
+      <span class="section-num">02</span>
+      <div class="section-tag"><span class="dot"></span><span class="eyebrow">Contato</span><span class="line"></span></div>
+      <h2>Vamos conversar sobre o futuro da sua empresa</h2>
+      <p>Entre em contato e agende uma conversa com a nossa equipe.</p>
+    </div>
+  </div>
+  <div class="container visit-wrap">
+    <div class="visit-info reveal-up">
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+        <p>Atendimento em Canoinhas/SC e Curitiba/PR</p>
       </div>
-      <div class="area-card reveal-up" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop')">
-        <div class="area-card-inner">
-          <div class="icon-wrapper"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></div>
-          <h3>Recuperação de Créditos Tributários</h3>
-          <p>Recuperação de créditos (ICMS, PIS/COFINS, IRPJ/CSLL), com identificação de oportunidades e condução do processo de restituição.</p>
-        </div>
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+        <p>(42) 3522-8080 &nbsp;|&nbsp; (42) 3522-0048 &nbsp;|&nbsp; (42) 3522-9075</p>
       </div>
-      <div class="area-card reveal-up" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop')">
-        <div class="area-card-inner">
-          <div class="icon-wrapper"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"></path></svg></div>
-          <h3>Defesa e Contencioso Tributário</h3>
-          <p>Defesa em autuações fiscais e contencioso tributário, administrativo e judicial, buscando segurança jurídica para o negócio.</p>
-        </div>
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+        <p>contato@quegeadv.com.br</p>
       </div>
-      <div class="area-card reveal-up" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop')">
-        <div class="area-card-inner">
-          <div class="icon-wrapper"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"></path></svg></div>
-          <h3>Proteção Patrimonial e Sucessória</h3>
-          <p>Reestruturação societária e planejamento sucessório, com soluções personalizadas para a continuidade segura do patrimônio familiar.</p>
-        </div>
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+        <p>SEG - SEX: 8h - 12h | 13h30 - 18h</p>
       </div>
-      <div class="area-card reveal-up" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop')">
-        <div class="area-card-inner">
-          <div class="icon-wrapper"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="M4 9h16M9 4v16"></path></svg></div>
-          <h3>Adequação à Reforma Tributária (IBS/CBS)</h3>
-          <p>Diagnóstico e adequação às mudanças da Reforma Tributária, revisão de precificação e adaptação ao cronograma até 2033.</p>
-        </div>
+
+      <p class="note">Horários especiais de atendimento, conforme necessidade.</p>
+
+      <div class="atendimento-box">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+        <div><h4>Atendimento Online</h4><p>Mediante confirmação de disponibilidade</p></div>
       </div>
-      <div class="area-card reveal-up" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop')">
-        <div class="area-card-inner">
-          <div class="icon-wrapper"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg></div>
-          <h3>Consultoria Empresarial Contínua</h3>
-          <p>Acompanhamento próximo e recorrente das decisões estratégicas, jurídicas e fiscais do negócio.</p>
-        </div>
+    </div>
+
+    <form onsubmit="event.preventDefault(); alert('Mensagem enviada! Entraremos em contato em breve.'); this.reset();" class="reveal-up">
+      <div class="form-row">
+        <div class="field"><input id="nome" type="text" placeholder="Nome" required></div>
+        <div class="field"><input id="sobrenome" type="text" placeholder="Sobrenome"></div>
       </div>
+      <div class="form-row">
+        <div class="field"><input id="email" type="email" placeholder="E-mail" required></div>
+        <div class="field"><input id="telefone" type="tel" placeholder="Telefone"></div>
+      </div>
+      <div class="field field-full">
+        <select id="assunto">
+          <option value="">Assunto (opcional)</option>
+          <option>Planejamento Tributário</option>
+          <option>Recuperação de Créditos</option>
+          <option>Contencioso Tributário</option>
+          <option>Proteção Patrimonial e Sucessória</option>
+          <option>Reforma Tributária (IBS/CBS)</option>
+          <option>Outro assunto</option>
+        </select>
+      </div>
+      <div class="field field-full"><textarea id="mensagem" placeholder="Mensagem"></textarea></div>
+
+      <button type="submit" class="btn2">Enviar mensagem</button>
+      <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="map-embed reveal-up">
+      <iframe src="https://www.google.com/maps?q=Canoinhas,SC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa - Canoinhas/SC"></iframe>
     </div>
   </div>
 </section>
@@ -540,53 +611,6 @@ if(revealEls.length){
   }, {threshold:.15});
   revealEls.forEach(el => io.observe(el));
 }
-
-// FAQ ACCORDION (áreas de atuação)
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const list = btn.closest('.faq-list');
-    list.querySelectorAll('.faq-item').forEach(i => { if(i !== item) i.classList.remove('open'); });
-    item.classList.toggle('open');
-  });
-});
-
-// CALCULADORA - REDUÇÃO DE IMPOSTOS NA REVENDA DE VEÍCULOS
-// Base: regime de tributação pela margem (diferença entre venda e compra) x regime pela receita bruta total,
-// usado por revendedoras de veículos usados (equiparação a operação de consignação / redução de base de cálculo).
-const calcForm = document.getElementById('calc-form');
-if(calcForm){
-  const fmt = (v) => v.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-
-  function calcular(){
-    const compra = parseFloat(document.getElementById('valorCompra').value) || 0;
-    const venda = parseFloat(document.getElementById('valorVenda').value) || 0;
-    const aliqIntegral = parseFloat(document.getElementById('aliqIntegral').value) || 0;
-    const aliqReduzida = parseFloat(document.getElementById('aliqReduzida').value) || 0;
-
-    const margem = Math.max(venda - compra, 0);
-
-    // Regime "cheio": alíquota incide sobre o valor total da venda
-    const impostoCheio = venda * (aliqIntegral / 100);
-
-    // Regime "sobre a margem": alíquota reduzida incide apenas sobre a margem (diferença compra/venda)
-    const impostoMargem = margem * (aliqReduzida / 100);
-
-    const economia = impostoCheio - impostoMargem;
-    const economiaPct = impostoCheio > 0 ? (economia / impostoCheio) * 100 : 0;
-
-    document.getElementById('resMargem').textContent = fmt(margem);
-    document.getElementById('resImpostoCheio').textContent = fmt(impostoCheio);
-    document.getElementById('resImpostoMargem').textContent = fmt(impostoMargem);
-    document.getElementById('resEconomia').textContent = fmt(economia > 0 ? economia : 0);
-    document.getElementById('resEconomiaPct').textContent = (economiaPct > 0 ? economiaPct.toFixed(1) : '0,0') + '% de economia estimada';
-  }
-
-  calcForm.addEventListener('input', calcular);
-  calcular();
-}
-
-
 </script>
 </body>
 </html>
