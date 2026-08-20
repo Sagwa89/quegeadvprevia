@@ -281,6 +281,33 @@ nav a:hover::after{transform:scaleX(1);}
 .area-card h3{font-size:19px;margin-bottom:10px;color:#fff;}
 .area-card p{font-size:14px;color:#d8d6d2;line-height:1.65;}
 
+/* QUOTE */
+.quote{position:relative;min-height:60vh;display:flex;align-items:center;padding:130px 0;text-align:center;overflow:hidden;background:#0c0d0e;background-image:radial-gradient(circle at 30% 30%, rgba(233,213,58,.08), transparent 60%),radial-gradient(circle at 70% 70%, rgba(74,79,87,.25), transparent 60%);background-size:200% 200%;animation:bgshift 16s ease-in-out infinite;color:#f5f4f2;}
+@keyframes bgshift{0%,100%{background-position:0% 0%, 100% 100%;}50%{background-position:100% 40%, 0% 60%;}}
+.quote-aurora{--aurora: repeating-linear-gradient(100deg,#E9D53A 10%,#F4E98A 15%,#FBF3B8 20%,#FFF7D6 25%,#D8B93A 30%);pointer-events:none;position:absolute;inset:-10px;z-index:0;opacity:.35;filter:blur(30px);will-change:transform;background-image: var(--aurora);background-size:300% 200%;background-position:50% 50%;animation:auroraMove 60s ease-in-out infinite alternate;mask-image:radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);}
+@keyframes auroraMove{0%{background-position:30% 50%;}100%{background-position:170% 50%;}}
+.quote-inner{max-width:960px;width:100%;margin:0 auto;position:relative;z-index:1;}
+.quote p{font-size:clamp(22px,3vw,34px);line-height:1.6;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:400;}
+.quote-text{position:relative;color:#f5f4f2;opacity:0;transition:opacity .6s ease;}
+.quote-text.in-view{opacity:1;}
+.quote .gold-underline{color:var(--gold);text-decoration:underline;text-underline-offset:4px;}
+
+/* ÁREAS DE ATUAÇÃO (accordion escuro) */
+.areas{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0;background-position:center;background-size:cover;background-image:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.8)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop');transition:background-image 0.6s ease-in-out;color:#f5f4f2;}
+.areas .container{width:100%;}
+.areas .eyebrow{color:var(--gold-light);}
+.areas-head{max-width:580px;margin-bottom:0;}
+.areas-head h2{font-size:clamp(28px,3.5vw,40px);line-height:1.3;font-weight:400;color:#f5f4f2;}
+.areas-head p{color:#d8d6d2;font-size:16px;margin-top:20px;line-height:1.8;font-weight:300;}
+.areas-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:start;}
+@media(max-width:960px){.areas-wrap{grid-template-columns:1fr;gap:40px;}}
+.areas .faq-list{border-top:1px solid rgba(255,255,255,.18);}
+.areas .faq-item{border-bottom:1px solid rgba(255,255,255,.18);}
+.areas .faq-item.open{background:rgba(255,255,255,.02);}
+.areas .faq-q{color:#f5f4f2;}
+.areas .faq-item.open .faq-q{color:var(--gold);}
+.areas .faq-a{color:#cfcdc9;}
+
 /* FAQ (reuso) */
 .faq-list{border-top:1px solid var(--line);}
 .faq-item{border-bottom:1px solid var(--line);transition:background .3s ease;}
@@ -479,107 +506,10 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
 
 <div class="maze-strip"></div>
 
-<section class="section" id="desafios">
-  <div class="container">
-    <div class="section-head reveal-up">
-      <span class="section-num">01</span>
-      <div class="section-tag"><span class="dot"></span><span class="eyebrow">Diagnóstico</span><span class="line"></span></div>
-      <h2>Reconhece algum desses desafios na sua empresa?</h2>
-      <p>Antes de qualquer solução, entendemos a fundo os riscos e gargalos que mais afetam empresas como a sua. Veja alguns exemplos comuns que resolvemos no dia a dia:</p>
-    </div>
-    <div class="checklist-grid">
-      <div class="check-card reveal-up">
-        <div class="check-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop')"></div>
-        <span class="check-ic">✓</span>
-        <div><h4>Carga tributária acima do necessário</h4><p>Empresas que pagam mais impostos do que deveriam por falta de planejamento e enquadramento tributário adequado.</p></div>
-      </div>
-      <div class="check-card reveal-up">
-        <div class="check-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop')"></div>
-        <span class="check-ic">✓</span>
-        <div><h4>Insegurança em fiscalizações</h4><p>Receio de autuações fiscais por falta de revisão preventiva das obrigações e documentos da empresa.</p></div>
-      </div>
-      <div class="check-card reveal-up">
-        <div class="check-bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop')"></div>
-        <span class="check-ic">✓</span>
-        <div><h4>Créditos tributários não aproveitados</h4><p>Valores pagos a mais em ICMS, PIS/COFINS ou IRPJ/CSLL que poderiam ser recuperados e não são identificados.</p></div>
-      </div>
-      <div class="check-card reveal-up">
-        <div class="check-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop')"></div>
-        <span class="check-ic">✓</span>
-        <div><h4>Patrimônio pessoal exposto</h4><p>Sócios que respondem com bens pessoais por não terem uma estrutura societária e patrimonial protegida.</p></div>
-      </div>
-      <div class="check-card reveal-up">
-        <div class="check-bg" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop')"></div>
-        <span class="check-ic">✓</span>
-        <div><h4>Sucessão empresarial mal planejada</h4><p>Falta de um plano sucessório claro, gerando riscos de conflitos familiares e societários no futuro.</p></div>
-      </div>
-      <div class="check-card reveal-up">
-        <div class="check-bg" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop')"></div>
-        <span class="check-ic">✓</span>
-        <div><h4>Insegurança com a Reforma Tributária</h4><p>Dúvidas sobre como o IBS e a CBS vão impactar a precificação e a operação da empresa até 2033.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt" id="solucoes">
-  <div class="container">
-    <div class="section-head reveal-up">
-      <span class="section-num">02</span>
-      <div class="section-tag"><span class="dot"></span><span class="eyebrow">O que fazemos</span><span class="line"></span></div>
-      <h2>Soluções feitas sob medida</h2>
-      <p>Cada empresa tem uma realidade diferente, por isso nossas soluções são desenhadas de forma personalizada, unindo profundidade técnica e visão estratégica de negócio.</p>
-    </div>
-    <div class="solucoes-grid">
-      <div class="solucao-card reveal-up">
-        <div class="solucao-img" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="solucao-body">
-          <div class="icon-wrapper"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div>
-          <h3>Planejamento Tributário</h3>
-          <p>Consultoria estratégica para redução de carga tributária e conformidade fiscal, incluindo adaptação à Reforma Tributária.</p>
-        </div>
-      </div>
-      <div class="solucao-card reveal-up">
-        <div class="solucao-img" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="solucao-body">
-          <div class="icon-wrapper"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path><circle cx="12" cy="12" r="9"></circle></svg></div>
-          <h3>Recuperação de Créditos</h3>
-          <p>Identificação e recuperação de créditos tributários (ICMS, PIS/COFINS, IRPJ/CSLL) pagos indevidamente ou a maior.</p>
-        </div>
-      </div>
-      <div class="solucao-card reveal-up">
-        <div class="solucao-img" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="solucao-body">
-          <div class="icon-wrapper"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"></path></svg></div>
-          <h3>Defesa e Contencioso</h3>
-          <p>Defesa em autuações fiscais e contencioso tributário, administrativo e judicial, com foco em segurança jurídica.</p>
-        </div>
-      </div>
-      <div class="solucao-card reveal-up">
-        <div class="solucao-img" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="solucao-body">
-          <div class="icon-wrapper"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"></path></svg></div>
-          <h3>Proteção Patrimonial e Sucessória</h3>
-          <p>Reestruturação societária e planejamento sucessório para a continuidade segura do negócio e do patrimônio familiar.</p>
-        </div>
-      </div>
-      <div class="solucao-card reveal-up">
-        <div class="solucao-img" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="solucao-body">
-          <div class="icon-wrapper"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="M4 9h16M9 4v16"></path></svg></div>
-          <h3>Adequação à Reforma Tributária</h3>
-          <p>Diagnóstico e adequação da empresa ao IBS/CBS, revisão de precificação e aproveitamento de créditos até 2033.</p>
-        </div>
-      </div>
-      <div class="solucao-card reveal-up">
-        <div class="solucao-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="solucao-body">
-          <div class="icon-wrapper"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg></div>
-          <h3>Consultoria Empresarial Contínua</h3>
-          <p>Acompanhamento próximo e recorrente, com o direito a serviço das decisões estratégicas do dia a dia da empresa.</p>
-        </div>
-      </div>
-    </div>
+<section class="quote">
+  <div class="quote-aurora"></div>
+  <div class="container quote-inner">
+    <p class="quote-text">Toda empresa tem uma história e um caminho a seguir. Nosso papel é entender essa realidade de perto e colocar o direito a serviço das decisões que fazem o negócio alcançar seus <a href="#equipe" class="gold-underline">objetivos</a>.</p>
   </div>
 </section>
 
@@ -592,7 +522,6 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
         <h2>Uma equipe próxima, técnica e comprometida com resultado</h2>
         <p>Somos a Quege Sociedade de Advocacia, um escritório especializado em direito tributário, patrimonial e sucessório, formado por profissionais que unem profundidade técnica a uma atuação próxima do cliente. Acreditamos que boa assessoria jurídica nasce do entendimento real do negócio de cada empresa que atendemos.</p>
         <p>Nossa equipe acompanha de perto cada etapa do trabalho, da análise inicial à execução, com transparência e comunicação direta em todas as decisões.</p>
-        <a href="quem-somos.html#equipe" class="btn-outline">Conhecer a Equipe<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
     </div>
   </div>
@@ -615,6 +544,39 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
         <img class="photo" src="imagens/amigodofelipe.jpg" alt="Amigo do Felipe">
         <h4>Amigo do Felipe</h4>
         <span>Sócio Parceiro </span>
+      </div>
+    </div>
+    <a href="quem-somos.html#equipe" class="btn-outline" style="margin-top:40px;">Conhecer a Equipe<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="container areas-wrap">
+    <div class="areas-head">
+      <span class="eyebrow">Áreas de atuação</span>
+      <h2>O Direito como vetor de segurança, estratégia e soluções para a dinâmica empresarial.</h2>
+      <p>Da consultoria estratégica ao contencioso de alta complexidade, entregamos assessoria jurídica empresarial personalizada — incluindo suporte à adaptação à Reforma Tributária (IBS/CBS) — aliando profundidade técnica, visão analítica e soluções seguras.</p>
+    </div>
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop">Planejamento e Consultoria Tributária<span class="icon">+</span></button>
+        <div class="faq-a">Planejamento tributário e revisão fiscal, com consultoria estratégica voltada à redução de carga tributária e à conformidade fiscal do negócio, incluindo a adaptação à Reforma Tributária (IBS e CBS).</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop">Recuperação de Créditos Tributários<span class="icon">+</span></button>
+        <div class="faq-a">Recuperação de créditos tributários (ICMS, PIS/COFINS, IRPJ/CSLL), com identificação de oportunidades e condução do processo de restituição ou compensação.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto=format&fit=crop">Defesa e Contencioso Tributário<span class="icon">+</span></button>
+        <div class="faq-a">Defesa em autuações fiscais e contencioso tributário, administrativo e judicial, buscando segurança jurídica para o negócio.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop">Proteção Patrimonial e Sucessória<span class="icon">+</span></button>
+        <div class="faq-a">Proteção patrimonial, reestruturação societária e planejamento sucessório, com soluções personalizadas para a continuidade segura do negócio e do patrimônio familiar.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" data-bg="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1600&auto=format&fit=crop">Adequação à Reforma Tributária (IBS/CBS)<span class="icon">+</span></button>
+        <div class="faq-a">Diagnóstico e adequação da empresa às mudanças da Reforma Tributária, com orientação sobre destaque de IBS e CBS nos documentos fiscais, revisão de precificação, aproveitamento de créditos e adaptação ao cronograma de transição até 2033.</div>
       </div>
     </div>
   </div>
@@ -806,14 +768,29 @@ if(revealEls.length){
 }
 
 // FAQ ACCORDION (áreas de atuação)
+const areasSection = document.getElementById('areas');
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
     const list = btn.closest('.faq-list');
     list.querySelectorAll('.faq-item').forEach(i => { if(i !== item) i.classList.remove('open'); });
     item.classList.toggle('open');
+
+    const bgImg = btn.getAttribute('data-bg');
+    if(bgImg && areasSection){
+      areasSection.style.backgroundImage = `linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.8)), url('${bgImg}')`;
+    }
   });
 });
+
+// QUOTE FADE-IN
+const quoteText = document.querySelector('.quote-text');
+if(quoteText){
+  const quoteObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('in-view'); });
+  }, {threshold:.4});
+  quoteObserver.observe(quoteText);
+}
 
 // CALCULADORA - REDUÇÃO DE IMPOSTOS NA REVENDA DE VEÍCULOS
 // Base: regime de tributação pela margem (diferença entre venda e compra) x regime pela receita bruta total,
