@@ -56,34 +56,40 @@ body::before{
 header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
+.maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background-image:url('imagens/labirintoquege.jpg');background-repeat:no-repeat;background-position:center;background-size:100% auto;}
+.top-maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background:#0c0d0e;}
+.top-maze-strip img{width:100%;height:auto;display:block;margin-top:calc((100vw) * 1409 / 8000 * -5 / 12);}
 header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
+  position:fixed;top:calc(100vw * 1409 / 8000 / 6);left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
   background:transparent;
   color:#f5f4f2;
-  transition:background .3s ease, backdrop-filter .3s ease, color .3s ease;
+  border-bottom:none;
+  box-shadow:none;
+  transition:background .3s ease, box-shadow .3s ease, border-color .3s ease, color .3s ease, top .3s ease;
 }
 header.scrolled{
-  background:rgba(244,243,240,.92);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line);
+  top:0;
+  background:#fff;
+  border-bottom:4px solid #cc9a3f;
+  box-shadow:0 6px 24px -12px rgba(0,0,0,.18);
   color:#1a1a1a;
 }
 header.scrolled .menu-btn{color:#1a1a1a;}
 .logo{display:flex;align-items:center;gap:10px;}
-.logo-mark{width:min(220px,22vw);height:auto;display:flex;align-items:center;justify-content:center;transition: transform .5s ease;overflow:visible;position:relative;z-index:2;}
+.logo-mark{width:min(100px,22vw);height:auto;display:flex;align-items:center;justify-content:center;transition: transform .5s ease;overflow:visible;position:relative;z-index:2;}
 .logo-mark img{width:100%;height:100%;object-fit:contain;}
 .logo:hover .logo-mark{transform:scale(1.06);}
 .header-right { display:flex; align-items:center; gap:26px; }
 nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
-nav a{font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;}
+nav a{font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;color:#f5f4f2;}
 nav a:hover{color:#f5f4f2;opacity:1;}
+header.scrolled nav a{color:#1a1a1a;}
 header.scrolled nav a:hover{color:#1a1a1a;}
-nav a.active{color:var(--gold-light);opacity:1;}
-header.scrolled nav a.active{color:var(--gold);}
-nav a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+nav a.active{color:#cc9a3f;opacity:1;}
+header.scrolled nav a.active{color:#cc9a3f;}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:#cc9a3f;transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
 nav a:hover::after{transform:scaleX(1);}
 .social{display:flex;gap:12px;align-items:center;}
 .social a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.25);}
@@ -406,12 +412,63 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .post-share span{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-family:'Montserrat';}
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
+
+/* Calculadora dentro do artigo — versão destacada */
+.post-body .calc-inline{
+  display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:stretch;margin:40px 0;
+  border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
+}
+@media(max-width:760px){.post-body .calc-inline{grid-template-columns:1fr;}}
+.post-body .calc-badge{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(31,55,65,.08);
+  color:var(--gold);font-family:'Montserrat';font-weight:600;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:30px;margin-bottom:18px;
+}
+.post-body .calc-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:calcPulse 1.8s infinite;}
+@keyframes calcPulse{0%{box-shadow:0 0 0 0 rgba(204,154,63,.5);}70%{box-shadow:0 0 0 8px rgba(204,154,63,0);}100%{box-shadow:0 0 0 0 rgba(204,154,63,0);}}
+.post-body .calc-card{
+  background:#fff;border:none;border-radius:0;padding:40px 36px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.post-body .calc-card h3{font-size:22px;margin-bottom:10px;}
+.post-body .calc-card .sub{font-size:14.5px;color:#5c5c58;margin-bottom:28px;}
+.post-body .calc-field{margin-bottom:0;}
+.post-body .calc-field label{font-size:12.5px;}
+.post-body .calc-field .money-wrap{
+  display:flex;align-items:center;gap:10px;background:#f4f3f0;border:1.5px solid var(--line);
+  border-radius:10px;padding:14px 16px;transition:border-color .25s ease, box-shadow .25s ease;
+}
+.post-body .calc-field .money-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px rgba(204,154,63,.12);}
+.post-body .calc-field .money-wrap span{font-family:'Montserrat';font-weight:600;color:#8a8a86;font-size:16px;}
+.post-body .calc-field input{
+  border:none;background:transparent;padding:0;width:100%;font-size:26px;font-weight:700;
+  color:var(--gold-soft);letter-spacing:-.01em;
+}
+.post-body .calc-field input:focus{outline:none;}
+.post-body .calc-result{
+  background:linear-gradient(150deg, var(--gold-soft) 0%, #0f2229 100%);
+  border:none;border-radius:0;padding:40px 36px;position:static;color:#f5f4f2;
+  display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;
+}
+.post-body .calc-result::before{
+  content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle, rgba(204,154,63,.25), transparent 70%);
+}
+.post-body .calc-result h3{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cc9a3f;margin-bottom:24px;}
+.post-body .calc-row{border-bottom:1px solid rgba(255,255,255,.12);position:relative;z-index:1;}
+.post-body .calc-row .label{color:#cfcdc9;}
+.post-body .calc-row .value{font-size:24px;color:#fff;}
+.post-body .calc-row.highlight{border-top:2px solid #cc9a3f;}
+.post-body .calc-row.highlight .label{color:#fff;}
+.post-body .calc-row.highlight .value{color:#e3c489;font-size:32px;letter-spacing:-.01em;}
+.post-body .calc-disclaimer{color:#a9b0b5;border-top-color:rgba(255,255,255,.12);position:relative;z-index:1;}
 </style>
 
-<title>Título da Postagem | Quege Advogados</title>
-<meta name="description" content="Modelo de página para postagens do blog — substitua pelo resumo do artigo.">
+<title>Revender carro usado é comércio — STJ | Quege Advogados</title>
+<meta name="description" content="O STJ vem decidindo que a revenda de veículos usados é atividade de comércio, reduzindo o IRPJ e a CSLL das revendas. Entenda e simule o impacto.">
 </head>
 <body>
+<div class="top-maze-strip"><img src="imagens/labirintoquege.jpg" alt=""></div>
 <header>
   <div class="logo">
     <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Quege Advogados"></div></a>
@@ -423,6 +480,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
       <a href="blog.html" class="active">Blog</a>
       <a href="utilitarios.html" class="">Utilitários</a>
+      <a href="cursos.html" class="">Cursos</a>
       <a href="contato.html" class="">Fale Conosco</a>
     </nav>
     <div class="social">
@@ -440,51 +498,69 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
       <a href="blog.html" class="active">Blog</a>
       <a href="utilitarios.html" class="">Utilitários</a>
+      <a href="cursos.html" class="">Cursos</a>
       <a href="contato.html" class="">Fale Conosco</a>
 </div>
 
 <section class="post-hero">
   <span class="tag">Tributário</span>
-  <h1>Título da postagem: substitua por um título claro e objetivo</h1>
-  <p class="breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Título da Postagem</p>
+  <h1>Revender carro usado é comércio — e o imposto cobrado hoje é maior do que deveria</h1>
+  <p class="breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Revenda de veículos usados</p>
   <div class="post-meta">
     <span>Quege Advogados</span>
     <span>·</span>
-    <span>1 de janeiro de 2026</span>
+    <span>24 de junho de 2026</span>
     <span>·</span>
     <span>5 min de leitura</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto=format&fit=crop" alt="Imagem de capa da postagem">
+  <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto=format&fit=crop" alt="Revenda de veículos usados">
 </div>
 
 <article class="post-body reveal-up">
-  <p>Parágrafo de introdução do artigo. Apresente o tema, o problema que será discutido e o que o leitor vai encontrar ao longo do texto.</p>
+  <p>A Receita Federal calcula o IRPJ e a CSLL das revendas de veículos usados por uma regra criada para quem presta serviço. O Superior Tribunal de Justiça vem decidindo, de forma reiterada, que a atividade é de comércio — e que o cálculo correto produz um imposto sensivelmente menor.</p>
 
-  <h2>Primeiro subtítulo</h2>
-  <p>Texto explicando o primeiro ponto do artigo. Pode conter <a href="#">links internos</a> para outras páginas do site quando fizer sentido.</p>
-  <p>Segundo parágrafo dessa seção, com mais detalhes ou um exemplo prático.</p>
+  <h2>O que foi decidido</h2>
+  <p>Em <strong>24 de junho de 2026</strong>, a Segunda Turma do STJ reafirmou esse entendimento ao julgar o AREsp 3.169.515/RS. Não é decisão isolada: o tribunal vem julgando no mesmo sentido há anos, e os Tribunais Regionais Federais acompanham.</p>
+  <p>A Receita Federal, porém, não alterou a cobrança. No âmbito administrativo a regra mais cara continua valendo, e a empresa que simplesmente recolher a menor fica exposta a autuação com multa.</p>
+  <p>Por isso a redução depende de <strong>decisão judicial</strong>. Obtida a decisão, a empresa passa a recolher o valor menor e pode reaver o que pagou a mais nos <strong>cinco anos anteriores</strong>.</p>
 
-  <blockquote>Uma citação ou destaque relevante para reforçar um ponto importante do artigo.</blockquote>
+  <h2>Quanto isso representa</h2>
+  <div class="calc-inline">
+    <div class="calc-card">
+      <span class="calc-badge"><span class="dot"></span>Simulador</span>
+      <h3>Quanto você pode recuperar</h3>
+      <p class="sub">Informe quanto sua revenda vendeu em veículos nos últimos 12 meses e veja a estimativa na hora.</p>
+      <div class="calc-field">
+        <label for="fat">Faturamento anual</label>
+        <div class="money-wrap">
+          <span>R$</span>
+          <input id="fat" inputmode="numeric" value="2.400.000">
+        </div>
+      </div>
+    </div>
+    <div class="calc-result">
+      <h3>Resultado estimado</h3>
+      <div class="calc-row">
+        <span class="label">Redução estimada, por ano</span>
+        <span class="value" id="ano">R$ 0</span>
+      </div>
+      <div class="calc-row highlight">
+        <span class="label">A recuperar dos últimos 5 anos, com Selic</span>
+        <span class="value" id="cinco">R$ 0</span>
+      </div>
+      <p class="calc-disclaimer">Simulação por médias do setor: margem de 15% sobre o preço de venda e correção dos valores passados pela Selic média de 11% ao ano. A margem praticada pela sua empresa altera o resultado. Números de referência, não promessa de resultado.</p>
+    </div>
+  </div>
 
-  <h2>Segundo subtítulo</h2>
-  <p>Continuação do conteúdo, explorando outro aspecto do tema.</p>
-  <h3>Um subtópico, se necessário</h3>
-  <ul>
-    <li>Primeiro ponto da lista.</li>
-    <li>Segundo ponto da lista.</li>
-    <li>Terceiro ponto da lista.</li>
-  </ul>
+  <blockquote>Antes de mudar qualquer coisa, procure um advogado tributarista. Circula uma versão simplificada dessa tese, aplicada sobre o valor cheio das vendas. Nessa forma ela <strong>aumenta</strong> o imposto da maioria das revendas em vez de reduzir, e o erro só aparece depois.</blockquote>
+  <p>Identificar como a empresa é tributada hoje, medir o que há a recuperar e conduzir a ação são etapas que exigem advogado tributarista especializado. Contador e advogado atuam em conjunto: a apuração continua sendo do contador, a discussão judicial é do advogado.</p>
 
-  <figure>
-    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop" alt="Legenda da imagem">
-    <figcaption>Legenda opcional explicando a imagem acima.</figcaption>
-  </figure>
-
-  <h2>Conclusão</h2>
-  <p>Parágrafo final retomando os pontos principais e, se aplicável, orientando o leitor para o próximo passo.</p>
+  <div class="util-cta">
+    <a class="btn-primary" id="cta" href="https://wa.me/55SEUNUMERO?text=Vi%20a%20nota%20sobre%20a%20decis%C3%A3o%20do%20STJ%20e%20quero%20saber%20se%20minha%20revenda%20se%20enquadra." target="_blank" rel="noopener">Falar com um advogado tributarista <span class="arrow">→</span></a>
+  </div>
 </article>
 
 <hr class="post-divider">
@@ -536,6 +612,78 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
           <span class="meta">Quege Advogados</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="maze-strip"></div>
+
+<section class="section" id="contato-blog">
+  <div class="container">
+    <div class="section-head reveal-up" style="margin-bottom:40px;">
+      <span class="section-num">02</span>
+      <div class="section-tag"><span class="dot"></span><span class="eyebrow">Contato</span><span class="line"></span></div>
+      <h2>Vamos conversar sobre o futuro da sua empresa</h2>
+      <p>Entre em contato e agende uma conversa com a nossa equipe.</p>
+    </div>
+  </div>
+  <div class="container visit-wrap">
+    <div class="visit-info reveal-up">
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+        <p>Atendimento em Canoinhas/SC e Curitiba/PR</p>
+      </div>
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+        <p>(42) 3522-8080 &nbsp;|&nbsp; (42) 3522-0048 &nbsp;|&nbsp; (42) 3522-9075</p>
+      </div>
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+        <p>contato@quegeadv.com.br</p>
+      </div>
+      <div class="item">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+        <p>SEG - SEX: 8h - 12h | 13h30 - 18h</p>
+      </div>
+
+      <p class="note">Horários especiais de atendimento, conforme necessidade.</p>
+
+      <div class="atendimento-box">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+        <div><h4>Atendimento Online</h4><p>Mediante confirmação de disponibilidade</p></div>
+      </div>
+    </div>
+
+    <form onsubmit="event.preventDefault(); alert('Mensagem enviada! Entraremos em contato em breve.'); this.reset();" class="reveal-up">
+      <div class="form-row">
+        <div class="field"><input id="nome" type="text" placeholder="Nome" required></div>
+        <div class="field"><input id="sobrenome" type="text" placeholder="Sobrenome"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><input id="email" type="email" placeholder="E-mail" required></div>
+        <div class="field"><input id="telefone" type="tel" placeholder="Telefone"></div>
+      </div>
+      <div class="field field-full">
+        <select id="assunto">
+          <option value="">Assunto (opcional)</option>
+          <option>Planejamento Tributário</option>
+          <option>Recuperação de Créditos</option>
+          <option>Contencioso Tributário</option>
+          <option>Proteção Patrimonial e Sucessória</option>
+          <option>Reforma Tributária (IBS/CBS)</option>
+          <option>Outro assunto</option>
+        </select>
+      </div>
+      <div class="field field-full"><textarea id="mensagem" placeholder="Mensagem"></textarea></div>
+
+      <button type="submit" class="btn2">Enviar mensagem</button>
+      <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="map-embed reveal-up">
+      <iframe src="https://www.google.com/maps?q=Canoinhas,SC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa - Canoinhas/SC"></iframe>
     </div>
   </div>
 </section>
@@ -609,6 +757,52 @@ if(revealEls.length){
   }, {threshold:.15});
   revealEls.forEach(el => io.observe(el));
 }
+
+// CALCULADORA — REVENDA DE VEÍCULOS USADOS (bloco inserido)
+(function(){
+  var fat = document.getElementById('fat');
+  if(!fat) return;
+  var MARGEM = 0.15;
+  var brl = function(v){
+    return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(v);
+  };
+
+  function irpj(b){ return b*0.15 + Math.max(0, b-240000)*0.10; }
+  function csll(b){ return b*0.09; }
+
+  function calc(){
+    var anual  = parseInt((fat.value||'').replace(/\D/g,'')||'0',10);
+    var margem = anual*MARGEM;
+    var hoje   = irpj(margem*0.32) + csll(margem*0.32);
+    var devido = irpj(margem*0.08) + csll(margem*0.12);
+    var econ   = Math.max(0, hoje-devido);
+
+    var SELIC = 0.11, passado = 0;
+    for (var k = 0.5; k < 5; k++) { passado += econ * (1 + SELIC*k); }
+
+    document.getElementById('ano').textContent   = brl(econ);
+    document.getElementById('cinco').textContent = brl(passado);
+  }
+
+  fat.addEventListener('input', function(){
+    var n = parseInt(fat.value.replace(/\D/g,'')||'0',10);
+    fat.value = n ? n.toLocaleString('pt-BR') : '';
+    calc();
+  });
+  fat.addEventListener('focus', function(){ fat.select(); });
+
+  var shareBtn = document.getElementById('share');
+  if(shareBtn){
+    shareBtn.addEventListener('click', function(){
+      var url = location.href;
+      var txt = 'O STJ vem decidindo que revenda de veículo usado é comércio, com reflexo no IRPJ e na CSLL. Nota informativa: ';
+      if(navigator.share){ navigator.share({title:'STJ — revenda de veículos usados', text:txt, url:url}).catch(function(){}); }
+      else { window.open('https://wa.me/?text='+encodeURIComponent(txt+url),'_blank'); }
+    });
+  }
+
+  calc();
+})();
 </script>
 </body>
 </html>
