@@ -261,7 +261,12 @@ nav a:hover::after{transform:scaleX(1);}
 .blog-card p{font-size:14px;color:#cfcdc9;line-height:1.65;margin-bottom:16px;}
 .blog-card .meta{font-size:12.5px;color:var(--muted);}
 .blog-card .readmore{display:inline-block;margin-top:14px;font-family:'Montserrat';font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);}
-.blog-featured{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:60px;}
+
+/* ESTILIZAÇÃO DO DESTAQUE E LINK ESTICADO */
+.blog-featured{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:60px;position:relative;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;}
+.blog-featured:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
+.stretched-link::after{content:'';position:absolute;inset:0;z-index:10;}
+
 @media(max-width:860px){.blog-featured{grid-template-columns:1fr;}}
 .blog-featured .thumb{height:100%;min-height:300px;background-size:cover;background-position:center;}
 .blog-featured .body{padding:40px 44px 40px 0;}
@@ -422,8 +427,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="contato.html" class="">Fale Conosco</a>
 </div>
 
-
-<section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1600&auto=format&fit=crop');">
+<section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/wallpaper2.jpg');">
   <div>
     <span class="eyebrow">Blog</span>
     <h1>Conteúdo para quem decide pela sua empresa</h1>
@@ -434,13 +438,13 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 <section class="section">
   <div class="container">
     <div class="blog-featured reveal-up">
-      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop')"></div>
+      <div class="thumb" style="background-image:url('imagens/revendadecarros.jpg')"></div>
       <div class="body">
         <span class="tag">Tributário</span>
         <h3 style="font-size:26px;margin:14px 0 16px;">Receita fiscaliza. A PGFN cobra. Entenda os riscos ao seu patrimônio pessoal</h3>
         <p style="font-size:15px;color:#4a4a46;line-height:1.8;margin-bottom:0;">Juntas, Receita Federal e PGFN formam uma estrutura de cobrança que pode alcançar bens pessoais dos sócios em determinadas situações. Entenda quando isso acontece e como se proteger com o planejamento adequado.</p>
         <span class="meta" style="display:block;margin-top:18px;">Quege Advogados</span>
-        <a href="postagem-blog.html" class="readmore" style="display:block;margin-top:14px;">Ler artigo completo</a>
+        <a href="postagem-blog.html" class="readmore stretched-link" style="display:block;margin-top:14px;">Ler artigo completo</a>
       </div>
     </div>
 
@@ -452,7 +456,6 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 <section class="section" id="contato-blog">
   <div class="container">
     <div class="section-head reveal-up" style="margin-bottom:40px;">
-      <span class="section-num">02</span>
       <div class="section-tag"><span class="dot"></span><span class="eyebrow">Contato</span><span class="line"></span></div>
       <h2>Vamos conversar sobre o futuro da sua empresa</h2>
       <p>Entre em contato e agende uma conversa com a nossa equipe.</p>
@@ -633,7 +636,6 @@ if(calcForm){
   calcForm.addEventListener('input', calcular);
   calcular();
 }
-
 
 </script>
 </body>
