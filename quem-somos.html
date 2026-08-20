@@ -213,10 +213,12 @@ nav a:hover::after{transform:scaleX(1);}
 .trabalho-step p{font-size:15px;color:#cfcdc9;line-height:1.7;}
 
 /* EQUIPE (Quem Somos) */
-.team-grid{display:flex;flex-wrap:wrap;gap:40px;}
-.team-card{width:100%;max-width:420px;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+@media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr;}}
+.team-card{width:100%;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
 .team-card:hover{transform:translateY(-10px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
-.team-card .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
+.team-card .photo{width:100%;height:380px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
 .team-card:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
 .team-card .info{padding:22px 24px 26px;}
 .team-card h4{font-size:17px;font-weight:600;}
