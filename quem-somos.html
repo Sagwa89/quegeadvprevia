@@ -202,8 +202,9 @@ nav a:hover::after{transform:scaleX(1);}
 .team-mini-grid{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
 .team-mini{width:100%;max-width:420px;transition:transform .4s cubic-bezier(.22,1,.36,1);}
 .team-mini:hover{transform:translateY(-8px);}
-.team-mini .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);border-radius:6px;box-shadow:var(--shadow-soft);transition:filter .4s ease;}
-.team-mini:hover .photo{filter:grayscale(0%) contrast(1.02);}
+.team-mini{overflow:hidden;border-radius:6px;}
+.team-mini .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);box-shadow:var(--shadow-soft);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
+.team-mini:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
 .team-mini h4{font-size:14.5px;font-weight:600;margin-top:14px;}
 .team-mini span{font-size:12.5px;color:var(--gold-soft);}
 .trabalho-steps{display:flex;flex-direction:column;gap:22px;margin:28px 0 32px;}
@@ -215,8 +216,8 @@ nav a:hover::after{transform:scaleX(1);}
 .team-grid{display:flex;flex-wrap:wrap;gap:40px;}
 .team-card{width:100%;max-width:420px;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
 .team-card:hover{transform:translateY(-10px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
-.team-card .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease;}
-.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);}
+.team-card .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
+.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
 .team-card .info{padding:22px 24px 26px;}
 .team-card h4{font-size:17px;font-weight:600;}
 .team-card span.role{font-size:14px;color:var(--gold-soft);display:block;margin-top:2px;}
@@ -465,6 +466,22 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
           <h4>Amigo do Felipe</h4>
           <span class="role">Sócio Parceiro</span>
           <p class="bio">Atua em proteção patrimonial, planejamento sucessório e reestruturação societária, com foco em soluções personalizadas para a continuidade segura do negócio e do patrimônio familiar.</p>
+        </div>
+      </div>
+      <div class="team-card reveal-up">
+        <img class="photo" src="imagens/paola.jpg" alt="Paola">
+        <div class="info">
+          <h4>Paola</h4>
+          <span class="role">Advogada</span>
+          <p class="bio">Atua com atenção próxima ao cliente, unindo rigor técnico e visão estratégica na condução de demandas empresariais e tributárias.</p>
+        </div>
+      </div>
+      <div class="team-card reveal-up">
+        <img class="photo" src="imagens/pedro.jpeg" alt="Pedro">
+        <div class="info">
+          <h4>Pedro</h4>
+          <span class="role">Advogado</span>
+          <p class="bio">Contribui com análise técnica e acompanhamento próximo dos casos, sempre alinhado aos objetivos do negócio do cliente.</p>
         </div>
       </div>
     </div>
