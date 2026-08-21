@@ -140,14 +140,6 @@ nav a:hover::after{transform:scaleX(1);}
 .equipe .container{width:100%;}
 .equipe .eyebrow{margin-bottom:24px;display:block;}
 .equipe-underline{width:64px;height:2px;background:var(--gold);margin:14px 0 40px;}
-.team-grid{display:flex;flex-wrap:wrap;gap:40px;}
-.team-card{width:260px;}
-.team-card:hover{transform:translateY(-10px);}
-.team-card .photo{width:100%;height:340px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);border-radius:6px;box-shadow:var(--shadow-soft);transition:filter .4s ease;}
-.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);}
-.team-card h4{font-size:17px;font-weight:600;margin-top:20px;padding:0 6px;}
-.team-card span{font-size:14px;color:var(--gold-soft);display:block;padding:0 6px;}
-.team-card span.oab{display:block;font-size:12px;color:var(--muted);margin-top:4px;padding:0 6px;}
 .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 
 #blog-preview .eyebrow{text-shadow:0 2px 18px rgba(0,0,0,.55);}
@@ -259,11 +251,13 @@ nav a:hover::after{transform:scaleX(1);}
 .sobre-body .btn-outline{margin-top:10px;}
 
 /* EQUIPE (Quem Somos) */
-.team-grid{display:flex;flex-wrap:wrap;gap:40px;}
-.team-card{width:100%;max-width:420px;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+@media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr;}}
+.team-card{width:100%;transition: transform 0.4s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
 .team-card:hover{transform:translateY(-10px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
-.team-card .photo{width:100%;height:520px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease;}
-.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);}
+.team-card .photo{width:100%;height:380px;object-fit:cover;object-position:top;filter:grayscale(25%) contrast(1.02);transition:filter .4s ease, transform .5s cubic-bezier(.22,1,.36,1);}
+.team-card:hover .photo{filter:grayscale(0%) contrast(1.02);transform:scale(1.06);}
 .team-card .info{padding:22px 24px 26px;}
 .team-card h4{font-size:17px;font-weight:600;}
 .team-card span.role{font-size:14px;color:var(--gold-soft);display:block;margin-top:2px;}
@@ -335,6 +329,8 @@ nav a:hover::after{transform:scaleX(1);}
 .blog-card p{font-size:14px;color:#cfcdc9;line-height:1.65;margin-bottom:16px;}
 .blog-card .meta{font-size:12.5px;color:var(--muted);}
 .blog-card .readmore{display:inline-block;margin-top:14px;font-family:'Montserrat';font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);}
+.blog-card.em-breve .thumb{filter:grayscale(35%);}
+.soon-badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--gold);color:#f5f4f2;font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,.25);}
 .blog-featured{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:60px;}
 @media(max-width:860px){.blog-featured{grid-template-columns:1fr;}}
 .blog-featured .thumb{height:100%;min-height:300px;background-size:cover;background-position:center;}
@@ -474,7 +470,6 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
       <a href="quem-somos.html" class="">Quem Somos</a>
       <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
       <a href="blog.html" class="">Blog</a>
-      <a href="utilitarios.html" class="">Utilitários</a>
       <a href="cursos.html" class="">Cursos</a>
       <a href="contato.html" class="">Fale Conosco</a>
     </nav>
@@ -492,7 +487,6 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
       <a href="quem-somos.html" class="">Quem Somos</a>
       <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
       <a href="blog.html" class="">Blog</a>
-      <a href="utilitarios.html" class="">Utilitários</a>
       <a href="cursos.html" class="">Cursos</a>
       <a href="contato.html" class="">Fale Conosco</a>
 </div>
@@ -536,15 +530,40 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
     <div class="equipe-underline"></div>
     <div class="team-grid">
       <div class="team-card">
-        <img class="photo" src="imagens/felipequege.jpg" alt="Felipe Quege">
-        <h4>Felipe Quege</h4>
-        <span>Sócio-Fundador</span>
-        <span class="oab">OAB nº 10.547</span>
+        <img class="photo" src="imagens/felipequege.jpg" alt="Foto do Felipe Quege" loading="lazy" decoding="async">
+        <div class="info">
+          <h4>Felipe Quege</h4>
+          <span class="role">Sócio-Fundador</span>
+          <span class="role">OAB/PR 116.795</span>
+          <span class="role">OAB/SC 71.369-A</span>
+          <p class="bio">Advogado tributarista, atua na estruturação de planejamento fiscal, defesa em contencioso administrativo e judicial e recuperação de créditos tributários para empresas de diversos portes e segmentos.</p>
+        </div>
       </div>
       <div class="team-card">
-        <img class="photo" src="imagens/amigodofelipe.jpg" alt="Amigo do Felipe">
-        <h4>Amigo do Felipe</h4>
-        <span>Sócio Parceiro </span>
+        <img class="photo" src="imagens/marcelo.jpg" alt="Foto do Marcelo Bitencourt de Campos" loading="lazy" decoding="async">
+        <div class="info">
+          <h4>Marcelo Bitencourt de Campos</h4>
+          <span class="role">Advogado Tributarista e Contador</span>
+          <span class="role">OAB/PR 27.457 </span>
+          <p class="bio">Conselheiro e Diretor Jurídico, com mais de 30 anos de experiência em direito, contabilidade e gestão empresarial, atuando em governança corporativa, planejamento tributário, reestruturação societária e proteção patrimonial.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="photo" src="imagens/paola.jpg" alt="Foto da Paola" loading="lazy" decoding="async">
+        <div class="info">
+          <h4>Paola Cozzolino dos Santos</h4>
+          <span class="role">Advogada</span>
+          <span class="role">OAB/PR 98.268</span>
+          <p class="bio">Advogada tributarista com experiência em assessoria empresarial, contencioso tributário e gestão de riscos fiscais, com atuação na advocacia privada, Administração Pública e em funções institucionais junto à OAB.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="photo" src="imagens/pedro.jpg" alt="Foto do Pedro" loading="lazy" decoding="async">
+        <div class="info">
+          <h4>Pedro</h4>
+          <span class="role">Advogado</span>
+          <p class="bio">Contribui com análise técnica e acompanhamento próximo dos casos, sempre alinhado aos objetivos do negócio do cliente.</p>
+        </div>
       </div>
     </div>
     <a href="quem-somos.html#equipe" class="btn-outline" style="margin-top:40px;">Conhecer a Equipe<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
@@ -592,31 +611,33 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
       <p style="color:var(--gold);">Conteúdos práticos sobre tributário, patrimônio e gestão empresarial, direto do nosso escritório para a sua empresa.</p>
     </div>
     <div class="blog-grid">
-      <div class="blog-card reveal-up">
-        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop')"></div>
-        <div class="body">
-          <span class="tag">Tributário</span>
-          <h3>Receita fiscaliza, PGFN cobra: entenda os riscos ao patrimônio pessoal</h3>
-          <p>Como a atuação conjunta entre Receita Federal e PGFN pode alcançar bens pessoais dos sócios, e como se proteger.</p>
-          <a href="blog.html" class="readmore">Ler mais →</a>
-        </div>
-      </div>
-      <div class="blog-card reveal-up">
+      <div class="blog-card em-breve reveal-up">
+        <span class="soon-badge">Em breve</span>
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop')"></div>
         <div class="body">
           <span class="tag">Reforma Tributária</span>
           <h3>IBS e CBS: o que muda para sua empresa até 2033</h3>
           <p>Cronograma de transição, impactos na precificação e nos créditos fiscais das operações.</p>
-          <a href="blog.html" class="readmore">Ler mais →</a>
+          <span class="meta">Quege Advogados</span>
         </div>
       </div>
       <div class="blog-card reveal-up">
+        <div class="thumb" style="background-image:url('imagens/revendadecarros.jpg')"></div>
+        <div class="body">
+          <span class="tag">Tributário</span>
+          <h3>Revender carro usado é comércio, e o imposto cobrado hoje é maior do que deveria</h3>
+          <p>O STJ vem decidindo que a revenda de veículos usados é atividade de comércio, reduzindo o IRPJ e a CSLL das revendas. Entenda e simule o impacto.</p>
+          <a href="postagem-blog.html" class="readmore">Ler mais →</a>
+        </div>
+      </div>
+      <div class="blog-card em-breve reveal-up">
+        <span class="soon-badge">Em breve</span>
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop')"></div>
         <div class="body">
           <span class="tag">Recuperação de Créditos</span>
           <h3>ICMS pago a maior: como identificar e recuperar</h3>
           <p>Passo a passo para mapear créditos tributários esquecidos e recuperá-los de forma segura.</p>
-          <a href="blog.html" class="readmore">Ler mais →</a>
+          <span class="meta">Quege Advogados</span>
         </div>
       </div>
     </div>
@@ -629,7 +650,6 @@ header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px
 <section class="section" id="contato-home">
   <div class="container">
     <div class="section-head reveal-up" style="margin-bottom:40px;">
-      <span class="section-num">04</span>
       <div class="section-tag"><span class="dot"></span><span class="eyebrow">Contato</span><span class="line"></span></div>
       <h2>Vamos conversar sobre o futuro da sua empresa</h2>
       <p>Entre em contato e agende uma conversa com a nossa equipe.</p>
