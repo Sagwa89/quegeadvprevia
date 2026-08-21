@@ -411,61 +411,53 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
 
-/* Calculadora dentro do artigo — versão destacada */
-.post-body .calc-inline{
-  display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:stretch;margin:40px 0;
+/* Calculadora dentro do artigo — bloco autônomo (não usa classes genéricas .calc-*) */
+.rc-calc{
+  display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;margin:40px 0;
   border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
+  isolation:isolate;
 }
-@media(max-width:760px){.post-body .calc-inline{grid-template-columns:1fr;}}
-.post-body .calc-badge{
-  display:inline-flex;align-items:center;gap:8px;background:rgba(31,55,65,.08);
-  color:var(--gold);font-family:'Montserrat';font-weight:600;font-size:12px;
-  letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:30px;margin-bottom:18px;
-}
-.post-body .calc-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:calcPulse 1.8s infinite;}
+@media(max-width:760px){.rc-calc{grid-template-columns:1fr;}}
+
+.rc-form{background:#fff;padding:40px 36px;display:flex;flex-direction:column;justify-content:center;}
+.rc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(31,55,65,.08);color:#1F3741;font-family:'Montserrat';font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:30px;margin-bottom:18px;width:fit-content;}
+.rc-badge .dot{width:6px;height:6px;border-radius:50%;background:#1F3741;animation:calcPulse 1.8s infinite;}
 @keyframes calcPulse{0%{box-shadow:0 0 0 0 rgba(204,154,63,.5);}70%{box-shadow:0 0 0 8px rgba(204,154,63,0);}100%{box-shadow:0 0 0 0 rgba(204,154,63,0);}}
-.post-body .calc-card{
-  background:#fff;border:none;border-radius:0;padding:40px 36px;
-  display:flex;flex-direction:column;justify-content:center;
+.rc-form h3{font-size:22px;margin-bottom:10px;color:#1a1a1a;}
+.rc-form .sub{font-size:14.5px;color:#5c5c58;margin-bottom:28px;line-height:1.6;}
+.rc-field label{display:block;font-size:12.5px;font-family:'Montserrat';letter-spacing:.03em;color:#8a8a86;margin-bottom:8px;text-transform:uppercase;}
+.rc-money{display:flex;align-items:center;gap:10px;background:#f4f3f0;border:1.5px solid #dedbd4;border-radius:10px;padding:14px 16px;transition:border-color .25s ease, box-shadow .25s ease;}
+.rc-money:focus-within{border-color:#cc9a3f;box-shadow:0 0 0 4px rgba(204,154,63,.12);}
+.rc-money span{font-family:'Montserrat';font-weight:600;color:#8a8a86;font-size:16px;flex-shrink:0;}
+.rc-money input{border:none;background:transparent;padding:0;flex:1;min-width:0;font-size:clamp(19px,4.6vw,26px);font-weight:700;color:#163037;letter-spacing:-.01em;}
+.rc-money input:focus{outline:none;}
+
+.rc-result{
+  position:relative;background:linear-gradient(150deg,#163037 0%,#0f2229 100%);
+  padding:40px 36px;color:#f5f4f2;display:flex;flex-direction:column;justify-content:center;
+  overflow:hidden;
 }
-.post-body .calc-card h3{font-size:22px;margin-bottom:10px;}
-.post-body .calc-card .sub{font-size:14.5px;color:#5c5c58;margin-bottom:28px;}
-.post-body .calc-field{margin-bottom:0;}
-.post-body .calc-field label{font-size:12.5px;}
-.post-body .calc-field .money-wrap{
-  display:flex;align-items:center;gap:10px;background:#f4f3f0;border:1.5px solid var(--line);
-  border-radius:10px;padding:14px 16px;transition:border-color .25s ease, box-shadow .25s ease;
-  min-width:0;box-sizing:border-box;
-}
-.post-body .calc-field .money-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px rgba(204,154,63,.12);}
-.post-body .calc-field .money-wrap span{font-family:'Montserrat';font-weight:600;color:#8a8a86;font-size:16px;flex-shrink:0;}
-.post-body .calc-field input{
-  border:none;background:transparent;padding:0;width:100%;min-width:0;font-size:clamp(19px,4.6vw,26px);font-weight:700;
-  color:var(--gold-soft);letter-spacing:-.01em;
-}
-.post-body .calc-field input:focus{outline:none;}
-.post-body .calc-card,.post-body .calc-result{min-width:0;}
-@media(max-width:760px){
-  .post-body .calc-inline{border-radius:14px;}
-  .post-body .calc-card,.post-body .calc-result{padding:30px 26px;}
-}
-.post-body .calc-result{
-  background:linear-gradient(150deg, var(--gold-soft) 0%, #0f2229 100%);
-  border:none;border-radius:0;padding:40px 36px;position:static;color:#f5f4f2;
-  display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;
-}
-.post-body .calc-result::before{
+.rc-result::before{
   content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle, rgba(204,154,63,.25), transparent 70%);
+  background:radial-gradient(circle, rgba(204,154,63,.25), transparent 70%);z-index:0;pointer-events:none;
 }
-.post-body .calc-result h3{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cc9a3f;margin-bottom:24px;}
-.post-body .calc-row{border-bottom:1px solid rgba(255,255,255,.12);position:relative;z-index:1;}
-.post-body .calc-row .label{color:#cfcdc9;}
-.post-body .calc-row .value{font-size:24px;color:#fff;}
-.post-body .calc-row.highlight{border-top:2px solid #cc9a3f;}
-.post-body .calc-row.highlight .label{color:#fff;}
-.post-body .calc-row.highlight .value{color:#e3c489;font-size:32px;letter-spacing:-.01em;}
-.post-body .calc-disclaimer{color:#a9b0b5;border-top-color:rgba(255,255,255,.12);position:relative;z-index:1;font-size:11px;}
+.rc-result > *{position:relative;z-index:1;}
+.rc-result h3{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cc9a3f;margin-bottom:24px;}
+.rc-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+.rc-row:last-of-type{border-bottom:none;}
+.rc-row .label{font-size:14.5px;color:#cfcdc9;}
+.rc-row .value{font-family:'Montserrat';font-weight:600;font-size:22px;color:#fff;white-space:nowrap;}
+.rc-row.highlight{margin-top:14px;padding-top:22px;border-top:2px solid #cc9a3f;}
+.rc-row.highlight .label{color:#fff;font-weight:500;}
+.rc-row.highlight .value{color:#e3c489;font-size:30px;letter-spacing:-.01em;}
+.rc-disclaimer{font-size:11px;color:#a9b0b5;line-height:1.7;margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);}
+
+@media(max-width:760px){
+  .rc-calc{border-radius:14px;}
+  .rc-form,.rc-result{padding:30px 26px;}
+  .rc-row .value{font-size:19px;}
+  .rc-row.highlight .value{font-size:24px;}
+}
 
 /* Aviso legal (Provimento CFOAB 205/2021) */
 .legal-notice{max-width:760px;margin:0 auto 40px;font-size:12px;line-height:1.7;color:var(--muted);padding:18px 4px 0;border-top:1px solid var(--line);}
@@ -566,30 +558,30 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
   <p>Por isso a redução depende de <strong>decisão judicial</strong>. Obtida a decisão, a empresa passa a recolher o valor menor e pode reaver o que pagou a mais nos <strong>cinco anos anteriores</strong>.</p>
 
   <h2>Quanto isso representa</h2>
-  <div class="calc-inline">
-    <div class="calc-card">
-      <span class="calc-badge"><span class="dot"></span>Simulador</span>
+  <div class="rc-calc">
+    <div class="rc-form">
+      <span class="rc-badge"><span class="dot"></span>Simulador</span>
       <h3>Quanto você pode recuperar</h3>
       <p class="sub">Informe quanto sua revenda vendeu em veículos nos últimos 12 meses e veja a estimativa na hora.</p>
-      <div class="calc-field">
+      <div class="rc-field">
         <label for="fat">Faturamento anual</label>
-        <div class="money-wrap">
+        <div class="rc-money">
           <span>R$</span>
           <input id="fat" inputmode="numeric" value="2.400.000">
         </div>
       </div>
     </div>
-    <div class="calc-result">
+    <div class="rc-result">
       <h3>Resultado estimado</h3>
-      <div class="calc-row">
+      <div class="rc-row">
         <span class="label">Redução estimada, por ano</span>
         <span class="value" id="ano">R$ 0</span>
       </div>
-      <div class="calc-row highlight">
+      <div class="rc-row highlight">
         <span class="label">A recuperar dos últimos 5 anos, com Selic</span>
         <span class="value" id="cinco">R$ 0</span>
       </div>
-      <p class="calc-disclaimer">Simulação por médias do setor: margem de 15% sobre o preço de venda e correção dos valores passados pela Selic média de 11% ao ano. A margem praticada pela sua empresa altera o resultado. Números de referência, não promessa de resultado.</p>
+      <p class="rc-disclaimer">Simulação por médias do setor: margem de 15% sobre o preço de venda e correção dos valores passados pela Selic média de 11% ao ano. A margem praticada pela sua empresa altera o resultado. Números de referência, não promessa de resultado.</p>
     </div>
   </div>
 
@@ -615,10 +607,10 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 
 <div class="post-share">
   <span>Compartilhar</span>
-  <a class="share-btn fb" href="#" target="_blank" rel="noopener" aria-label="Compartilhar no Facebook" data-share="facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.92 3.77-3.92 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.58v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"></path></svg></a>
-  <a class="share-btn x" href="#" target="_blank" rel="noopener" aria-label="Compartilhar no X" data-share="x"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7.1l-5.5-7.2L4.4 22H1.3l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 4H5.6l12.1 16z"></path></svg></a>
-  <a class="share-btn wa" href="#" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp" data-share="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
-  <a class="share-btn ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Ver perfil no Instagram" data-share="instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+  <a class="share-btn fb" id="shareFb" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener" aria-label="Compartilhar no Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.92 3.77-3.92 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.58v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"></path></svg></a>
+  <a class="share-btn x" id="shareX" href="https://twitter.com/intent/tweet?url=" target="_blank" rel="noopener" aria-label="Compartilhar no X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7.1l-5.5-7.2L4.4 22H1.3l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 4H5.6l12.1 16z"></path></svg></a>
+  <a class="share-btn wa" id="shareWa" href="https://wa.me/?text=" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
+  <a class="share-btn ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Ver perfil no Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
 </div>
 
 <section class="section section-alt post-related">
@@ -804,31 +796,16 @@ if(revealEls.length){
 }
 
 // COMPARTILHAR NAS REDES SOCIAIS
+// Preenche os links reais com a URL e o título da página (funciona sem depender de pop-up)
 (function(){
-  var pageUrl   = location.href;
-  var pageTitle = document.title;
-  var buttons   = document.querySelectorAll('[data-share]');
-  buttons.forEach(function(btn){
-    var network = btn.getAttribute('data-share');
-    if(network === 'instagram') return; // Instagram não tem link direto de compartilhamento na web
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      var shareUrl = '';
-      if(network === 'facebook'){
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
-      } else if(network === 'x'){
-        shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(pageTitle);
-      } else if(network === 'whatsapp'){
-        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(pageTitle + ' ' + pageUrl);
-      }
-      // No mobile, prioriza o share nativo (mostra capa e título quando suportado pelo app)
-      if(navigator.share && /Mobi|Android/i.test(navigator.userAgent)){
-        navigator.share({ title: pageTitle, url: pageUrl }).catch(function(){ window.open(shareUrl, '_blank', 'noopener'); });
-      } else if(shareUrl){
-        window.open(shareUrl, '_blank', 'noopener,width=600,height=520');
-      }
-    });
-  });
+  var url   = encodeURIComponent(location.href);
+  var title = encodeURIComponent(document.title);
+  var fb = document.getElementById('shareFb');
+  var x  = document.getElementById('shareX');
+  var wa = document.getElementById('shareWa');
+  if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  if(x)  x.href  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+  if(wa) wa.href = 'https://wa.me/?text=' + title + '%20' + url;
 })();
 
 // CALCULADORA - REVENDA DE VEÍCULOS USADOS (bloco inserido)
