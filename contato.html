@@ -59,14 +59,17 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
+  position:fixed;top:calc(100vw * 1409 / 8000 / 6);left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
   background:transparent;
   color:#f5f4f2;
-  transition:background .3s ease, backdrop-filter .3s ease, color .3s ease;
+  border-bottom:none;
+  box-shadow:none;
+  transition:background .3s ease, backdrop-filter .3s ease, color .3s ease, top .3s ease;
 }
 header.scrolled{
+  top:0;
   background:rgba(244,243,240,.92);
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
