@@ -894,29 +894,10 @@ if(calcForm){
   function buildPath(){
     const h1Rect = h1.getBoundingClientRect();
     const r2 = spans[1].getBoundingClientRect();
-    const pad = 8;
-    const R = (r2.height / 2) + pad;
-    const cy = (r2.top + r2.bottom) / 2 - h1Rect.top;
     const leftX = r2.left - h1Rect.left;
     const rightX = r2.right - h1Rect.left;
-    const topY = cy - R;
-    const botY = cy + R;
-    const arcSteps = 24;
-    let pts = [];
-    pts.push(leftX.toFixed(1) + ',' + topY.toFixed(1));
-    pts.push(rightX.toFixed(1) + ',' + topY.toFixed(1));
-    for(let i = 1; i <= arcSteps; i++){
-      const t = (180 * i / arcSteps);
-      const rad = t * Math.PI / 180;
-      pts.push((rightX + R * Math.sin(rad)).toFixed(1) + ',' + (cy - R * Math.cos(rad)).toFixed(1));
-    }
-    pts.push(leftX.toFixed(1) + ',' + botY.toFixed(1));
-    for(let i = 1; i <= arcSteps; i++){
-      const t = 180 + (180 * i / arcSteps);
-      const rad = t * Math.PI / 180;
-      pts.push((leftX + R * Math.sin(rad)).toFixed(1) + ',' + (cy - R * Math.cos(rad)).toFixed(1));
-    }
-    const d = `M ${pts[0]} L ${pts.join(' L ')}`;
+    const y = (r2.bottom - h1Rect.top) + 6;
+    const d = `M ${leftX.toFixed(1)},${y.toFixed(1)} L ${rightX.toFixed(1)},${y.toFixed(1)}`;
     path.setAttribute('d', d);
     return path.getTotalLength();
   }
