@@ -419,12 +419,12 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 }
 @media(max-width:760px){.rc-calc{grid-template-columns:1fr;}}
 
-.rc-form{background:#fff;padding:40px 36px;display:flex;flex-direction:column;justify-content:center;}
+.rc-form{background:#fff;padding:36px 34px;display:flex;flex-direction:column;justify-content:flex-start;}
 .rc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(31,55,65,.08);color:#1F3741;font-family:'Montserrat';font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:30px;margin-bottom:18px;width:fit-content;}
-.rc-badge .dot{width:6px;height:6px;border-radius:50%;background:#1F3741;animation:calcPulse 1.8s infinite;}
+.rc-badge .dot{width:6px;height:6px;border-radius:50%;background:#1F3741;animation:calcPulse 1.8s infinite;flex-shrink:0;}
 @keyframes calcPulse{0%{box-shadow:0 0 0 0 rgba(204,154,63,.5);}70%{box-shadow:0 0 0 8px rgba(204,154,63,0);}100%{box-shadow:0 0 0 0 rgba(204,154,63,0);}}
-.rc-form h3{font-size:22px;margin-bottom:10px;color:#1a1a1a;}
-.rc-form .sub{font-size:14.5px;color:#5c5c58;margin-bottom:28px;line-height:1.6;}
+.rc-form h3{font-size:21px;margin-bottom:10px;color:#1a1a1a;}
+.rc-form .sub{font-size:14px;color:#5c5c58;margin-bottom:24px;line-height:1.6;}
 .rc-field label{display:block;font-size:12.5px;font-family:'Montserrat';letter-spacing:.03em;color:#8a8a86;margin-bottom:8px;text-transform:uppercase;}
 .rc-money{display:flex;align-items:center;gap:10px;background:#f4f3f0;border:1.5px solid #dedbd4;border-radius:10px;padding:14px 16px;transition:border-color .25s ease, box-shadow .25s ease;}
 .rc-money:focus-within{border-color:#cc9a3f;box-shadow:0 0 0 4px rgba(204,154,63,.12);}
@@ -434,7 +434,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 
 .rc-result{
   position:relative;background:linear-gradient(150deg,#163037 0%,#0f2229 100%);
-  padding:40px 36px;color:#f5f4f2;display:flex;flex-direction:column;justify-content:center;
+  padding:36px 34px;color:#f5f4f2;display:flex;flex-direction:column;justify-content:flex-start;
   overflow:hidden;
 }
 .rc-result::before{
@@ -442,7 +442,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
   background:radial-gradient(circle, rgba(204,154,63,.25), transparent 70%);z-index:0;pointer-events:none;
 }
 .rc-result > *{position:relative;z-index:1;}
-.rc-result h3{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cc9a3f;margin-bottom:24px;}
+.rc-result h3{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cc9a3f;margin-bottom:22px;}
 .rc-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);}
 .rc-row:last-of-type{border-bottom:none;}
 .rc-row .label{font-size:14px;color:#cfcdc9;flex:1 1 160px;min-width:0;}
@@ -450,7 +450,8 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .rc-row.highlight{margin-top:14px;padding-top:22px;border-top:2px solid #cc9a3f;}
 .rc-row.highlight .label{color:#fff;font-weight:500;}
 .rc-row.highlight .value{color:#e3c489;font-size:clamp(20px,5.5vw,30px);letter-spacing:-.01em;}
-.rc-disclaimer{font-size:11px;color:#a9b0b5;line-height:1.7;margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);}
+
+.rc-note{max-width:100%;font-size:12.5px;color:#5c5c58;line-height:1.7;margin-top:14px;}
 
 @media(max-width:760px){
   .rc-calc{border-radius:14px;}
@@ -583,9 +584,9 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
         <span class="label">A recuperar dos últimos 5 anos, com Selic</span>
         <span class="value" id="cinco">R$ 0</span>
       </div>
-      <p class="rc-disclaimer">Simulação por médias do setor: margem de 15% sobre o preço de venda e correção dos valores passados pela Selic média de 11% ao ano. A margem praticada pela sua empresa altera o resultado. Números de referência, não promessa de resultado.</p>
     </div>
   </div>
+  <p class="rc-note">Simulação por médias do setor: margem de 15% sobre o preço de venda e correção dos valores passados pela Selic média de 11% ao ano. A margem praticada pela sua empresa altera o resultado. Números de referência, não promessa de resultado.</p>
 
   <blockquote>Antes de mudar qualquer coisa, procure um advogado tributarista. Circula uma versão simplificada dessa tese, aplicada sobre o valor cheio das vendas. Nessa forma ela <strong>aumenta</strong> o imposto da maioria das revendas em vez de reduzir, e o erro só aparece depois.</blockquote>
   <p>Identificar como a empresa é tributada hoje, medir o que há a recuperar e conduzir a ação são etapas que exigem advogado tributarista especializado. Contador e advogado atuam em conjunto: a apuração continua sendo do contador, a discussão judicial é do advogado.</p>
@@ -798,16 +799,17 @@ if(revealEls.length){
 }
 
 // COMPARTILHAR NAS REDES SOCIAIS
-// Preenche os links reais com a URL e o título da página (funciona sem depender de pop-up)
+// Preenche os links reais com a URL, o título e um texto-convite para compartilhamento
 (function(){
   var url   = encodeURIComponent(location.href);
   var title = encodeURIComponent(document.title);
+  var shareText = encodeURIComponent('Se sua empresa revende carros usados, essa decisão do STJ pode reduzir seu imposto e devolver o que você pagou a mais nos últimos 5 anos. Faça uma simulação:');
   var fb = document.getElementById('shareFb');
   var x  = document.getElementById('shareX');
   var wa = document.getElementById('shareWa');
-  if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
-  if(x)  x.href  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
-  if(wa) wa.href = 'https://wa.me/?text=' + title + '%20' + url;
+  if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&quote=' + shareText;
+  if(x)  x.href  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + shareText;
+  if(wa) wa.href = 'https://wa.me/?text=' + shareText + '%20' + url;
 })();
 
 // CALCULADORA - REVENDA DE VEÍCULOS USADOS (bloco inserido)
