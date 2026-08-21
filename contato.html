@@ -54,22 +54,21 @@ body::before{
              radial-gradient(circle at 100% 30%, rgba(31,55,65,.035), transparent 35%);
 }
 header,section,footer{position:relative;z-index:1;}
-.top-maze-strip{width:100%;display:block;line-height:0;overflow:hidden;height:calc((100vw) * 1409 / 8000 / 6);background:#0c0d0e;}
-.top-maze-strip img{width:100%;height:auto;display:block;margin-top:calc((100vw) * 1409 / 8000 * -5 / 12);}
+.side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
+@media(max-width:760px){.side-maze-strip{width:14px;}}
 
 /* HEADER */
 header{
-  position:fixed;top:calc(100vw * 1409 / 8000 / 6);left:0;right:0;z-index:50;
+  position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
+  padding:16px 20px 16px 64px;
   background:transparent;
   color:#f5f4f2;
   border-bottom:none;
   box-shadow:none;
-  transition:background .3s ease, backdrop-filter .3s ease, color .3s ease, top .3s ease;
+  transition:background .3s ease, backdrop-filter .3s ease, color .3s ease;
 }
 header.scrolled{
-  top:0;
   background:rgba(244,243,240,.92);
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
@@ -77,6 +76,7 @@ header.scrolled{
   color:#1a1a1a;
 }
 header.scrolled .menu-btn{color:#1a1a1a;}
+@media(max-width:760px){header{padding-left:34px;}}
 .logo{display:flex;align-items:center;gap:10px;}
 .logo-mark{width:min(100px,22vw);height:auto;display:flex;align-items:center;justify-content:center;transition: transform .5s ease;overflow:visible;position:relative;z-index:2;}
 .logo-mark img{width:100%;height:100%;object-fit:contain;}
@@ -389,7 +389,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 <meta name="description" content="Entre em contato com a Quege Advogados. Atendimento em Canoinhas/SC e Curitiba/PR.">
 </head>
 <body>
-<div class="top-maze-strip"><img src="imagens/labirintoquege.jpg" alt=""></div>
+<div class="side-maze-strip" aria-hidden="true"></div>
 <header>
   <div class="logo">
     <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Quege Advogados"></div></a>
@@ -401,6 +401,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
       <a href="blog.html" class="">Blog</a>
       <a href="cursos.html" class="">Cursos</a>
+      <a href="utilitarios.html" class="">Utilitários</a>
       <a href="contato.html" class="active">Fale Conosco</a>
     </nav>
     <div class="social">
@@ -418,6 +419,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       <a href="areas-de-atuacao.html" class="">Áreas de Atuação</a>
       <a href="blog.html" class="">Blog</a>
       <a href="cursos.html" class="">Cursos</a>
+      <a href="utilitarios.html" class="">Utilitários</a>
       <a href="contato.html" class="active">Fale Conosco</a>
 </div>
 
