@@ -443,20 +443,22 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 }
 .rc-result > *{position:relative;z-index:1;}
 .rc-result h3{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cc9a3f;margin-bottom:24px;}
-.rc-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+.rc-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);}
 .rc-row:last-of-type{border-bottom:none;}
-.rc-row .label{font-size:14.5px;color:#cfcdc9;}
-.rc-row .value{font-family:'Montserrat';font-weight:600;font-size:22px;color:#fff;white-space:nowrap;}
+.rc-row .label{font-size:14px;color:#cfcdc9;flex:1 1 160px;min-width:0;}
+.rc-row .value{font-family:'Montserrat';font-weight:600;font-size:clamp(16px,4.2vw,22px);color:#fff;margin-left:auto;}
 .rc-row.highlight{margin-top:14px;padding-top:22px;border-top:2px solid #cc9a3f;}
 .rc-row.highlight .label{color:#fff;font-weight:500;}
-.rc-row.highlight .value{color:#e3c489;font-size:30px;letter-spacing:-.01em;}
+.rc-row.highlight .value{color:#e3c489;font-size:clamp(20px,5.5vw,30px);letter-spacing:-.01em;}
 .rc-disclaimer{font-size:11px;color:#a9b0b5;line-height:1.7;margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);}
 
 @media(max-width:760px){
   .rc-calc{border-radius:14px;}
-  .rc-form,.rc-result{padding:30px 26px;}
-  .rc-row .value{font-size:19px;}
-  .rc-row.highlight .value{font-size:24px;}
+  .rc-form,.rc-result{padding:28px 24px;}
+}
+@media(max-width:400px){
+  .rc-form,.rc-result{padding:24px 18px;}
+  .rc-money span{font-size:14px;}
 }
 
 /* Aviso legal (Provimento CFOAB 205/2021) */
