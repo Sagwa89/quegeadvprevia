@@ -19,7 +19,7 @@
   --gold-light:#7fb0bc;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;background:var(--gold-soft);}
 body{
   background:var(--bg);
   color:var(--white);
@@ -632,27 +632,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
   </div>
 </footer>
 
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite">
-  <p class="cookie-text">Utilizamos cookies para melhorar sua experiência de navegação e analisar o uso do site. Ao continuar navegando, você concorda com o uso de cookies.</p>
-  <div class="cookie-actions">
-    <button class="cookie-decline" id="cookieDecline" type="button">Recusar</button>
-    <button class="cookie-accept" id="cookieAccept" type="button">Aceitar</button>
-  </div>
-</div>
-
 <script>
-// COOKIE BANNER
-(function(){
-  const banner = document.getElementById('cookieBanner');
-  const accept = document.getElementById('cookieAccept');
-  const decline = document.getElementById('cookieDecline');
-  if(!banner) return;
-  const consent = localStorage.getItem('quegeCookieConsent');
-  if(!consent){ setTimeout(() => banner.classList.add('show'), 900); }
-  const hide = (value) => { localStorage.setItem('quegeCookieConsent', value); banner.classList.remove('show'); };
-  if(accept) accept.addEventListener('click', () => hide('accepted'));
-  if(decline) decline.addEventListener('click', () => hide('declined'));
-})();
 
 // HEADER SCROLL
 const header = document.querySelector('header');
