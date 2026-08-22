@@ -157,6 +157,20 @@ nav a:hover::after{transform:scaleX(1);}
 .equipe{background:var(--bg-alt);padding:110px 0;}
 .equipe .container{width:100%;}
 .equipe .eyebrow{margin-bottom:24px;display:block;}
+.destaque-row{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px;}
+.destaque-row+.destaque-row{margin-top:90px;}
+.destaque-row.reverse .destaque-img{order:2;}
+.destaque-row.reverse .destaque-text{order:1;}
+.destaque-img{height:360px;border-radius:8px;background-size:cover;background-position:center;box-shadow:var(--shadow-soft);}
+.destaque-text h3{font-size:26px;line-height:1.3;margin:10px 0 18px;}
+.destaque-text p{margin-bottom:26px;}
+@media(max-width:860px){
+  .destaque-row,.destaque-row.reverse{grid-template-columns:1fr;gap:24px;}
+  .destaque-row.reverse .destaque-img{order:1;}
+  .destaque-row.reverse .destaque-text{order:2;}
+  .destaque-img{height:220px;}
+  .destaque-row+.destaque-row{margin-top:50px;}
+}
 .equipe-underline{width:64px;height:2px;background:var(--gold);margin:14px 0 40px;}
 .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 
@@ -647,6 +661,28 @@ if(!location.hash){window.scrollTo(0,0);}</script>
   </div>
 </section>
 
+<section class="section" id="destaques-home">
+  <div class="container">
+    <div class="destaque-row reveal-up">
+      <div class="destaque-img" style="background-image:url('imagens/palestra.webp');"></div>
+      <div class="destaque-text">
+        <span class="eyebrow">Cursos</span>
+        <h3>Sua equipe entende mesmo o que muda com a Reforma Tributária?</h3>
+        <p>O IBS e a CBS vão substituir tributos que sua empresa usa há décadas. Nos nossos cursos você aprende, na prática, como isso muda o seu preço, sua margem e o crédito que você tem direito a recuperar — do jeito que só quem vive contencioso tributário todo dia consegue explicar.</p>
+        <a href="cursos.html" class="btn-outline">Conhecer os Cursos<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </div>
+    </div>
+    <div class="destaque-row reverse reveal-up">
+      <div class="destaque-img" style="background-image:url('imagens/damadajustica2.webp');"></div>
+      <div class="destaque-text">
+        <span class="eyebrow">Ferramentas</span>
+        <h3>Revenda de veículos usados: sua empresa pode estar pagando IRPJ e CSLL a mais</h3>
+        <p>Uma tese já validada pelo STJ permite reduzir a tributação de revendas de veículos usados, tratando a operação como comércio e não como serviço. Simule agora, em segundos, quanto sua empresa pode recuperar dos últimos 5 anos — corrigido pela Selic.</p>
+        <a href="utilitarios.html" class="btn-outline">Simular Agora<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section section-alt blog-preview-bg" id="blog-preview">
   <div class="container">
     <div class="section-head reveal-up">
