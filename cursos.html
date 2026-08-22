@@ -54,7 +54,9 @@ nav a:hover::after{transform:scaleX(1);}
 .menu-btn{display:none;background:none;border:none;color:#f5f4f2;font-size:26px;cursor:pointer;}
 .mobile-nav{display:none;position:fixed;inset:0;background:rgba(10,11,12,.98);z-index:60;flex-direction:column;align-items:center;justify-content:center;gap:26px;}
 .mobile-nav.open{display:flex;}
-.mobile-nav a{font-family:'Montserrat';font-size:20px;}
+.mobile-nav a{font-family:'Montserrat';font-size:20px;color:#f5f4f2;}
+.mobile-nav a.active{color:#cc9a3f;}
+.mobile-nav a:hover{color:#cc9a3f;}
 .mobile-close{position:absolute;top:24px;right:28px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;}
 @media(max-width:960px){nav.desktop-nav{display:none;}.social{display:none;}.header-right{display:flex;}.menu-btn{display:block;}.container{padding:0 24px;}header{padding:16px 24px;}}
 .page-hero{position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;background:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)) center/cover;overflow:hidden;}
@@ -163,6 +165,9 @@ footer::before{background:#7fb0bc !important;}
   footer{padding-top:50px;}
   .footer-grid{overflow-x:hidden;}
 }
+.reel-container{padding-left:100px;}
+@media(max-width:860px){.reel-container{padding-left:24px;}}
+@media(max-width:640px){.reel-posts{gap:14px;}.reel-posts .instagram-media{max-width:100%!important;}}
 
 </style>
 </head>
@@ -265,7 +270,7 @@ footer::before{background:#7fb0bc !important;}
 </section>
 
 <section class="section section-alt">
-  <div class="container" style="padding-left:100px;">
+  <div class="container reel-container">
     <div class="reel-box reveal-up">
       <div class="reel-text">
         <div class="icon-ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
