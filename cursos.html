@@ -102,7 +102,10 @@ nav a:hover::after{transform:scaleX(1);}
 .reel-embed iframe{width:100%;height:480px;border:none;display:block;}
 .reel-text .icon-ig{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:18px;background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
 .reel-text h3{font-size:22px;margin-bottom:14px;}
-.reel-text p{color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:20px;}
+.reel-text p{color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:16px;}
+.reel-points{margin:0 0 24px;padding:0;list-style:none;}
+.reel-points li{position:relative;padding-left:22px;font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+.reel-points li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
 .reel-text a.btn-ig{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#f5f4f2!important;padding:13px 26px;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;transition:all .3s ease;}
 .reel-text a.btn-ig:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,55,65,.25);}
 
@@ -240,14 +243,18 @@ footer{background:#141516;color:#cfcdc9;padding:70px 0 0;}
     </div>
     <div class="reel-box reveal-up">
       <div class="reel-embed">
-        <!-- Substituir a URL abaixo pelo link do reel/post do Instagram -->
-        <iframe src="https://www.instagram.com/reel/SEU_LINK_AQUI/embed" scrolling="no" allowtransparency="true"></iframe>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaTitPxRKbs/" data-instgrm-version="14" style="margin:0 auto;max-width:340px;width:100%;"></blockquote>
       </div>
       <div class="reel-text">
         <div class="icon-ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
         <h3>Direto do Instagram</h3>
-        <p>Nossa equipe compartilha regularmente análises sobre a Reforma Tributária e seus impactos para as empresas. Veja este e outros conteúdos no nosso perfil.</p>
-        <a class="btn-ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener">Ver no Instagram</a>
+        <p>Nossa equipe compartilha regularmente análises sobre a Reforma Tributária e seus impactos para as empresas.</p>
+        <ul class="reel-points">
+          <li>Explicações objetivas sobre IBS, CBS e o novo modelo de tributação sobre o consumo</li>
+          <li>Reflexos práticos para o planejamento tributário das empresas</li>
+          <li>Conteúdo pensado para gestores, contadores e profissionais da área jurídica</li>
+        </ul>
+        <a class="btn-ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener">Ver mais no Instagram</a>
       </div>
     </div>
   </div>
@@ -349,6 +356,6 @@ const mobileNav = document.querySelector('.mobile-nav');
 if(menuBtn && mobileNav){menuBtn.addEventListener('click',()=>mobileNav.classList.add('open'));mobileNav.querySelectorAll('a,.mobile-close').forEach(el=>el.addEventListener('click',()=>mobileNav.classList.remove('open')));}
 const revealEls = document.querySelectorAll('.reveal-up');
 if(revealEls.length){const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-visible');});},{threshold:.15});revealEls.forEach(el=>io.observe(el));}
-</script>
+</script><script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
