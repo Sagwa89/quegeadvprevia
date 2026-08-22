@@ -110,11 +110,12 @@ nav a:hover::after{transform:scaleX(1);}
 .reel-box{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
 @media(max-width:860px){.reel-box{grid-template-columns:1fr;}.reel-box .reel-embed{order:-1;margin:0 auto;}}
 .reel-embed{position:relative;}
-.reel-text{text-align:center;}
-.reel-text .icon-ig{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin:0 auto 18px;background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+.reel-text{text-align:left;}
+.reel-text .icon-ig{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin:0 0 18px;background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
 .reel-text h3{font-size:30px;margin-bottom:20px;}
 .reel-text a.btn-ig{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#f5f4f2!important;padding:15px 32px;font-family:'Montserrat';font-weight:700;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;transition:all .3s ease;}
 .reel-text a.btn-ig:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,55,65,.25);}
+.reel-posts{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
 
 /* FORM ORÇAMENTO */
 .orcamento-wrap{max-width:760px;margin:0 auto;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:44px;}
@@ -254,7 +255,10 @@ footer{background:var(--gold-soft);color:#cfcdc9;padding:70px 0 0;}
         <a class="btn-ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener">@quegeadv</a>
       </div>
       <div class="reel-embed">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaTitPxRKbs/" data-instgrm-version="14"></blockquote>
+        <div class="reel-posts">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaTitPxRKbs/" data-instgrm-version="14"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV9eRm0j8EW/" data-instgrm-version="14"></blockquote>
+        </div>
       </div>
     </div>
   </div>
