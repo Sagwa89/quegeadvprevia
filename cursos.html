@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos | Quege Advogados</title>
+<link rel="icon" type="image/webp" href="imagens/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f3f0;--bg-alt:#e9e7e2;--gold:#1F3741;--gold-soft:#163037;--white:#1a1a1a;
+  --muted:#5c5c58;--line:#dedbd4;--shadow-soft:0 20px 50px -20px rgba(0,0,0,.15);--gold-light:#7fb0bc;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+.container{max-width:1380px;margin:0 auto;padding:0 40px;}
+.eyebrow{font-family:'Montserrat';font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+h1,h2,h3{font-family:'Montserrat';font-weight:500;}
+a{color:inherit;text-decoration:none;transition:color .3s ease;}
+a:hover{color:var(--gold);}
+ul{list-style:none;}
+body{position:relative;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 15% 0%, rgba(31,55,65,.05), transparent 40%),radial-gradient(circle at 100% 30%, rgba(31,55,65,.035), transparent 35%);}
+header,section,footer{position:relative;z-index:1;}
+.side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
+@media(max-width:760px){.side-maze-strip{width:14px;}}
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 20px 16px 64px;background:transparent;color:#f5f4f2;transition:background .3s ease, box-shadow .3s ease, color .3s ease;}
+header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px 24px -12px rgba(0,0,0,.18);color:#1a1a1a;}
+header.scrolled .menu-btn{color:#1a1a1a;}
+@media(max-width:760px){header{padding-left:34px;}}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:min(100px,22vw);height:auto;display:flex;align-items:center;justify-content:center;transition:transform .5s ease;position:relative;z-index:2;}
+.logo-mark img{width:100%;height:100%;object-fit:contain;}
+.logo:hover .logo-mark{transform:scale(1.06);}
+.header-right{display:flex;align-items:center;gap:26px;}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+nav a{font-family:'Montserrat';font-weight:300;font-size:13.5px;letter-spacing:.03em;opacity:.9;position:relative;padding-bottom:4px;white-space:nowrap;color:#f5f4f2;}
+nav a:hover{color:#f5f4f2;opacity:1;}
+header.scrolled nav a{color:#1a1a1a;}
+header.scrolled nav a:hover{color:#1a1a1a;}
+nav a.active{color:#cc9a3f;opacity:1;}
+header.scrolled nav a.active{color:#cc9a3f;}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:#cc9a3f;transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+nav a:hover::after{transform:scaleX(1);}
+.social{display:flex;gap:12px;align-items:center;}
+.social a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s ease, box-shadow .3s ease, filter .3s ease;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.25);}
+.social a.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+.social a.wa{background:#25D366;}
+.social a:hover{transform:translateY(-3px) scale(1.06);filter:brightness(1.08);}
+.social a svg{width:18px;height:18px;}
+.menu-btn{display:none;background:none;border:none;color:#f5f4f2;font-size:26px;cursor:pointer;}
+.mobile-nav{display:none;position:fixed;inset:0;background:rgba(10,11,12,.98);z-index:60;flex-direction:column;align-items:center;justify-content:center;gap:26px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-family:'Montserrat';font-size:20px;}
+.mobile-close{position:absolute;top:24px;right:28px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;}
+@media(max-width:960px){nav.desktop-nav{display:none;}.social{display:none;}.header-right{display:flex;}.menu-btn{display:block;}.container{padding:0 24px;}header{padding:16px 24px;}}
+.page-hero{position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;background:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)) center/cover;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:3px;background:var(--gold);}
+.page-hero .eyebrow{display:block;margin-bottom:18px;}
+.page-hero h1{font-size:clamp(30px,4vw,48px);line-height:1.2;font-weight:400;max-width:820px;margin:0 auto 18px;}
+.page-hero p{color:#d8d6d2;font-size:17px;max-width:640px;margin:0 auto;font-weight:300;}
+.breadcrumb{font-size:13px;color:var(--muted);margin-top:22px;}
+.breadcrumb a:hover{color:var(--gold);}
+.reveal-up{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1);}
+.reveal-up.is-visible{opacity:1;transform:translateY(0);}
+.wa-float{position:fixed;right:32px;bottom:32px;z-index:40;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.5);color:white;animation:waPulse 2.2s infinite;}
+.wa-float:hover{transform:scale(1.1);color:white;animation-play-state:paused;}
+@keyframes waPulse{0%{box-shadow:0 6px 18px rgba(0,0,0,.5),0 0 0 0 rgba(37,211,102,.55);}70%{box-shadow:0 6px 18px rgba(0,0,0,.5),0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 6px 18px rgba(0,0,0,.5),0 0 0 0 rgba(37,211,102,0);}}
+.section{padding:110px 0;}
+.section-alt{background:var(--bg-alt);}
+.section-head{max-width:680px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(28px,3.5vw,40px);line-height:1.25;margin-top:14px;}
+.section-head p{color:var(--muted);font-size:16px;margin-top:18px;line-height:1.8;}
+.section-tag{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.section-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.section-tag .line{height:1px;width:36px;background:var(--gold);opacity:.5;}
+
+/* CURSOS GRID */
+.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+@media(max-width:960px){.cursos-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.cursos-grid{grid-template-columns:1fr;}}
+.curso-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;}
+.curso-card:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.4);box-shadow:var(--shadow-soft);}
+.curso-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3;}
+.curso-card:hover::before{transform:scaleX(1);}
+.curso-card .curso-img{height:160px;background-size:cover;background-position:center;position:relative;}
+.curso-card .curso-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,17,19,0) 40%, rgba(15,17,19,.95));}
+.curso-card .curso-tag{position:absolute;top:14px;left:14px;background:var(--gold);color:#fff;font-family:'Montserrat';font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:4px;z-index:1;}
+.curso-card .curso-body{padding:24px 26px 28px;}
+.curso-card h3{font-size:18.5px;margin-bottom:10px;color:#fff;}
+.curso-card p{font-size:14.5px;color:#cfcdc9;line-height:1.7;margin-bottom:16px;}
+.curso-card .curso-meta{display:flex;gap:16px;font-size:12.5px;color:var(--gold-light);margin-bottom:16px;font-family:'Montserrat';}
+.curso-card .btn-mini{display:inline-flex;align-items:center;gap:7px;font-family:'Montserrat';font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-light);}
+
+/* REEL / INSTAGRAM BOX */
+.reel-box{display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:36px;}
+@media(max-width:860px){.reel-box{grid-template-columns:1fr;}}
+.reel-embed{position:relative;width:100%;max-width:340px;margin:0 auto;border-radius:10px;overflow:hidden;box-shadow:var(--shadow-soft);}
+.reel-embed iframe{width:100%;height:480px;border:none;display:block;}
+.reel-text .icon-ig{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:18px;background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+.reel-text h3{font-size:22px;margin-bottom:14px;}
+.reel-text p{color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:20px;}
+.reel-text a.btn-ig{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#f5f4f2!important;padding:13px 26px;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;transition:all .3s ease;}
+.reel-text a.btn-ig:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,55,65,.25);}
+
+/* FORM ORÇAMENTO */
+.orcamento-wrap{max-width:760px;margin:0 auto;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:44px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+@media(max-width:640px){.form-row{grid-template-columns:1fr;}}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:6px;background:#fff;font-family:'Inter';font-size:14.5px;color:var(--white);}
+.field textarea{min-height:110px;resize:vertical;}
+.field-full{margin-bottom:18px;}
+.btn2{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#f5f4f2!important;padding:15px 34px;font-family:'Montserrat';font-weight:700;font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;border:none;cursor:pointer;transition:all .3s ease;}
+.btn2:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,55,65,.25);}
+.privacy{font-size:12.5px;color:var(--muted);margin-top:14px;}
+
+footer{background:#141516;color:#cfcdc9;padding:70px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:50px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.08);}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr;gap:36px;}}
+.footer-logo{width:120px;margin-bottom:16px;filter:brightness(0) invert(1);opacity:.9;}
+.footer-about{font-size:13.5px;line-height:1.8;color:#a8a6a2;max-width:320px;}
+.footer-social{display:flex;gap:10px;margin-top:20px;}
+.footer-social a{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,.08);transition:.3s;}
+.footer-social a:hover{transform:translateY(-3px);}
+.footer-social a.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+.footer-social a.wa{background:#25D366;}
+.footer-social a.li{background:#0077b5;}
+.footer-heading{font-family:'Montserrat';font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:18px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:13.5px;color:#a8a6a2;}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-contact p{font-size:13.5px;color:#a8a6a2;margin-bottom:10px;line-height:1.7;}
+.footer-contact a:hover{color:var(--gold-light);}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:24px 0;font-size:12.5px;color:#7d7b78;}
+</style>
+</head>
+<body>
+
+<div class="side-maze-strip"></div>
+
+<header>
+  <div class="logo">
+    <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Quege Advogados"></div></a>
+  </div>
+  <div class="header-right">
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="areas-de-atuacao.html">Áreas de Atuação</a>
+      <a href="blog.html">Blog</a>
+      <a href="cursos.html" class="active">Cursos</a>
+      <a href="utilitarios.html">Utilitários</a>
+      <a href="contato.html">Fale Conosco</a>
+    </nav>
+    <div class="social">
+      <a class="ig" href="https://www.instagram.com/quegeadv/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+      <a class="wa" href="https://wa.me/554435228080" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
+    </div>
+  </div>
+  <button class="menu-btn" aria-label="Abrir menu">☰</button>
+</header>
+
+<div class="mobile-nav">
+  <button class="mobile-close" aria-label="Fechar menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="quem-somos.html">Quem Somos</a>
+  <a href="areas-de-atuacao.html">Áreas de Atuação</a>
+  <a href="blog.html">Blog</a>
+  <a href="cursos.html" class="active">Cursos</a>
+  <a href="utilitarios.html">Utilitários</a>
+  <a href="contato.html">Fale Conosco</a>
+</div>
+
+<section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/wallpaper1.jpg');">
+  <div>
+    <span class="eyebrow">Cursos</span>
+    <h1>Capacitação prática em tributário para empresas e profissionais</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> / Cursos</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag"><span class="dot"></span><span class="eyebrow">Nossos cursos</span><span class="line"></span></div>
+      <h2>Conteúdo aplicado, direto ao ponto, pensado para quem decide na prática.</h2>
+      <p>Turmas fechadas para empresas ou abertas para profissionais da área contábil e jurídica.</p>
+    </div>
+
+    <div class="cursos-grid">
+      <div class="curso-card reveal-up">
+        <div class="curso-img" style="background-image:url('imagens/reformatributaria.jpg');"><span class="curso-tag">Em destaque</span></div>
+        <div class="curso-body">
+          <h3>Reforma Tributária na Prática (IBS/CBS)</h3>
+          <p>Como o novo modelo de tributação sobre o consumo impacta sua empresa e o que fazer desde já para se preparar.</p>
+          <div class="curso-meta"><span>⏱ 4h</span><span>🎓 Online ou In Company</span></div>
+          <a href="#orcamento" class="btn-mini">Solicitar orçamento →</a>
+        </div>
+      </div>
+      <div class="curso-card reveal-up">
+        <div class="curso-img" style="background-image:url('imagens/planejamentotributario.jpg');"></div>
+        <div class="curso-body">
+          <h3>Planejamento Tributário Estratégico</h3>
+          <p>Ferramentas legais para reduzir carga tributária e organizar a estrutura fiscal da empresa.</p>
+          <div class="curso-meta"><span>⏱ 6h</span><span>🎓 In Company</span></div>
+          <a href="#orcamento" class="btn-mini">Solicitar orçamento →</a>
+        </div>
+      </div>
+      <div class="curso-card reveal-up">
+        <div class="curso-img" style="background-image:url('imagens/recuperacaodecreditos.jpg');"></div>
+        <div class="curso-body">
+          <h3>Recuperação de Créditos Tributários</h3>
+          <p>Como identificar e recuperar créditos pagos indevidamente, com foco prático para o setor contábil.</p>
+          <div class="curso-meta"><span>⏱ 3h</span><span>🎓 Online</span></div>
+          <a href="#orcamento" class="btn-mini">Solicitar orçamento →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag"><span class="dot"></span><span class="eyebrow">Treinamentos in company</span><span class="line"></span></div>
+      <h2>Cursos personalizados, desenvolvidos para a realidade da sua empresa</h2>
+      <p>Além das turmas abertas, estruturamos programas de capacitação sob medida nas áreas tributária e societária, com conteúdo, carga horária e nível de aprofundamento definidos conforme as necessidades e o perfil de cada empresa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag"><span class="dot"></span><span class="eyebrow">Instagram</span><span class="line"></span></div>
+      <h2>Acompanhe nossos conteúdos sobre Reforma Tributária</h2>
+    </div>
+    <div class="reel-box reveal-up">
+      <div class="reel-embed">
+        <!-- Substituir a URL abaixo pelo link do reel/post do Instagram -->
+        <iframe src="https://www.instagram.com/reel/SEU_LINK_AQUI/embed" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+      <div class="reel-text">
+        <div class="icon-ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+        <h3>Direto do Instagram</h3>
+        <p>Nossa equipe compartilha regularmente análises sobre a Reforma Tributária e seus impactos para as empresas. Veja este e outros conteúdos no nosso perfil.</p>
+        <a class="btn-ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener">Ver no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="orcamento">
+  <div class="container">
+    <div class="section-head reveal-up" style="margin:0 auto 40px;text-align:center;">
+      <div class="section-tag" style="justify-content:center;"><span class="dot"></span><span class="eyebrow">Orçamento</span><span class="line"></span></div>
+      <h2>Solicite um orçamento para o seu curso</h2>
+      <p>Preencha o formulário e nossa equipe retorna com uma proposta personalizada.</p>
+    </div>
+
+    <form class="orcamento-wrap reveal-up" onsubmit="event.preventDefault(); alert('Solicitação enviada! Entraremos em contato em breve.'); this.reset();">
+      <div class="form-row">
+        <div class="field"><input type="text" placeholder="Nome" required></div>
+        <div class="field"><input type="text" placeholder="Empresa (se aplicável)"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><input type="email" placeholder="E-mail" required></div>
+        <div class="field"><input type="tel" placeholder="Telefone"></div>
+      </div>
+      <div class="field field-full">
+        <select required>
+          <option value="">Curso de interesse</option>
+          <option>Reforma Tributária na Prática (IBS/CBS)</option>
+          <option>Planejamento Tributário Estratégico</option>
+          <option>Recuperação de Créditos Tributários</option>
+          <option>Outro / a definir</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="field"><input type="number" min="1" placeholder="Nº de participantes"></div>
+        <div class="field">
+          <select>
+            <option value="">Formato preferido</option>
+            <option>Online (ao vivo)</option>
+            <option>In Company</option>
+            <option>Gravado</option>
+          </select>
+        </div>
+      </div>
+      <div class="field field-full"><textarea placeholder="Detalhes adicionais (data desejada, carga horária, objetivo do curso...)"></textarea></div>
+
+      <button type="submit" class="btn2">Solicitar orçamento</button>
+      <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
+    </form>
+  </div>
+</section>
+
+<a class="wa-float" href="https://wa.me/554435228080" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+</a>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Quege Advogados">
+        <p class="footer-about">Quege Sociedade de Advocacia. Assessoria tributária estratégica e preventiva, proteção patrimonial e sucessória para empresas.</p>
+        <div class="footer-social">
+          <a class="ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a class="wa" href="https://wa.me/554435228080" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
+          <a class="li" href="https://www.linkedin.com/in/felipequege/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-heading">Navegação</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="quem-somos.html">Quem Somos</a>
+          <a href="areas-de-atuacao.html">Áreas de Atuação</a>
+          <a href="blog.html">Blog</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="utilitarios.html">Utilitários</a>
+          <a href="contato.html">Fale Conosco</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-heading">Contato</div>
+        <p>Atendimento em Canoinhas/SC e Curitiba/PR</p>
+        <p>(42) 3522-8080 | (42) 3522-0048 | (42) 3522-9075</p>
+        <p><a href="mailto:contato@quegeadv.com.br">contato@quegeadv.com.br</a></p>
+        <p>SEG - SEX: 8h - 12h | 13h30 - 18h</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Quege Advogados. Todos os direitos reservados.</p>
+      <p>Canoinhas/SC · Curitiba/PR</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.querySelector('header');
+if(header){const onScroll=()=>{header.classList.toggle('scrolled', window.scrollY>40);};window.addEventListener('scroll',onScroll);onScroll();}
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNav = document.querySelector('.mobile-nav');
+if(menuBtn && mobileNav){menuBtn.addEventListener('click',()=>mobileNav.classList.add('open'));mobileNav.querySelectorAll('a,.mobile-close').forEach(el=>el.addEventListener('click',()=>mobileNav.classList.remove('open')));}
+const revealEls = document.querySelectorAll('.reveal-up');
+if(revealEls.length){const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-visible');});},{threshold:.15});revealEls.forEach(el=>io.observe(el));}
+</script>
+</body>
+</html>
