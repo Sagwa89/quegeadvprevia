@@ -82,21 +82,28 @@ nav a:hover::after{transform:scaleX(1);}
 .cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 @media(max-width:960px){.cursos-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:640px){.cursos-grid{grid-template-columns:1fr;}}
-.curso-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;}
+.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;}
+@media(max-width:960px){.cursos-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.cursos-grid{grid-template-columns:1fr;}}
+.curso-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;display:flex;flex-direction:column;height:100%;}
 .curso-card:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.4);box-shadow:var(--shadow-soft);}
 .curso-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3;}
 .curso-card:hover::before{transform:scaleX(1);}
-.curso-card .curso-img{height:160px;background-size:cover;background-position:center;position:relative;}
+.curso-card .curso-img{height:160px;background-size:cover;background-position:center;position:relative;flex-shrink:0;}
 .curso-card .curso-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,17,19,0) 40%, rgba(15,17,19,.95));}
 .curso-card .curso-tag{position:absolute;top:14px;left:14px;background:var(--gold);color:#fff;font-family:'Montserrat';font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:4px;z-index:1;}
-.curso-card .curso-body{padding:24px 26px 28px;}
+.curso-card .curso-body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1;}
 .curso-card h3{font-size:18.5px;margin-bottom:10px;color:var(--gold-soft);}
 .curso-card p{font-size:14.5px;color:#2c3a3e;line-height:1.7;margin-bottom:16px;}
 .curso-card .curso-meta{display:flex;gap:16px;font-size:12.5px;color:var(--gold-soft);margin-bottom:16px;font-family:'Montserrat';}
-.curso-card .btn-mini{display:inline-flex;align-items:center;gap:7px;font-family:'Montserrat';font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-soft);}
+.curso-card .btn-mini{display:inline-flex;align-items:center;gap:7px;font-family:'Montserrat';font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-soft);margin-top:auto;}
 
 /* REEL / INSTAGRAM BOX */
-.reel-box{display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:36px;}
+.incompany-box{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+@media(max-width:860px){.incompany-box{grid-template-columns:1fr;}}
+.incompany-box p{color:var(--muted);font-size:16px;line-height:1.8;}
+.incompany-box img{width:100%;height:340px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow-soft);}
+@media(max-width:860px){.incompany-box img{height:260px;}}
 @media(max-width:860px){.reel-box{grid-template-columns:1fr;}}
 .reel-embed{position:relative;width:100%;max-width:340px;margin:0 auto;border-radius:10px;overflow:hidden;box-shadow:var(--shadow-soft);}
 .reel-embed iframe{width:100%;height:480px;border:none;display:block;}
@@ -230,6 +237,9 @@ footer{background:#141516;color:#cfcdc9;padding:70px 0 0;}
     <div class="section-head reveal-up">
       <div class="section-tag"><span class="dot"></span><span class="eyebrow">Treinamentos in company</span><span class="line"></span></div>
       <h2>Cursos personalizados, desenvolvidos para a realidade da sua empresa</h2>
+    </div>
+    <div class="incompany-box reveal-up">
+      <img src="imagens/treinamentosincompany.webp" alt="Treinamentos in company">
       <p>Além das turmas abertas, estruturamos programas de capacitação sob medida nas áreas tributária e societária, com conteúdo, carga horária e nível de aprofundamento definidos conforme as necessidades e o perfil de cada empresa.</p>
     </div>
   </div>
@@ -239,7 +249,7 @@ footer{background:#141516;color:#cfcdc9;padding:70px 0 0;}
   <div class="container">
     <div class="section-head reveal-up">
       <div class="section-tag"><span class="dot"></span><span class="eyebrow">Instagram</span><span class="line"></span></div>
-      <h2>Acompanhe nossos conteúdos sobre Reforma Tributária</h2>
+      <h2>Assista este vídeo no nosso Instagram</h2>
     </div>
     <div class="reel-box reveal-up">
       <div class="reel-embed">
@@ -247,14 +257,9 @@ footer{background:#141516;color:#cfcdc9;padding:70px 0 0;}
       </div>
       <div class="reel-text">
         <div class="icon-ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-        <h3>Direto do Instagram</h3>
-        <p>Nossa equipe compartilha regularmente análises sobre a Reforma Tributária e seus impactos para as empresas.</p>
-        <ul class="reel-points">
-          <li>Explicações objetivas sobre IBS, CBS e o novo modelo de tributação sobre o consumo</li>
-          <li>Reflexos práticos para o planejamento tributário das empresas</li>
-          <li>Conteúdo pensado para gestores, contadores e profissionais da área jurídica</li>
-        </ul>
-        <a class="btn-ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener">Ver mais no Instagram</a>
+        <h3>Toque na imagem ao lado</h3>
+        <p>Para assistir ao vídeo completo, é só clicar na publicação ou visitar o nosso perfil no Instagram.</p>
+        <a class="btn-ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener">Ir para o Instagram</a>
       </div>
     </div>
   </div>
