@@ -408,11 +408,30 @@ footer::before{background:#7fb0bc !important;}
   .footer-grid{overflow-x:hidden;}
 }
 
+
+/* Acessibilidade e navegação por teclado */
+.skip-link{position:fixed;left:16px;top:10px;z-index:9999;padding:10px 16px;border-radius:4px;background:#1F3741;color:#fff;transform:translateY(-160%);transition:transform .2s ease;}
+.skip-link:focus{transform:translateY(0);color:#fff;}
+:focus-visible{outline:3px solid #cc9a3f;outline-offset:3px;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
 </style>
 <title>Áreas de Atuação | Quege Advogados</title>
 <meta name="description" content="Planejamento tributário, recuperação de créditos, defesa fiscal, proteção patrimonial, Reforma Tributária e consultoria contínua.">
+<link rel="canonical" href="https://quege.adv.br/areas-de-atuacao.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Quege Sociedade de Advocacia">
+<meta property="og:url" content="https://quege.adv.br/areas-de-atuacao.html">
+<meta property="og:title" content="&#193;reas de Atua&#231;&#227;o | Quege Advogados">
+<meta property="og:description" content="Planejamento tribut&#225;rio, recupera&#231;&#227;o de cr&#233;ditos, defesa fiscal, prote&#231;&#227;o patrimonial, Reforma Tribut&#225;ria e consultoria cont&#237;nua.">
+<meta property="og:image" content="https://quege.adv.br/imagens/logoquegeadv.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="&#193;reas de Atua&#231;&#227;o | Quege Advogados">
+<meta name="twitter:description" content="Planejamento tribut&#225;rio, recupera&#231;&#227;o de cr&#233;ditos, defesa fiscal, prote&#231;&#227;o patrimonial, Reforma Tribut&#225;ria e consultoria cont&#237;nua.">
+<meta name="twitter:image" content="https://quege.adv.br/imagens/logoquegeadv.webp">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 <div class="side-maze-strip" id="sideMazeStrip" aria-hidden="true"></div>
 <script>
 (function(){
@@ -438,7 +457,7 @@ footer::before{background:#7fb0bc !important;}
 </script>
 <header>
   <div class="logo">
-    <a href="index.html"><div class="logo-mark"><img src="imagens/logoquegeadv.png" alt="Quege Advogados"></div></a>
+    <a href="index.html"><div class="logo-mark"><img width="100" height="100" src="imagens/logoquegeadv.png" alt="Quege Advogados" loading="eager" decoding="async"></div></a>
   </div>
   <div class="header-right">
     <nav class="desktop-nav">
@@ -456,10 +475,10 @@ footer::before{background:#7fb0bc !important;}
       <a class="wa" href="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20minha%20empresa." aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></a>
     </div>
   </div>
-  <button class="menu-btn" aria-label="Abrir menu">☰</button>
+  <button class="menu-btn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
 </header>
 
-<div class="mobile-nav">
+<div class="mobile-nav" id="mobileMenu" role="navigation" aria-label="Menu principal">
   <button class="mobile-close" aria-label="Fechar menu">✕</button>
   <a href="index.html" class="">Home</a>
       <a href="quem-somos.html" class="">Quem Somos</a>
@@ -471,11 +490,12 @@ footer::before{background:#7fb0bc !important;}
       <a href="contato.html" class="">Fale Conosco</a>
 </div>
 
-<section class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/wallpaper1.jpg');">
+<section id="main-content" tabindex="-1" class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/wallpaper1.jpg');">
   <div>
     <span class="eyebrow">Áreas de Atuação</span>
     <h1>Soluções jurídicas e tributárias de alta performance</h1>
     <p class="breadcrumb"><a href="index.html">Home</a> / Áreas de Atuação</p>
+    <a href="#contato-areas" class="btn-primary" style="margin-top:24px;">Solicitar uma análise <span class="arrow">→</span></a>
   </div>
 </section>
 
@@ -486,27 +506,27 @@ footer::before{background:#7fb0bc !important;}
       <h2>Cada área pode ser contratada isoladamente ou combinada dentro de um plano contínuo de gestão fiscal e patrimonial.</h2>
     </div>
     <div class="areas-cards-grid">
-      <a href="#" class="area-card reveal-up">
+      <a href="#contato-areas" class="area-card reveal-up">
         <div class="bg-img" style="background-image:url('imagens/planejamentotributario.jpg');"></div>
         <div class="area-card-inner"><h3>Planejamento Tributário</h3></div>
       </a>
-      <a href="#" class="area-card reveal-up">
+      <a href="#contato-areas" class="area-card reveal-up">
         <div class="bg-img" style="background-image:url('imagens/recuperacaodecreditos.jpg');"></div>
         <div class="area-card-inner"><h3>Recuperação de Créditos</h3></div>
       </a>
-      <a href="#" class="area-card reveal-up">
+      <a href="#contato-areas" class="area-card reveal-up">
         <div class="bg-img" style="background-image:url('imagens/defesaecontencioso.jpg');"></div>
         <div class="area-card-inner"><h3>Defesa e Contencioso</h3></div>
       </a>
-      <a href="#" class="area-card reveal-up">
+      <a href="#contato-areas" class="area-card reveal-up">
         <div class="bg-img" style="background-image:url('imagens/protecaopatrimonial.jpg');"></div>
         <div class="area-card-inner"><h3>Proteção Patrimonial</h3></div>
       </a>
-      <a href="#" class="area-card reveal-up">
+      <a href="#contato-areas" class="area-card reveal-up">
         <div class="bg-img" style="background-image:url('imagens/reformatributaria.jpg');"></div>
         <div class="area-card-inner"><h3>Reforma Tributária</h3></div>
       </a>
-      <a href="#" class="area-card reveal-up">
+      <a href="#contato-areas" class="area-card reveal-up">
         <div class="bg-img" style="background-image:url('imagens/consultoriacontinua.jpg');"></div>
         <div class="area-card-inner"><h3>Consultoria Contínua</h3></div>
       </a>
@@ -566,16 +586,17 @@ footer::before{background:#7fb0bc !important;}
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
       <div class="form-row">
-        <div class="field"><input id="nome" name="Nome" type="text" placeholder="Nome" autocomplete="given-name" minlength="2" maxlength="60" required></div>
-        <div class="field"><input id="sobrenome" name="Sobrenome" type="text" placeholder="Sobrenome" autocomplete="family-name" maxlength="60"></div>
+        <div class="field"><input id="nome" name="Nome" type="text" placeholder="Nome" autocomplete="given-name" minlength="2" maxlength="60" required aria-label="Nome"></div>
+        <div class="field"><input id="sobrenome" name="Sobrenome" type="text" placeholder="Sobrenome" autocomplete="family-name" maxlength="60" aria-label="Sobrenome"></div>
       </div>
       <div class="form-row">
-        <div class="field"><input id="email" name="E-mail" type="email" placeholder="E-mail" autocomplete="email" maxlength="100" required></div>
-        <div class="field"><input id="telefone" name="Telefone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}" title="Informe um telefone válido, ex: (47) 98403-3110" required></div>
+        <div class="field"><input id="email" name="E-mail" type="email" placeholder="E-mail" autocomplete="email" maxlength="100" required aria-label="E-mail"></div>
+        <div class="field"><input id="telefone" name="Telefone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}" title="Informe um telefone válido, ex: (47) 98403-3110" required aria-label="(00) 00000-0000"></div>
       </div>
       <div class="field field-full">
-        <select id="assunto" name="Assunto">
+        <select id="assunto" name="Assunto" aria-label="Assunto">
           <option value="">Assunto (opcional)</option>
           <option>Planejamento Tributário</option>
           <option>Recuperação de Créditos</option>
@@ -585,11 +606,11 @@ footer::before{background:#7fb0bc !important;}
           <option>Outro assunto</option>
         </select>
       </div>
-      <div class="field field-full"><textarea id="mensagem" name="Mensagem" placeholder="Mensagem" minlength="10" maxlength="1500" required></textarea></div>
+      <div class="field field-full"><textarea id="mensagem" name="Mensagem" placeholder="Mensagem" minlength="10" maxlength="1500" required aria-label="Mensagem"></textarea></div>
 
       <button type="submit" class="btn2" id="contatoBtn">Enviar mensagem</button>
       <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
-      <p id="contatoMsg" style="display:none;margin-top:16px;padding:14px 18px;border-radius:8px;font-family:'Montserrat';font-weight:600;font-size:14px;"></p>
+      <p id="contatoMsg" role="status" aria-live="polite" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:14px 18px;border-radius:8px;font-family:'Montserrat';font-weight:600;font-size:14px;"></p>
     </form>
     <script>
     (function(){
@@ -606,17 +627,19 @@ footer::before{background:#7fb0bc !important;}
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: new FormData(form)
-        }).then(function(res){ return res.json(); }).then(function(){
+        }).then(function(res){ if(!res.ok) throw new Error('Falha no envio'); return res.json(); }).then(function(){
           msg.textContent = '✓ Mensagem enviada com sucesso! Em breve entraremos em contato.';
           msg.style.color = '#fff';
           msg.style.background = '#1F3741';
           msg.style.display = 'block';
+          if(window.trackSiteEvent) window.trackSiteEvent('form_submit_success', {form_id:form.id || 'formulario'});
           form.reset();
         }).catch(function(){
           msg.textContent = 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.';
           msg.style.color = '#fff';
           msg.style.background = '#b3261e';
           msg.style.display = 'block';
+        if(window.trackSiteEvent) window.trackSiteEvent('form_submit_error', {form_id:form.id || 'formulario'});
         }).finally(function(){
           btn.disabled = false;
           btn.textContent = originalText;
@@ -641,7 +664,7 @@ footer::before{background:#7fb0bc !important;}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Quege Advogados">
+        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Quege Advogados" loading="lazy" decoding="async" width="180" height="180">
         <p class="footer-about">Quege Sociedade de Advocacia. Assessoria tributária estratégica e preventiva, proteção patrimonial e sucessória para empresas.</p>
         <div class="footer-social">
           <a class="ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
@@ -691,8 +714,17 @@ if(header){
 const menuBtn = document.querySelector('.menu-btn');
 const mobileNav = document.querySelector('.mobile-nav');
 if(menuBtn && mobileNav){
-  menuBtn.addEventListener('click', () => mobileNav.classList.add('open'));
-  mobileNav.querySelectorAll('a, .mobile-close').forEach(el => el.addEventListener('click', () => mobileNav.classList.remove('open')));
+  const mobileClose = mobileNav.querySelector('.mobile-close');
+  const setMenuOpen = (open) => {
+    mobileNav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    if(open && mobileClose) mobileClose.focus();
+    if(!open) menuBtn.focus();
+  };
+  menuBtn.addEventListener('click', () => setMenuOpen(true));
+  mobileNav.querySelectorAll('a, .mobile-close').forEach(el => el.addEventListener('click', () => setMenuOpen(false)));
+  document.addEventListener('keydown', (event) => { if(event.key === 'Escape' && mobileNav.classList.contains('open')) setMenuOpen(false); });
 }
 
 // REVEAL ON SCROLL
@@ -703,6 +735,34 @@ if(revealEls.length){
   }, {threshold:.15});
   revealEls.forEach(el => io.observe(el));
 }
+</script>
+<script id="site-event-tracking">
+(function(){
+  window.trackSiteEvent = function(name, params){
+    params = params || {};
+    params.page_path = location.pathname;
+    if(typeof window.gtag === 'function'){
+      window.gtag('event', name, params);
+    }else{
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({event:name}, params));
+    }
+  };
+  document.addEventListener('click', function(event){
+    var link = event.target.closest('a');
+    if(!link) return;
+    var href = link.getAttribute('href') || '';
+    var placement = link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : link.classList.contains('wa-float') ? 'floating' : 'content';
+    if(href.indexOf('wa.me') !== -1){
+      window.trackSiteEvent('whatsapp_click', {placement:placement, link_text:(link.textContent || link.getAttribute('aria-label') || 'WhatsApp').trim()});
+    }else if(link.matches('.btn-primary,.btn2,.btn-mini,.readmore')){
+      window.trackSiteEvent('cta_click', {placement:placement, link_text:(link.textContent || '').trim(), link_url:href});
+    }
+  });
+  document.addEventListener('submit', function(event){
+    window.trackSiteEvent('form_submit_attempt', {form_id:event.target.id || 'formulario'});
+  });
+})();
 </script>
 </body>
 </html>
