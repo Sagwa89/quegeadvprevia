@@ -530,7 +530,24 @@ footer::before{background:#7fb0bc !important;}
 <body>
 <script>if('scrollRestoration' in history){history.scrollRestoration='manual';}
 if(!location.hash){window.scrollTo(0,0);}</script>
-<div class="side-maze-strip" aria-hidden="true"></div>
+<div class="side-maze-strip" id="sideMazeStrip" aria-hidden="true"></div>
+<script>
+(function(){
+  var el = document.getElementById('sideMazeStrip');
+  if(!el) return;
+  var ticking = false;
+  function update(){
+    el.style.backgroundPositionY = (window.scrollY * 0.5) + 'px';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, {passive:true});
+})();
+</script>
 <div class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
 <header>
   <div class="logo">
