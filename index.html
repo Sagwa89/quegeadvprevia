@@ -531,7 +531,7 @@ footer::before{background:#7fb0bc !important;}
     "addressCountry": "BR"
   },
   "telephone": "+55-47-98403-3110",
-  "email": "hendlerjulia89@gmail.com",
+  "email": "contato@quege.adv.br",
   "areaServed": ["Canoinhas", "Curitiba", "Santa Catarina", "Paraná"],
   "knowsAbout": ["Direito Tributário", "Reforma Tributária IBS CBS", "Recuperação de Créditos Tributários", "Planejamento Sucessório"],
   "sameAs": [
@@ -770,7 +770,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
       </div>
       <div class="item">
         <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
-        <p>hendlerjulia89@gmail.com</p>
+        <p>contato@quege.adv.br</p>
       </div>
       <div class="item">
         <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
@@ -785,8 +785,9 @@ if(!location.hash){window.scrollTo(0,0);}</script>
       </div>
     </div>
 
-    <form id="contatoForm" action="https://formsubmit.co/ajax/hendlerjulia89@gmail.com" method="POST" class="reveal-up">
+    <form id="contatoForm" action="https://formsubmit.co/ajax/contato@quege.adv.br" method="POST" class="reveal-up">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
+      <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="form-row">
         <div class="field"><input id="nome" name="Nome" type="text" placeholder="Nome" autocomplete="given-name" minlength="2" maxlength="60" required></div>
@@ -811,7 +812,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
 
       <button type="submit" class="btn2" id="contatoBtn">Enviar mensagem</button>
       <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
-      <p id="contatoMsg" style="display:none;margin-top:14px;font-family:'Montserrat';font-size:13.5px;"></p>
+      <p id="contatoMsg" style="display:none;margin-top:16px;padding:14px 18px;border-radius:8px;font-family:'Montserrat';font-weight:600;font-size:14px;"></p>
     </form>
     <script>
     (function(){
@@ -829,13 +830,15 @@ if(!location.hash){window.scrollTo(0,0);}</script>
           headers: { 'Accept': 'application/json' },
           body: new FormData(form)
         }).then(function(res){ return res.json(); }).then(function(){
-          msg.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
-          msg.style.color = '#1F3741';
+          msg.textContent = '✓ Mensagem enviada com sucesso! Em breve entraremos em contato.';
+          msg.style.color = '#fff';
+          msg.style.background = '#1F3741';
           msg.style.display = 'block';
           form.reset();
         }).catch(function(){
           msg.textContent = 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.';
-          msg.style.color = '#b3261e';
+          msg.style.color = '#fff';
+          msg.style.background = '#b3261e';
           msg.style.display = 'block';
         }).finally(function(){
           btn.disabled = false;
@@ -888,7 +891,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
         <div class="footer-heading">Contato</div>
         <p>Atendimento em Canoinhas/SC e Curitiba/PR</p>
         <p>(47) 98403-3110</p>
-        <p><a href="mailto:hendlerjulia89@gmail.com">hendlerjulia89@gmail.com</a></p>
+        <p><a href="mailto:contato@quege.adv.br">contato@quege.adv.br</a></p>
         <p>SEG - SEX: 8h - 12h | 13h30 - 18h</p>
       </div>
     </div>
