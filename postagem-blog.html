@@ -755,7 +755,7 @@ footer::before{background:#7fb0bc!important;}
       </div>
     </div>
 
-    <form id="contatoForm" action="https://wa.me/5547984033110" method="GET" class="reveal-up">
+    <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -785,27 +785,6 @@ footer::before{background:#7fb0bc!important;}
       <p class="privacy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
       <p id="contatoMsg" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:14px 18px;border-radius:8px;font-family:'Montserrat';font-weight:600;font-size:14px;"></p>
     </form>
-    <script>
-    (function(){
-      var form = document.getElementById('contatoForm');
-      var btn = document.getElementById('contatoBtn');
-      if (!form) return;
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        var lines = [form.id === 'orcamentoForm' ? '*Solicitação de orçamento pelo site*' : '*Contato pelo site*'];
-        new FormData(form).forEach(function(value, key){
-          if (key.charAt(0) !== '_' && String(value).trim()) lines.push('*' + key + ':* ' + String(value).trim());
-        });
-        lines.push('*Página:* ' + window.location.href);
-        var url = 'https://wa.me/5547984033110?text=' + encodeURIComponent(lines.join('\n'));
-        if (window.trackSiteEvent) window.trackSiteEvent('form_whatsapp_redirect', {form_id:form.id || 'formulario'});
-        var popup = window.open(url, '_blank', 'noopener');
-        if (!popup) window.location.href = url;
-        if (btn) btn.blur();
-      });
-    })();
-    </script>
   </div>
 
   <div class="container">
