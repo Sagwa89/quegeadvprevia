@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <!-- Preload da imagem LCP -->
-<link rel="preload" as="image" href="imagens/palestra.webp">
+<link rel="preload" as="image" href="imagens/palestra-optimized.webp">
 
 <style>
 :root{
@@ -61,7 +61,8 @@ body::before{
 header,section,footer{position:relative;z-index:1;}
 
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:760px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
 header{
@@ -298,39 +299,46 @@ footer::before{background:#7fb0bc !important;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
 .footer-contact .office-address{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.5;margin-bottom:14px;}
 @media(max-width:860px){.footer-contact .office-address{color:#c9d6d3;}}
+
+/* Rodape padronizado */
+footer{background:#1F3741!important;border-top-color:rgba(255,255,255,.14)!important;}
+footer::before{background:#7fb0bc!important;}
+.footer-logo{width:180px!important;max-width:60%;height:auto!important;margin-bottom:6px!important;filter:none!important;opacity:1!important;}
+.footer-about,.footer-heading,.footer-links a,.footer-links a svg,.footer-contact p,.footer-contact p svg,.footer-contact a,.footer-contact .office-address,.footer-bottom p{color:#fff!important;}
+.footer-bottom{border-top-color:rgba(255,255,255,.14)!important;}
 </style>
 <title>Quem Somos | Quege Sociedade de Advocacia</title>
 <meta name="description" content="Conheça a Quege Sociedade de Advocacia, sua equipe e o advogado responsável Felipe Matheus da Silveira Quege. Sede em Três Barras/SC e filial em Curitiba/PR.">
-<link rel="canonical" href="https://quege.adv.br/quem-somos.html">
+<link rel="canonical" href="https://www.quege.adv.br/quem-somos.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Quege Sociedade de Advocacia">
-<meta property="og:url" content="https://quege.adv.br/quem-somos.html">
+<meta property="og:url" content="https://www.quege.adv.br/quem-somos.html">
 <meta property="og:title" content="Quem Somos | Quege Sociedade de Advocacia">
 <meta property="og:description" content="Conheça a Quege Sociedade de Advocacia, sua equipe e o advogado responsável Felipe Matheus da Silveira Quege. Sede em Três Barras/SC e filial em Curitiba/PR.">
-<meta property="og:image" content="https://quege.adv.br/imagens/logoquegeadv.webp">
+<meta property="og:image" content="https://www.quege.adv.br/imagens/logoquegeadv.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Quem Somos | Quege Sociedade de Advocacia">
 <meta name="twitter:description" content="Conheça a Quege Sociedade de Advocacia, sua equipe e o advogado responsável Felipe Matheus da Silveira Quege. Sede em Três Barras/SC e filial em Curitiba/PR.">
-<meta name="twitter:image" content="https://quege.adv.br/imagens/logoquegeadv.webp">
+<meta name="twitter:image" content="https://www.quege.adv.br/imagens/logoquegeadv.webp">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://quege.adv.br/quem-somos.html#webpage",
-      "url": "https://quege.adv.br/quem-somos.html",
+      "@id": "https://www.quege.adv.br/quem-somos.html#webpage",
+      "url": "https://www.quege.adv.br/quem-somos.html",
       "name": "Quem Somos | Quege Sociedade de Advocacia",
       "headline": "Quem Somos | Quege Sociedade de Advocacia",
       "description": "Conheça a Quege Sociedade de Advocacia, sua equipe e o advogado responsável Felipe Matheus da Silveira Quege. Sede em Três Barras/SC e filial em Curitiba/PR.",
       "inLanguage": "pt-BR",
       "isPartOf": {
-        "@id": "https://quege.adv.br/#website"
+        "@id": "https://www.quege.adv.br/#website"
       },
       "publisher": {
-        "@id": "https://quege.adv.br/#escritorio"
+        "@id": "https://www.quege.adv.br/#escritorio"
       }
     },
     {
@@ -340,13 +348,13 @@ footer::before{background:#7fb0bc !important;}
           "@type": "ListItem",
           "position": 1,
           "name": "Início",
-          "item": "https://quege.adv.br/"
+          "item": "https://www.quege.adv.br/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Quem Somos",
-          "item": "https://quege.adv.br/quem-somos.html"
+          "item": "https://www.quege.adv.br/quem-somos.html"
         }
       ]
     }
@@ -415,7 +423,7 @@ footer::before{background:#7fb0bc !important;}
   <a href="contato.html" class="">Fale Conosco</a>
 </div>
 
-<section id="main-content" tabindex="-1" class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/palestra.webp');">
+<section id="main-content" tabindex="-1" class="page-hero" style="background-image:linear-gradient(rgba(10,11,12,.7),rgba(10,11,12,.92)), url('imagens/palestra-optimized.webp');">
   <div>
     <span class="eyebrow">Quem Somos</span>
     <h1>Tradição jurídica conectada aos novos tempos</h1>
@@ -462,7 +470,7 @@ footer::before{background:#7fb0bc !important;}
         </div>
       </div>
       <div class="team-card reveal-up">
-        <img class="photo" src="imagens/marcelo.webp" alt="Foto do Marcelo Bitencourt de Campos" loading="lazy" decoding="async">
+        <img class="photo" src="imagens/marcelo-optimized.webp" alt="Foto do Marcelo Bitencourt de Campos" loading="lazy" decoding="async">
         <div class="info">
           <h4>Marcelo Bitencourt de Campos</h4>
           <span class="role">Advogado Tributarista e Contador</span>
@@ -477,7 +485,7 @@ footer::before{background:#7fb0bc !important;}
         </div>
       </div>
       <div class="team-card reveal-up">
-        <img class="photo" src="imagens/paola.webp" alt="Foto da Paola" loading="lazy" decoding="async">
+        <img class="photo" src="imagens/paola-optimized.webp" alt="Foto da Paola" loading="lazy" decoding="async">
         <div class="info">
           <h4>Paola Cozzolino dos Santos</h4>
           <span class="role">Advogada</span>
@@ -530,7 +538,7 @@ footer::before{background:#7fb0bc !important;}
       </div>
     </div>
 
-    <form id="contatoForm" action="https://formsubmit.co/ajax/contato@quege.adv.br" method="POST" class="reveal-up">
+    <form id="contatoForm" action="https://wa.me/5547984033110" method="GET" class="reveal-up">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -564,34 +572,20 @@ footer::before{background:#7fb0bc !important;}
     (function(){
       var form = document.getElementById('contatoForm');
       var btn = document.getElementById('contatoBtn');
-      var msg = document.getElementById('contatoMsg');
+      if (!form) return;
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        btn.disabled = true;
-        var originalText = btn.textContent;
-        btn.textContent = 'Enviando...';
-        msg.style.display = 'none';
-        fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        }).then(function(res){ if(!res.ok) throw new Error('Falha no envio'); return res.json(); }).then(function(data){ if (!data || (data.success !== true && data.success !== 'true')) throw new Error((data && data.message) || 'Envio não confirmado');
-          msg.textContent = '✓ Mensagem enviada com sucesso! Em breve entraremos em contato.';
-          msg.style.color = '#fff';
-          msg.style.background = '#1F3741';
-          msg.style.display = 'block';
-          if(window.trackSiteEvent) window.trackSiteEvent('form_submit_success', {form_id:form.id || 'formulario'});
-          form.reset();
-        }).catch(function(){
-          msg.textContent = 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.';
-          msg.style.color = '#fff';
-          msg.style.background = '#b3261e';
-          msg.style.display = 'block';
-        if(window.trackSiteEvent) window.trackSiteEvent('form_submit_error', {form_id:form.id || 'formulario'});
-        }).finally(function(){
-          btn.disabled = false;
-          btn.textContent = originalText;
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var lines = [form.id === 'orcamentoForm' ? '*Solicitação de orçamento pelo site*' : '*Contato pelo site*'];
+        new FormData(form).forEach(function(value, key){
+          if (key.charAt(0) !== '_' && String(value).trim()) lines.push('*' + key + ':* ' + String(value).trim());
         });
+        lines.push('*Página:* ' + window.location.href);
+        var url = 'https://wa.me/5547984033110?text=' + encodeURIComponent(lines.join('\n'));
+        if (window.trackSiteEvent) window.trackSiteEvent('form_whatsapp_redirect', {form_id:form.id || 'formulario'});
+        var popup = window.open(url, '_blank', 'noopener');
+        if (!popup) window.location.href = url;
+        if (btn) btn.blur();
       });
     })();
     </script>
@@ -612,7 +606,7 @@ footer::before{background:#7fb0bc !important;}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Logotipo Quege Advogados no rodapé" loading="lazy" decoding="async" width="180" height="180">
+        <img class="footer-logo" src="imagens/logoquegeadv.webp" alt="Logotipo Quege Advogados no rodapé" loading="lazy" decoding="async" width="180" height="180">
         <p class="footer-about">Quege Sociedade de Advocacia. Assessoria tributária estratégica e preventiva, proteção patrimonial e sucessória para empresas.</p>
         <div class="footer-social">
           <a class="ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Acessar Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>

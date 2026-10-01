@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/webp" href="imagens/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -62,7 +63,8 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:760px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
 header{
@@ -130,7 +132,7 @@ nav a:hover::after{transform:scaleX(1);}
 .breadcrumb a:hover{color:var(--gold);}
 
 /* HERO (home) */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.85)), url('../imagens/palestra.webp') center/cover;}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.85)), url('../imagens/palestra-optimized.webp') center/cover;}
 .hero::before{content:"";position:absolute;top:0;left:0;right:0;height:220px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none;z-index:1;}
 .hero-content{max-width:900px;padding:0 24px;animation: fadeInUp 1.1s cubic-bezier(.22,1,.36,1);}
 .hero h1{font-size:clamp(30px,3.8vw,46px);line-height:1.2;margin-bottom:20px;font-weight:300;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);}
@@ -522,21 +524,65 @@ footer::before{background:#7fb0bc !important;}
 .skip-link:focus{transform:translateY(0);color:#fff;}
 :focus-visible{outline:3px solid #cc9a3f;outline-offset:3px;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
+
+/* Rodape padronizado */
+footer{background:#1F3741!important;border-top-color:rgba(255,255,255,.14)!important;}
+footer::before{background:#7fb0bc!important;}
+.footer-logo{width:180px!important;max-width:60%;height:auto!important;margin-bottom:6px!important;filter:none!important;opacity:1!important;}
+.footer-about,.footer-heading,.footer-links a,.footer-links a svg,.footer-contact p,.footer-contact p svg,.footer-contact a,.footer-contact .office-address,.footer-bottom p{color:#fff!important;}
+.footer-bottom{border-top-color:rgba(255,255,255,.14)!important;}
+
+/* Conteúdo editorial fornecido para os novos artigos */
+.source-article{padding-top:54px;padding-bottom:20px}
+.source-article p.t{margin:0;text-align:justify;hyphens:auto;font-size:15.5px;line-height:1.62;color:#3a444c}
+.source-article p.t + p.t{margin-top:11px}
+.source-article p.lead{font-size:17px;line-height:1.55;color:#20292f;margin:0 0 16px}
+.source-article p.t strong{color:#1b2830;font-weight:600}
+.source-article section{margin-top:26px}
+.source-article h2{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#2c3a43;margin:0 0 12px}
+.source-article .calc,.standalone-calc .calc{background:#fff;border:1px solid #e1ddd3;border-radius:14px;padding:20px 18px}
+.source-article label,.standalone-calc label{display:block;font-size:13.5px;color:#3a444c;margin-bottom:11px;line-height:1.4}
+.source-article .money,.standalone-calc .money{display:flex;align-items:center;gap:9px;border:1px solid #e1ddd3;border-radius:11px;padding:13px 15px;transition:border-color .18s;margin-bottom:14px}
+.source-article .money:focus-within,.standalone-calc .money:focus-within{border-color:#1f3741}
+.source-article .money span,.standalone-calc .money span{font-size:19px;color:#78818a}
+.source-article .money input,.standalone-calc .money input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:'Inter',sans-serif;font-size:25px;font-weight:600;color:#1b2830}
+.source-article .result,.standalone-calc .result{background:#1b2830;border-radius:12px;padding:22px 20px;margin-top:16px;color:#e9e5dc}
+.source-article .r-label,.standalone-calc .r-label{font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#c49a4a;margin:0 0 7px}
+.source-article .r-big,.standalone-calc .r-big{font-size:42px;line-height:1;color:#e3c489;margin:0}
+.source-article .r-second,.standalone-calc .r-second{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.source-article .r-mid,.standalone-calc .r-mid{font-size:27px;font-weight:600;color:#fff;line-height:1.05;margin:0}
+.source-article .fine,.standalone-calc .fine{font-size:11.5px;line-height:1.6;color:#78818a;margin:13px 0 0;text-align:justify;hyphens:auto}
+.source-article .warn{margin-top:26px;background:#fff;border:1px solid #e1ddd3;border-left:3px solid #c49a4a;border-radius:11px;padding:17px 18px}
+.source-article .warn h3{font-size:19px;font-weight:600;color:#1b2830;margin:0 0 9px;line-height:1.25}
+.source-article .warn p{font-size:14.5px;line-height:1.55;color:#3a444c;text-align:justify;margin:0}
+.source-article .warn p + p{margin-top:9px}
+.source-article .cta{display:block;margin-top:24px;background:#1b2830;color:#fff;text-align:center;text-decoration:none;font-weight:600;font-size:15px;padding:16px;border-radius:11px}
+.source-article .cta:hover{color:#fff;background:#163037}
+.source-article .share{display:block;width:100%;margin-top:11px;background:transparent;border:0;font:500 13.5px 'Inter',sans-serif;color:#78818a;cursor:pointer;text-decoration:underline;padding:6px}
+.source-article figure{margin:22px 0}
+.source-article figure svg{display:block;width:100%;height:auto;color:#2c3a43}
+.source-article figcaption{font-size:11.5px;color:#78818a;line-height:1.5;margin-top:8px;text-align:left}
+@media(max-width:640px){.source-article{padding-top:38px}.source-article .r-big,.standalone-calc .r-big{font-size:34px}}
+
+.standalone-calc{margin-top:72px;padding-top:72px;border-top:1px solid var(--line)}
+.standalone-calc:first-child{margin-top:0;padding-top:0;border-top:0}
+.standalone-calc h2{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:600;letter-spacing:0;text-transform:none;color:#1a1a1a;margin-bottom:8px}
+@media(max-width:640px){.standalone-calc{margin-top:52px;padding-top:52px}}
 </style>
 <title>Utilitários | Quege Advogados</title>
-<meta name="description" content="Calculadora de recuperação tributária para revenda de veículos usados.">
-<link rel="canonical" href="https://quege.adv.br/utilitarios.html">
+<meta name="description" content="Calculadoras tributárias para revenda de veículos usados, Lei do Bem, equiparação hospitalar e INSS pago acima do teto.">
+<link rel="canonical" href="https://www.quege.adv.br/utilitarios.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Quege Sociedade de Advocacia">
-<meta property="og:url" content="https://quege.adv.br/utilitarios.html">
+<meta property="og:url" content="https://www.quege.adv.br/utilitarios.html">
 <meta property="og:title" content="Utilit&#225;rios | Quege Advogados">
-<meta property="og:description" content="Calculadora de recupera&#231;&#227;o tribut&#225;ria para revenda de ve&#237;culos usados.">
-<meta property="og:image" content="https://quege.adv.br/imagens/damadajustica2.webp">
+<meta property="og:description" content="Calculadoras tributárias para revenda de veículos usados, Lei do Bem, equiparação hospitalar e INSS pago acima do teto.">
+<meta property="og:image" content="https://www.quege.adv.br/imagens/damadajustica2.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Utilit&#225;rios | Quege Advogados">
-<meta name="twitter:description" content="Calculadora de recupera&#231;&#227;o tribut&#225;ria para revenda de ve&#237;culos usados.">
-<meta name="twitter:image" content="https://quege.adv.br/imagens/damadajustica2.webp">
+<meta name="twitter:description" content="Calculadoras tributárias para revenda de veículos usados, Lei do Bem, equiparação hospitalar e INSS pago acima do teto.">
+<meta name="twitter:image" content="https://www.quege.adv.br/imagens/damadajustica2.webp">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
@@ -643,10 +689,94 @@ footer::before{background:#7fb0bc !important;}
         </div>
       </div>
       <p class="rc-note">Simulação por médias do setor: margem de 15% sobre o preço de venda e correção dos valores passados pela Selic média de 11% ao ano. A margem praticada pela sua empresa altera o resultado. Números de referência, não promessa de resultado.</p>
-      <p class="rc-note"><a href="https://quege.adv.br/postagem-blog.html" target="_blank" rel="noopener" class="gold-underline">Leia o artigo completo sobre essa decisão do STJ →</a></p>
+      <p class="rc-note"><a href="https://www.quege.adv.br/postagem-blog.html" target="_blank" rel="noopener" class="gold-underline">Leia o artigo completo sobre essa decisão do STJ →</a></p>
 
       <div class="util-cta">
         <a class="btn-primary" href="https://wa.me/5547984033110?text=Vi%20a%20calculadora%20de%20revenda%20de%20ve%C3%ADculos%20e%20quero%20saber%20se%20minha%20empresa%20se%20enquadra." target="_blank" rel="noopener">Falar com um advogado tributarista <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="util-card-wrap standalone-calc reveal-up">
+      <div class="util-card-head">
+        <h2>Lei do Bem</h2>
+        <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo — além da despesa que já é deduzida normalmente. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
+      </div>
+      <h2>Quanto isso representa na sua empresa</h2>
+    <div class="calc">
+      <label for="ldb-fat">Quanto sua empresa gastou no último ano desenvolvendo produtos e processos — equipe técnica, ensaios, protótipos, materiais</label>
+      <div class="money"><span>R$</span><input id="ldb-fat" inputmode="numeric" value="1.200.000"></div>
+
+      <div class="result">
+        <p class="r-label">Imposto que deixa de ser pago, no cenário padrão</p>
+        <p class="r-big" id="ldb-ano">R$ 0</p>
+        <div class="r-second">
+          <p class="r-label">Se a equipe técnica cresceu mais de 5% no ano</p>
+          <p class="r-mid" id="ldb-cinco">R$ 0</p>
+        </div>
+      </div>
+
+      <p class="fine">Exclusão adicional de 60% no cenário padrão e de 80% com aumento superior a 5% no número de pesquisadores exclusivos, aplicada sobre alíquota conjunta de 34% — imposto de renda de 15% mais adicional de 10% e contribuição social de 9%. O resultado real depende de quanto do gasto é efetivamente enquadrável e do lucro apurado no período. Números de referência, não promessa de resultado.</p>
+    </div>
+      <p class="rc-note"><a href="lei-do-bem.html" class="gold-underline">Leia o artigo completo →</a></p>
+      <div class="util-cta">
+        <a class="btn-primary" href="https://wa.me/5547984033110?text=Vi%20a%20calculadora%20sobre%20Lei%20do%20Bem%20e%20quero%20entender%20o%20meu%20caso." target="_blank" rel="noopener">Falar com um advogado tributarista <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="util-card-wrap standalone-calc reveal-up">
+      <div class="util-card-head">
+        <h2>Equiparação hospitalar</h2>
+        <p>A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor — na prática, cerca de um terço do imposto. E, diferente da maioria das discussões tributárias, aqui não é preciso ir à Justiça.</p>
+      </div>
+      <h2>Quanto isso representa na sua clínica</h2>
+    <div class="calc">
+      <label for="eh-fat">Quanto sua clínica fatura por ano com procedimentos e exames</label>
+      <div class="money"><span>R$</span><input id="eh-fat" inputmode="numeric" value="1.800.000"></div>
+
+      <div class="result">
+        <p class="r-label">Imposto que deixa de ser pago, por ano</p>
+        <p class="r-big" id="eh-ano">R$ 0</p>
+        <div class="r-second">
+          <p class="r-label">A recuperar dos últimos cinco anos, com juros</p>
+          <p class="r-mid" id="eh-cinco">R$ 0</p>
+        </div>
+      </div>
+
+      <p class="fine">Comparação entre os percentuais de 32% e os de 8% e 12%, com imposto de renda de 15% mais adicional de 10% sobre a parcela que excede R$ 240.000 no ano e contribuição social de 9%. Os valores passados são corrigidos pela Selic média de 11% ao ano. Acima de R$ 5 milhões de faturamento anual há um acréscimo instituído pela Lei Complementar nº 224/2025, hoje questionado no Supremo. Números de referência, não promessa de resultado.</p>
+    </div>
+      <p class="rc-note"><a href="equiparacao-hospitalar.html" class="gold-underline">Leia o artigo completo →</a></p>
+      <div class="util-cta">
+        <a class="btn-primary" href="https://wa.me/5547984033110?text=Vi%20a%20calculadora%20sobre%20Equipara%C3%A7%C3%A3o%20hospitalar%20e%20quero%20entender%20o%20meu%20caso." target="_blank" rel="noopener">Falar com um advogado tributarista <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="util-card-wrap standalone-calc reveal-up">
+      <div class="util-card-head">
+        <h2>INSS acima do teto</h2>
+        <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é R$ 988,09 por mês — e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
+      </div>
+      <h2>Quanto pode estar sobrando</h2>
+    <div class="calc">
+      <label for="inss-clt">Quanto você recebe por mês no emprego de carteira assinada</label>
+      <div class="money"><span>R$</span><input id="inss-clt" inputmode="numeric" value="14.000"></div>
+
+      <label for="inss-out">Quanto você recebe por mês nos outros trabalhos — plantões, sua clínica, atendimentos avulsos</label>
+      <div class="money"><span>R$</span><input id="inss-out" inputmode="numeric" value="12.000"></div>
+
+      <div class="result">
+        <p class="r-label">Descontado a mais, por ano</p>
+        <p class="r-big" id="inss-ano">R$ 0</p>
+        <div class="r-second">
+          <p class="r-label">A pedir de volta dos últimos cinco anos, com juros</p>
+          <p class="r-mid" id="inss-cinco">R$ 0</p>
+        </div>
+      </div>
+
+      <p class="fine">Estimativa com o teto e a tabela de 2026, considerando desconto de 11% sobre os demais trabalhos e doze meses por ano. Os valores passados são corrigidos pela Selic média de 11% ao ano. O resultado real depende de quanto você recebeu mês a mês e de quantas empresas descontaram. Números de referência, não promessa de resultado.</p>
+    </div>
+      <p class="rc-note"><a href="inss-acima-do-teto.html" class="gold-underline">Leia o artigo completo →</a></p>
+      <div class="util-cta">
+        <a class="btn-primary" href="https://wa.me/5547984033110?text=Vi%20a%20calculadora%20sobre%20INSS%20acima%20do%20teto%20e%20quero%20entender%20o%20meu%20caso." target="_blank" rel="noopener">Falar com um advogado tributarista <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -781,6 +911,105 @@ if(revealEls.length){
     calc();
   });
   fat.addEventListener('focus', function(){ fat.select(); });
+
+  calc();
+})();
+(function(){
+  var ALIQ = 0.34;
+  var brl = function(v){
+    return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(v);
+  };
+  var fat = document.getElementById('ldb-fat');
+  function calc(){
+    var disp = parseInt((fat.value||'').replace(/\D/g,'')||'0',10);
+    document.getElementById('ldb-ano').textContent   = brl(disp * 0.60 * ALIQ);
+    document.getElementById('ldb-cinco').textContent = brl(disp * 0.80 * ALIQ);
+  }
+  fat.addEventListener('input', function(){
+    var n = parseInt(fat.value.replace(/\D/g,'')||'0',10);
+    fat.value = n ? n.toLocaleString('pt-BR') : '';
+    calc();
+  });
+  fat.addEventListener('focus', function(){ fat.select(); });
+  calc();
+})();
+
+(function(){
+  var brl = function(v){
+    return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(v);
+  };
+  var fat = document.getElementById('eh-fat');
+  function irpj(b){ return b*0.15 + Math.max(0, b-240000)*0.10; }
+  function csll(b){ return b*0.09; }
+  function calc(){
+    var rec    = parseInt((fat.value||'').replace(/\D/g,'')||'0',10);
+    var hoje   = irpj(rec*0.32) + csll(rec*0.32);
+    var devido = irpj(rec*0.08) + csll(rec*0.12);
+    var econ   = Math.max(0, hoje-devido);
+    var SELIC = 0.11, passado = 0;
+    for (var k = 0.5; k < 5; k++) { passado += econ * (1 + SELIC*k); }
+    document.getElementById('eh-ano').textContent   = brl(econ);
+    document.getElementById('eh-cinco').textContent = brl(passado);
+  }
+  fat.addEventListener('input', function(){
+    var n = parseInt(fat.value.replace(/\D/g,'')||'0',10);
+    fat.value = n ? n.toLocaleString('pt-BR') : '';
+    calc();
+  });
+  fat.addEventListener('focus', function(){ fat.select(); });
+  calc();
+})();
+
+(function(){
+  var TETO = 8475.55, MAXCLT = 988.09, ALIQ_CI = 0.11;
+  var FAIXAS = [[1621.00,0.075],[2902.84,0.09],[4354.27,0.12],[8475.55,0.14]];
+
+  function progressiva(base){
+    base = Math.min(base, TETO);
+    var ant = 0, t = 0;
+    for (var i=0;i<FAIXAS.length;i++){
+      var lim = FAIXAS[i][0], al = FAIXAS[i][1];
+      if (base > ant) { t += (Math.min(base, lim) - ant) * al; }
+      ant = lim;
+    }
+    return t;
+  }
+
+  var brl = function(v){
+    return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(v);
+  };
+  var clt = document.getElementById('inss-clt'), out = document.getElementById('inss-out');
+  function num(el){ return parseInt((el.value||'').replace(/\D/g,'')||'0',10); }
+
+  function calc(){
+    var a = num(clt), b = num(out);
+
+    // o que cada fonte desconta, isoladamente
+    var descCLT = a > 0 ? progressiva(a) : 0;
+    var descOUT = Math.min(b, TETO) * ALIQ_CI;
+    var descontado = descCLT + descOUT;
+
+    // o que seria devido, somando tudo e aplicando a tabela uma unica vez
+    var devido = progressiva(a + b);
+
+    var excMes = Math.max(0, descontado - devido);
+    var ano = excMes * 12;
+
+    var SELIC = 0.11, passado = 0;
+    for (var k = 0.5; k < 5; k++) { passado += ano * (1 + SELIC*k); }
+
+    document.getElementById('inss-ano').textContent   = brl(ano);
+    document.getElementById('inss-cinco').textContent = brl(passado);
+  }
+
+  [clt,out].forEach(function(el){
+    el.addEventListener('input', function(){
+      var n = num(el);
+      el.value = n ? n.toLocaleString('pt-BR') : '';
+      calc();
+    });
+    el.addEventListener('focus', function(){ el.select(); });
+  });
 
   calc();
 })();

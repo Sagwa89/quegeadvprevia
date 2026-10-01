@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://quege.adv.br/</loc></url>
-  <url><loc>https://quege.adv.br/quem-somos.html</loc></url>
-  <url><loc>https://quege.adv.br/areas-de-atuacao.html</loc></url>
-  <url><loc>https://quege.adv.br/blog.html</loc></url>
-  <url><loc>https://quege.adv.br/postagem-blog.html</loc></url>
-  <url><loc>https://quege.adv.br/imprensa.html</loc></url>
-  <url><loc>https://quege.adv.br/cursos.html</loc></url>
-  <url><loc>https://quege.adv.br/contato.html</loc></url>
+  <url><loc>https://www.quege.adv.br/</loc></url>
+  <url><loc>https://www.quege.adv.br/quem-somos.html</loc></url>
+  <url><loc>https://www.quege.adv.br/areas-de-atuacao.html</loc></url>
+  <url><loc>https://www.quege.adv.br/blog.html</loc></url>
+  <url><loc>https://www.quege.adv.br/postagem-blog.html</loc></url>
+  <url><loc>https://www.quege.adv.br/imprensa.html</loc></url>
+  <url><loc>https://www.quege.adv.br/cursos.html</loc></url>
+  <url><loc>https://www.quege.adv.br/contato.html</loc></url>
+  <url><loc>https://www.quege.adv.br/utilitarios.html</loc></url>
+  <url><loc>https://www.quege.adv.br/lei-do-bem.html</loc></url>
+  <url><loc>https://www.quege.adv.br/equiparacao-hospitalar.html</loc></url>
+  <url><loc>https://www.quege.adv.br/inss-acima-do-teto.html</loc></url>
 </urlset>

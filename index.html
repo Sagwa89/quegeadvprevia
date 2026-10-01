@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preload" as="image" href="imagens/damadajustica2.webp">
-<link rel="preload" as="image" href="imagens/felipequege.webp" fetchpriority="high">
-<link rel="preload" as="image" href="imagens/marcelo.webp" fetchpriority="high">
-<link rel="preload" as="image" href="imagens/paola.webp" fetchpriority="high">
+<link rel="preload" as="image" href="imagens/felipequege.webp">
+<link rel="preload" as="image" href="imagens/marcelo-optimized.webp">
+<link rel="preload" as="image" href="imagens/paola-optimized.webp">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -66,7 +66,8 @@ header,section,footer{position:relative;z-index:1;}
 .scroll-progress-bar{width:100%;height:0;background:var(--gold);box-shadow:0 0 8px rgba(0,0,0,.25);}
 
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:760px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
 header{
@@ -505,21 +506,28 @@ footer::before{background:#7fb0bc !important;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
 .footer-contact .office-address{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.5;margin-bottom:14px;}
 @media(max-width:860px){.footer-contact .office-address{color:#c9d6d3;}}
+
+/* Rodape padronizado */
+footer{background:#1F3741!important;border-top-color:rgba(255,255,255,.14)!important;}
+footer::before{background:#7fb0bc!important;}
+.footer-logo{width:180px!important;max-width:60%;height:auto!important;margin-bottom:6px!important;filter:none!important;opacity:1!important;}
+.footer-about,.footer-heading,.footer-links a,.footer-links a svg,.footer-contact p,.footer-contact p svg,.footer-contact a,.footer-contact .office-address,.footer-bottom p{color:#fff!important;}
+.footer-bottom{border-top-color:rgba(255,255,255,.14)!important;}
 </style>
 <title>Quege Sociedade de Advocacia | Direito Tributário em SC e PR</title>
 <meta name="description" content="Quege Sociedade de Advocacia: assessoria em direito tributário, planejamento fiscal e contencioso. Sede em Três Barras/SC e filial em Curitiba/PR.">
-<link rel="canonical" href="https://quege.adv.br/">
+<link rel="canonical" href="https://www.quege.adv.br/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Quege Sociedade de Advocacia">
-<meta property="og:url" content="https://quege.adv.br/">
+<meta property="og:url" content="https://www.quege.adv.br/">
 <meta property="og:title" content="Quege Sociedade de Advocacia | Direito Tributário em SC e PR">
 <meta property="og:description" content="Quege Sociedade de Advocacia: assessoria em direito tributário, planejamento fiscal e contencioso. Sede em Três Barras/SC e filial em Curitiba/PR.">
-<meta property="og:image" content="https://quege.adv.br/imagens/logoquegeadv.webp">
+<meta property="og:image" content="https://www.quege.adv.br/imagens/logoquegeadv.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Quege Sociedade de Advocacia | Direito Tributário em SC e PR">
 <meta name="twitter:description" content="Quege Sociedade de Advocacia: assessoria em direito tributário, planejamento fiscal e contencioso. Sede em Três Barras/SC e filial em Curitiba/PR.">
-<meta name="twitter:image" content="https://quege.adv.br/imagens/logoquegeadv.webp">
+<meta name="twitter:image" content="https://www.quege.adv.br/imagens/logoquegeadv.webp">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#1F3741">
 <script type="application/ld+json">
@@ -528,22 +536,22 @@ footer::before{background:#7fb0bc !important;}
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://quege.adv.br/#website",
-      "url": "https://quege.adv.br/",
+      "@id": "https://www.quege.adv.br/#website",
+      "url": "https://www.quege.adv.br/",
       "name": "Quege Sociedade de Advocacia",
       "inLanguage": "pt-BR",
       "publisher": {
-        "@id": "https://quege.adv.br/#escritorio"
+        "@id": "https://www.quege.adv.br/#escritorio"
       }
     },
     {
       "@type": "LegalService",
-      "@id": "https://quege.adv.br/#escritorio",
+      "@id": "https://www.quege.adv.br/#escritorio",
       "name": "Quege Sociedade de Advocacia",
-      "url": "https://quege.adv.br/",
+      "url": "https://www.quege.adv.br/",
       "description": "Assessoria em direito tributário, planejamento fiscal, contencioso e proteção patrimonial.",
-      "logo": "https://quege.adv.br/imagens/logoquegeadv.webp",
-      "image": "https://quege.adv.br/imagens/logoquegeadv.webp",
+      "logo": "https://www.quege.adv.br/imagens/logoquegeadv.webp",
+      "image": "https://www.quege.adv.br/imagens/logoquegeadv.webp",
       "address": [
         {
           "@type": "PostalAddress",
@@ -585,16 +593,16 @@ footer::before{background:#7fb0bc !important;}
     },
     {
       "@type": "WebPage",
-      "@id": "https://quege.adv.br/#webpage",
-      "url": "https://quege.adv.br/",
+      "@id": "https://www.quege.adv.br/#webpage",
+      "url": "https://www.quege.adv.br/",
       "name": "Quege Sociedade de Advocacia | Direito Tributário em SC e PR",
       "description": "Quege Sociedade de Advocacia: assessoria em direito tributário, planejamento fiscal e contencioso. Sede em Três Barras/SC e filial em Curitiba/PR.",
       "inLanguage": "pt-BR",
       "isPartOf": {
-        "@id": "https://quege.adv.br/#website"
+        "@id": "https://www.quege.adv.br/#website"
       },
       "about": {
-        "@id": "https://quege.adv.br/#escritorio"
+        "@id": "https://www.quege.adv.br/#escritorio"
       }
     }
   ]
@@ -702,7 +710,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
     <div class="equipe-underline"></div>
     <div class="team-grid reveal-up">
       <div class="team-card">
-        <img class="photo" src="imagens/felipequege.webp" alt="Felipe Quege, advogado tributarista em Curitiba e Três Barras" width="600" height="700" loading="lazy" decoding="async" fetchpriority="high">
+        <img class="photo" src="imagens/felipequege.webp" alt="Felipe Quege, advogado tributarista em Curitiba e Três Barras" width="600" height="700" loading="lazy" decoding="async">
         <div class="info">
           <h4>Felipe Quege</h4>
           <span class="role">Sócio-Fundador</span>
@@ -712,7 +720,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
         </div>
       </div>
       <div class="team-card">
-        <img class="photo" src="imagens/marcelo.webp" alt="Marcelo Bitencourt de Campos, advogado tributarista" width="600" height="700" loading="lazy" decoding="async" fetchpriority="high">
+        <img class="photo" src="imagens/marcelo-optimized.webp" alt="Marcelo Bitencourt de Campos, advogado tributarista" width="600" height="700" loading="lazy" decoding="async">
         <div class="info">
           <h4>Marcelo Bitencourt de Campos</h4>
           <span class="role">Advogado Tributarista e Contador</span>
@@ -721,7 +729,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
         </div>
       </div>
       <div class="team-card">
-        <img class="photo" src="imagens/paola.webp" alt="Paola, advogada da equipe tributária" width="600" height="700" loading="lazy" decoding="async" fetchpriority="high">
+        <img class="photo" src="imagens/paola-optimized.webp" alt="Paola, advogada da equipe tributária" width="600" height="700" loading="lazy" decoding="async">
         <div class="info">
           <h4>Paola Cozzolino dos Santos</h4>
           <span class="role">Advogada</span>
@@ -769,7 +777,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
 <section class="section" id="destaques-home">
   <div class="container">
     <div class="destaque-row reveal-up">
-      <div class="destaque-img" style="background-image:url('imagens/palestra.webp');"></div>
+      <div class="destaque-img" style="background-image:url('imagens/palestra-optimized.webp');"></div>
       <div class="destaque-text">
         <span class="eyebrow">Cursos</span>
         <h3>Sua equipe entende mesmo o que muda com a Reforma Tributária?</h3>
@@ -846,7 +854,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
       </div>
     </div>
 
-    <form id="contatoForm" action="https://formsubmit.co/ajax/contato@quege.adv.br" method="POST" class="reveal-up">
+    <form id="contatoForm" action="https://wa.me/5547984033110" method="GET" class="reveal-up">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -880,34 +888,20 @@ if(!location.hash){window.scrollTo(0,0);}</script>
     (function(){
       var form = document.getElementById('contatoForm');
       var btn = document.getElementById('contatoBtn');
-      var msg = document.getElementById('contatoMsg');
+      if (!form) return;
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        btn.disabled = true;
-        var originalText = btn.textContent;
-        btn.textContent = 'Enviando...';
-        msg.style.display = 'none';
-        fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        }).then(function(res){ if(!res.ok) throw new Error('Falha no envio'); return res.json(); }).then(function(data){ if (!data || (data.success !== true && data.success !== 'true')) throw new Error((data && data.message) || 'Envio não confirmado');
-          msg.textContent = '✓ Mensagem enviada com sucesso! Em breve entraremos em contato.';
-          msg.style.color = '#fff';
-          msg.style.background = '#1F3741';
-          msg.style.display = 'block';
-          if(window.trackSiteEvent) window.trackSiteEvent('form_submit_success', {form_id:form.id || 'formulario'});
-          form.reset();
-        }).catch(function(){
-          msg.textContent = 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.';
-          msg.style.color = '#fff';
-          msg.style.background = '#b3261e';
-          msg.style.display = 'block';
-        if(window.trackSiteEvent) window.trackSiteEvent('form_submit_error', {form_id:form.id || 'formulario'});
-        }).finally(function(){
-          btn.disabled = false;
-          btn.textContent = originalText;
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var lines = [form.id === 'orcamentoForm' ? '*Solicitação de orçamento pelo site*' : '*Contato pelo site*'];
+        new FormData(form).forEach(function(value, key){
+          if (key.charAt(0) !== '_' && String(value).trim()) lines.push('*' + key + ':* ' + String(value).trim());
         });
+        lines.push('*Página:* ' + window.location.href);
+        var url = 'https://wa.me/5547984033110?text=' + encodeURIComponent(lines.join('\n'));
+        if (window.trackSiteEvent) window.trackSiteEvent('form_whatsapp_redirect', {form_id:form.id || 'formulario'});
+        var popup = window.open(url, '_blank', 'noopener');
+        if (!popup) window.location.href = url;
+        if (btn) btn.blur();
       });
     })();
     </script>

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://quege.adv.br/sitemap.xml
+Sitemap: https://www.quege.adv.br/sitemap.xml

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -57,7 +58,8 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:760px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
 header{
@@ -127,7 +129,7 @@ nav a:hover::after{transform:scaleX(1);}
 .breadcrumb a:hover{color:var(--gold);}
 
 /* HERO (home) */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.85)), url('imagens/palestra.webp') center/cover;}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(10,11,12,.65),rgba(10,11,12,.85)), url('imagens/palestra-optimized.webp') center/cover;}
 .hero::before{content:"";position:absolute;top:0;left:0;right:0;height:220px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none;z-index:1;}
 .hero-content{max-width:900px;padding:0 24px;animation: fadeInUp 1.1s cubic-bezier(.22,1,.36,1);}
 .hero h1{font-size:clamp(30px,3.8vw,46px);line-height:1.2;margin-bottom:20px;font-weight:300;letter-spacing:-0.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);}
@@ -397,39 +399,46 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
 .footer-contact .office-address{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.5;margin-bottom:14px;}
 @media(max-width:860px){.footer-contact .office-address{color:#c9d6d3;}}
+
+/* Rodape padronizado */
+footer{background:#1F3741!important;border-top-color:rgba(255,255,255,.14)!important;}
+footer::before{background:#7fb0bc!important;}
+.footer-logo{width:180px!important;max-width:60%;height:auto!important;margin-bottom:6px!important;filter:none!important;opacity:1!important;}
+.footer-about,.footer-heading,.footer-links a,.footer-links a svg,.footer-contact p,.footer-contact p svg,.footer-contact a,.footer-contact .office-address,.footer-bottom p{color:#fff!important;}
+.footer-bottom{border-top-color:rgba(255,255,255,.14)!important;}
 </style>
 <title>Artigos de Direito Tributário | Quege Advogados</title>
 <meta name="description" content="Leia artigos da Quege Sociedade de Advocacia sobre direito tributário, recuperação de créditos, proteção patrimonial e Reforma Tributária.">
-<link rel="canonical" href="https://quege.adv.br/blog.html">
+<link rel="canonical" href="https://www.quege.adv.br/blog.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Quege Sociedade de Advocacia">
-<meta property="og:url" content="https://quege.adv.br/blog.html">
+<meta property="og:url" content="https://www.quege.adv.br/blog.html">
 <meta property="og:title" content="Artigos de Direito Tributário | Quege Advogados">
 <meta property="og:description" content="Leia artigos da Quege Sociedade de Advocacia sobre direito tributário, recuperação de créditos, proteção patrimonial e Reforma Tributária.">
-<meta property="og:image" content="https://quege.adv.br/imagens/revendadecarros.jpg">
+<meta property="og:image" content="https://www.quege.adv.br/imagens/revendadecarros.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Artigos de Direito Tributário | Quege Advogados">
 <meta name="twitter:description" content="Leia artigos da Quege Sociedade de Advocacia sobre direito tributário, recuperação de créditos, proteção patrimonial e Reforma Tributária.">
-<meta name="twitter:image" content="https://quege.adv.br/imagens/revendadecarros.jpg">
+<meta name="twitter:image" content="https://www.quege.adv.br/imagens/revendadecarros.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://quege.adv.br/blog.html#webpage",
-      "url": "https://quege.adv.br/blog.html",
+      "@id": "https://www.quege.adv.br/blog.html#webpage",
+      "url": "https://www.quege.adv.br/blog.html",
       "name": "Artigos de Direito Tributário | Quege Advogados",
       "headline": "Artigos de Direito Tributário | Quege Advogados",
       "description": "Leia artigos da Quege Sociedade de Advocacia sobre direito tributário, recuperação de créditos, proteção patrimonial e Reforma Tributária.",
       "inLanguage": "pt-BR",
       "isPartOf": {
-        "@id": "https://quege.adv.br/#website"
+        "@id": "https://www.quege.adv.br/#website"
       },
       "publisher": {
-        "@id": "https://quege.adv.br/#escritorio"
+        "@id": "https://www.quege.adv.br/#escritorio"
       }
     },
     {
@@ -439,13 +448,13 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
           "@type": "ListItem",
           "position": 1,
           "name": "Início",
-          "item": "https://quege.adv.br/"
+          "item": "https://www.quege.adv.br/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Artigos de Direito Tributário",
-          "item": "https://quege.adv.br/blog.html"
+          "item": "https://www.quege.adv.br/blog.html"
         }
       ]
     }
@@ -534,6 +543,42 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
         <a href="postagem-blog.html" class="readmore stretched-link" style="display:block;margin-top:14px;">Ler artigo completo</a>
       </div>
     </div>
+    <div class="blog-grid" style="margin-top:44px;">
+
+      <article class="blog-card reveal-up">
+        <div class="thumb" style="background-image:url('imagens/planejamentotributario.jpg')" role="img" aria-label="Planejamento tributário e Lei do Bem"></div>
+        <div class="body">
+          <span class="tag">Para indústria e comércio no Lucro Real</span>
+          <h3>Melhorou um processo, desenvolveu um produto, testou até dar certo? A lei deixa deduzir isso duas vezes.</h3>
+          <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo — <strong>além da despesa que já é deduzida normalmente</strong>. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
+          <span class="meta">Quege Advogados</span>
+          <a href="lei-do-bem.html" class="readmore stretched-link">Ler artigo completo</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal-up">
+        <div class="thumb" style="background-image:url('imagens/consultoriacontinua.jpg')" role="img" aria-label="Tributação de clínicas médicas e odontológicas"></div>
+        <div class="body">
+          <span class="tag">Para clínicas médicas e odontológicas · Regra nova desde 18 de setembro de 2026</span>
+          <h3>Clínica que faz procedimento não precisa pagar imposto de consultório. São quase três vezes a diferença.</h3>
+          <p>A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor — na prática, cerca de <strong>um terço do imposto</strong>. E, diferente da maioria das discussões tributárias, aqui <strong>não é preciso ir à Justiça</strong>.</p>
+          <span class="meta">Quege Advogados</span>
+          <a href="equiparacao-hospitalar.html" class="readmore stretched-link">Ler artigo completo</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal-up">
+        <div class="thumb" style="background-image:url('imagens/recuperacaodecreditos.jpg')" role="img" aria-label="Recuperação de INSS pago acima do teto"></div>
+        <div class="body">
+          <span class="tag">Para médicos que recebem de mais de um lugar</span>
+          <h3>Quem recebe de dois lugares paga INSS a mais todo mês. E esse dinheiro não vira aposentadoria maior.</h3>
+          <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é <strong>R$ 988,09 por mês</strong> — e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
+          <span class="meta">Quege Advogados</span>
+          <a href="inss-acima-do-teto.html" class="readmore stretched-link">Ler artigo completo</a>
+        </div>
+      </article>
+    </div>
+
 
   </div>
 </section>
@@ -573,7 +618,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
       </div>
     </div>
 
-    <form id="contatoForm" action="https://formsubmit.co/ajax/contato@quege.adv.br" method="POST" class="reveal-up">
+    <form id="contatoForm" action="https://wa.me/5547984033110" method="GET" class="reveal-up">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -607,34 +652,20 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
     (function(){
       var form = document.getElementById('contatoForm');
       var btn = document.getElementById('contatoBtn');
-      var msg = document.getElementById('contatoMsg');
+      if (!form) return;
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        btn.disabled = true;
-        var originalText = btn.textContent;
-        btn.textContent = 'Enviando...';
-        msg.style.display = 'none';
-        fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        }).then(function(res){ if(!res.ok) throw new Error('Falha no envio'); return res.json(); }).then(function(data){ if (!data || (data.success !== true && data.success !== 'true')) throw new Error((data && data.message) || 'Envio não confirmado');
-          msg.textContent = '✓ Mensagem enviada com sucesso! Em breve entraremos em contato.';
-          msg.style.color = '#fff';
-          msg.style.background = '#1F3741';
-          msg.style.display = 'block';
-          if(window.trackSiteEvent) window.trackSiteEvent('form_submit_success', {form_id:form.id || 'formulario'});
-          form.reset();
-        }).catch(function(){
-          msg.textContent = 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.';
-          msg.style.color = '#fff';
-          msg.style.background = '#b3261e';
-          msg.style.display = 'block';
-        if(window.trackSiteEvent) window.trackSiteEvent('form_submit_error', {form_id:form.id || 'formulario'});
-        }).finally(function(){
-          btn.disabled = false;
-          btn.textContent = originalText;
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var lines = [form.id === 'orcamentoForm' ? '*Solicitação de orçamento pelo site*' : '*Contato pelo site*'];
+        new FormData(form).forEach(function(value, key){
+          if (key.charAt(0) !== '_' && String(value).trim()) lines.push('*' + key + ':* ' + String(value).trim());
         });
+        lines.push('*Página:* ' + window.location.href);
+        var url = 'https://wa.me/5547984033110?text=' + encodeURIComponent(lines.join('\n'));
+        if (window.trackSiteEvent) window.trackSiteEvent('form_whatsapp_redirect', {form_id:form.id || 'formulario'});
+        var popup = window.open(url, '_blank', 'noopener');
+        if (!popup) window.location.href = url;
+        if (btn) btn.blur();
       });
     })();
     </script>
@@ -655,7 +686,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="imagens/logoquegeadv.png" alt="Quege Advogados" loading="lazy" decoding="async" width="180" height="180">
+        <img class="footer-logo" src="imagens/logoquegeadv.webp" alt="Quege Advogados" loading="lazy" decoding="async" width="180" height="180">
         <p class="footer-about">Quege Sociedade de Advocacia. Assessoria tributária estratégica e preventiva, proteção patrimonial e sucessória para empresas.</p>
         <div class="footer-social">
           <a class="ig" href="https://www.instagram.com/quegeadv/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
