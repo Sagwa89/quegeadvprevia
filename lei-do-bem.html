@@ -59,7 +59,7 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -416,7 +416,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
 
-/* Calculadora dentro do artigo — bloco autônomo (não usa classes genéricas .calc-*) */
+/* Calculadora dentro do artigo, bloco autônomo (não usa classes genéricas .calc-*) */
 .rc-calc{
   display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;margin:40px 0;
   border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
@@ -684,15 +684,15 @@ footer::before{background:#7fb0bc!important;}
 </div>
 
 <article class="post-body source-article reveal-up">
-<p class="t lead">A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo — <strong>além da despesa que já é deduzida normalmente</strong>. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
+<p class="t lead">A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo, <strong>além da despesa que já é deduzida normalmente</strong>. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
 
   <section>
     <h2>Não é. E a definição está na lei.</h2>
     <p class="t">O art. 17, § 1º, da Lei nº 11.196/2005 define inovação tecnológica como a concepção de novo produto ou processo de fabricação, <strong>bem como a agregação de novas funcionalidades ou características que impliquem melhorias incrementais e efetivo ganho de qualidade ou produtividade</strong>.</p>
     <p class="t">Três consequências que mudam o alcance do benefício:</p>
-    <p class="t">— <strong>não precisa ser novidade no mercado.</strong> Basta ser nova para a empresa, com ganho mensurável;<br>
-    — <strong>não precisa ser empresa de tecnologia.</strong> O vocabulário da lei é industrial: produto e processo de fabricação;<br>
-    — <strong>não precisa ter relação com a atividade principal</strong> da empresa.</p>
+    <p class="t">• <strong>não precisa ser novidade no mercado.</strong> Basta ser nova para a empresa, com ganho mensurável;<br>
+    • <strong>não precisa ser empresa de tecnologia.</strong> O vocabulário da lei é industrial: produto e processo de fabricação;<br>
+    • <strong>não precisa ter relação com a atividade principal</strong> da empresa.</p>
     <p class="t">O critério real não é o setor, e sim o que aconteceu dentro do projeto:</p>
 
 <figure>
@@ -719,7 +719,7 @@ footer::before{background:#7fb0bc!important;}
   <text x="180" y="147" font-size="10.5" fill="#B07E2E">sim</text>
 
   <rect x="6" y="160" width="324" height="56" rx="4" fill="#EFEADF" stroke="currentColor" stroke-width="1.3"/>
-  <text x="168" y="184" text-anchor="middle" font-size="12.5" fill="currentColor">Houve investigação com método — ensaios,</text>
+  <text x="168" y="184" text-anchor="middle" font-size="12.5" fill="currentColor">Houve investigação com método, ensaios,</text>
   <text x="168" y="202" text-anchor="middle" font-size="12.5" fill="currentColor">protótipos, registro do que falhou?</text>
   <line x1="330" y1="188" x2="376" y2="188" stroke="currentColor" stroke-width="1.1" marker-end="url(#a1)"/>
   <text x="353" y="180" text-anchor="middle" font-size="10.5" fill="currentColor">não</text>
@@ -728,7 +728,7 @@ footer::before{background:#7fb0bc!important;}
 
   <rect x="6" y="248" width="324" height="56" rx="4" fill="#EFEADF" stroke="currentColor" stroke-width="1.3"/>
   <text x="168" y="272" text-anchor="middle" font-size="12.5" fill="currentColor">O resultado é produto ou processo novo ou</text>
-  <text x="168" y="290" text-anchor="middle" font-size="12.5" fill="currentColor">melhor — ainda que só para a sua empresa?</text>
+  <text x="168" y="290" text-anchor="middle" font-size="12.5" fill="currentColor">melhor, ainda que só para a sua empresa?</text>
   <line x1="330" y1="276" x2="376" y2="276" stroke="currentColor" stroke-width="1.1" marker-end="url(#a1)"/>
   <text x="353" y="268" text-anchor="middle" font-size="10.5" fill="currentColor">não</text>
   <line x1="168" y1="304" x2="168" y2="334" stroke="#B07E2E" stroke-width="1.7" marker-end="url(#a1g)"/>
@@ -745,7 +745,7 @@ footer::before{background:#7fb0bc!important;}
   <text x="168" y="455" text-anchor="middle" font-size="12.5" fill="currentColor">Rotina de produção, controle de qualidade</text>
   <text x="168" y="473" text-anchor="middle" font-size="12.5" fill="currentColor">padronizado, ajuste de sistema pronto</text>
 
-  <text x="168" y="518" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">Não entra — e tentar enquadrar</text>
+  <text x="168" y="518" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">Não entra, e tentar enquadrar</text>
   <text x="168" y="536" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">é o que gera glosa.</text>
 
   <line x1="6" y1="562" x2="434" y2="562" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
@@ -755,15 +755,15 @@ footer::before{background:#7fb0bc!important;}
 <figcaption>O que decide o enquadramento não é o ramo da empresa nem o nome que se deu ao projeto: é ter havido incerteza técnica e método para resolvê-la.</figcaption>
 </figure>
 
-    <p class="t">É um teste que o empresário faz sozinho, de cabeça, sobre o que a fábrica fez no ano passado. E a resposta costuma surpreender: o projeto que ninguém chamou de pesquisa — a reformulação que exigiu quatro meses de testes, o equipamento desenhado para um gargalo específico da linha, a tentativa que não deu certo antes da que deu — é exatamente o que a lei contempla.</p>
+    <p class="t">É um teste que o empresário faz sozinho, de cabeça, sobre o que a fábrica fez no ano passado. E a resposta costuma surpreender: o projeto que ninguém chamou de pesquisa, a reformulação que exigiu quatro meses de testes, o equipamento desenhado para um gargalo específico da linha, a tentativa que não deu certo antes da que deu, é exatamente o que a lei contempla.</p>
   </section>
 
   <section>
     <h2>As cinco categorias, com exemplo de cada</h2>
     <p class="t"><strong>Pesquisa básica dirigida.</strong> Investigar propriedades de um material ou fenômeno visando a uma aplicação futura. <em>Estudar o comportamento de uma resina sob temperatura para saber se serve a uma nova peça.</em></p>
     <p class="t"><strong>Pesquisa aplicada.</strong> Buscar conhecimento novo com um objetivo definido. <em>Partir de dados agronômicos existentes para dimensionar um implemento que ainda não existe na linha.</em></p>
-    <p class="t"><strong>Desenvolvimento experimental.</strong> Trabalho sistemático para comprovar viabilidade técnica — protótipos, lotes-piloto, bancada de testes. <strong>É onde cabe a maior parte da indústria comum.</strong> <em>Reformular um produto com matéria-prima diferente e testar rendimento, resistência e aceitação até fechar a fórmula.</em></p>
-    <p class="t"><strong>Tecnologia industrial básica.</strong> Calibração e aferição de equipamentos, instrumentos de medição feitos sob medida, certificação de conformidade e os ensaios correspondentes, normalização, documentação técnica e o trabalho de patenteamento — <em>desde que vinculados ao projeto</em>.</p>
+    <p class="t"><strong>Desenvolvimento experimental.</strong> Trabalho sistemático para comprovar viabilidade técnica, protótipos, lotes-piloto, bancada de testes. <strong>É onde cabe a maior parte da indústria comum.</strong> <em>Reformular um produto com matéria-prima diferente e testar rendimento, resistência e aceitação até fechar a fórmula.</em></p>
+    <p class="t"><strong>Tecnologia industrial básica.</strong> Calibração e aferição de equipamentos, instrumentos de medição feitos sob medida, certificação de conformidade e os ensaios correspondentes, normalização, documentação técnica e o trabalho de patenteamento, <em>desde que vinculados ao projeto</em>.</p>
     <p class="t"><strong>Serviços de apoio técnico.</strong> O que é indispensável para manter a estrutura de desenvolvimento funcionando: manutenção de laboratório, usinagem de componentes de teste, capacitação da equipe técnica do projeto.</p>
     <p class="t">Fora ficam a rotina de produção, o controle de qualidade padronizado, a pesquisa de mercado, a compra de tecnologia pronta, a mudança de embalagem sem ganho técnico e a manutenção corretiva do dia a dia.</p>
   </section>
@@ -803,19 +803,19 @@ footer::before{background:#7fb0bc!important;}
   <text x="141" y="334" text-anchor="middle" font-size="11" fill="#B9B3A6">no mesmo ano do gasto</text>
 
   <text x="6" y="368" font-size="11.5" fill="currentColor">Com aumento de pesquisadores a exclusão sobe para 80%. Com patente</text>
-  <text x="6" y="384" font-size="11.5" fill="currentColor">concedida chega a 100% — o gasto deduzido duas vezes por inteiro.</text>
+  <text x="6" y="384" font-size="11.5" fill="currentColor">concedida chega a 100%, o gasto deduzido duas vezes por inteiro.</text>
 </svg>
-<figcaption>A despesa já seria deduzida de qualquer forma. O que a Lei do Bem acrescenta é a segunda faixa — dinheiro que a empresa não gasta de novo, mas abate como se tivesse gasto.</figcaption>
+<figcaption>A despesa já seria deduzida de qualquer forma. O que a Lei do Bem acrescenta é a segunda faixa, dinheiro que a empresa não gasta de novo, mas abate como se tivesse gasto.</figcaption>
 </figure>
 
-    <p class="t">A exclusão base é de 60%. Sobe para <strong>70%</strong> se o número de pesquisadores dedicados cresceu até 5% em relação ao ano anterior, e para <strong>80%</strong> se cresceu mais do que isso. Dispêndios ligados a <strong>patente concedida ou cultivar registrado</strong> somam até 20 pontos percentuais — e aí se chega ao teto de 100%, em que o gasto é deduzido duas vezes por inteiro.</p>
+    <p class="t">A exclusão base é de 60%. Sobe para <strong>70%</strong> se o número de pesquisadores dedicados cresceu até 5% em relação ao ano anterior, e para <strong>80%</strong> se cresceu mais do que isso. Dispêndios ligados a <strong>patente concedida ou cultivar registrado</strong> somam até 20 pontos percentuais, e aí se chega ao teto de 100%, em que o gasto é deduzido duas vezes por inteiro.</p>
     <p class="t">Há ainda três incentivos menores que costumam passar batido: <strong>depreciação integral no próprio ano</strong> de máquinas e equipamentos novos destinados ao desenvolvimento; <strong>amortização acelerada</strong> de intangíveis ligados ao projeto; e <strong>imposto de renda zero</strong> nas remessas ao exterior para registro e manutenção de marcas, patentes e cultivares.</p>
   </section>
 
   <section>
     <h2>Quanto isso representa na sua empresa</h2>
     <div class="calc">
-      <label for="fat">Quanto sua empresa gastou no último ano desenvolvendo produtos e processos — equipe técnica, ensaios, protótipos, materiais</label>
+      <label for="fat">Quanto sua empresa gastou no último ano desenvolvendo produtos e processos, equipe técnica, ensaios, protótipos, materiais</label>
       <div class="money"><span>R$</span><input id="fat" inputmode="numeric" value="1.200.000"></div>
 
       <div class="result">
@@ -827,15 +827,15 @@ footer::before{background:#7fb0bc!important;}
         </div>
       </div>
 
-      <p class="fine">Exclusão adicional de 60% no cenário padrão e de 80% com aumento superior a 5% no número de pesquisadores exclusivos, aplicada sobre alíquota conjunta de 34% — imposto de renda de 15% mais adicional de 10% e contribuição social de 9%. O resultado real depende de quanto do gasto é efetivamente enquadrável e do lucro apurado no período. Números de referência, não promessa de resultado.</p>
+      <p class="fine">Exclusão adicional de 60% no cenário padrão e de 80% com aumento superior a 5% no número de pesquisadores exclusivos, aplicada sobre alíquota conjunta de 34%, imposto de renda de 15% mais adicional de 10% e contribuição social de 9%. O resultado real depende de quanto do gasto é efetivamente enquadrável e do lucro apurado no período. Números de referência, não promessa de resultado.</p>
     </div>
   </section>
 
   <section>
     <h2>Quem pode usar</h2>
     <p class="t">Três condições, todas necessárias: a empresa precisa estar no <strong>Lucro Real</strong>, ter <strong>apurado lucro</strong> no período e estar <strong>em dia com o Fisco</strong>, com certidão válida nos dois semestres do ano.</p>
-    <p class="t">Lucro Presumido e Simples Nacional ficam de fora — nesses regimes não existe a apuração onde o abatimento seria feito.</p>
-    <p class="t">E há uma regra dura, do art. 19, § 5º: o abatimento é limitado ao lucro do próprio ano, e <strong>o que sobra não passa para o ano seguinte</strong>. Ano com prejuízo fiscal perde o benefício inteiro, sem estoque e sem compensação futura. Em grupo de empresas, isso torna decisivo definir qual delas concentra o desenvolvimento e qual concentra o lucro — e essa é uma escolha que se faz antes do fato, não depois.</p>
+    <p class="t">Lucro Presumido e Simples Nacional ficam de fora, nesses regimes não existe a apuração onde o abatimento seria feito.</p>
+    <p class="t">E há uma regra dura, do art. 19, § 5º: o abatimento é limitado ao lucro do próprio ano, e <strong>o que sobra não passa para o ano seguinte</strong>. Ano com prejuízo fiscal perde o benefício inteiro, sem estoque e sem compensação futura. Em grupo de empresas, isso torna decisivo definir qual delas concentra o desenvolvimento e qual concentra o lucro, e essa é uma escolha que se faz antes do fato, não depois.</p>
   </section>
 
   <section>
@@ -864,7 +864,7 @@ footer::before{background:#7fb0bc!important;}
   <circle cx="24" cy="202" r="6" fill="currentColor"/>
   <text x="46" y="198" font-size="13" font-weight="700" fill="currentColor">31 de agosto</text>
   <text x="46" y="216" font-size="11.5" fill="currentColor">formulário ao Ministério</text>
-  <text x="46" y="233" font-size="11.5" font-style="italic" fill="currentColor">prazo fatal — perdido, não há reabertura</text>
+  <text x="46" y="233" font-size="11.5" font-style="italic" fill="currentColor">prazo fatal, perdido, não há reabertura</text>
 
   <circle cx="24" cy="300" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/>
   <text x="46" y="296" font-size="13" font-weight="700" fill="currentColor">Anos depois</text>
@@ -881,19 +881,19 @@ footer::before{background:#7fb0bc!important;}
   <text x="6" y="418" font-size="12" font-style="italic" fill="currentColor">Dois anos ou mais entre uma coisa e outra.</text>
   <text x="6" y="436" font-size="12" font-style="italic" fill="currentColor">É por isso que a prova não pode ser montada depois.</text>
 </svg>
-<figcaption>O regime é declaratório: ninguém autoriza nada antes. A empresa abate o imposto, informa o Ministério no prazo, e a validação vem muito depois — às vezes já com a fiscalização em curso.</figcaption>
+<figcaption>O regime é declaratório: ninguém autoriza nada antes. A empresa abate o imposto, informa o Ministério no prazo, e a validação vem muito depois, às vezes já com a fiscalização em curso.</figcaption>
 </figure>
 
-    <p class="t">O prazo passou de 31 de julho para <strong>31 de agosto</strong>, por força da Portaria MCTI nº 9.563, de 3 de novembro de 2025 — material desatualizado ainda repete a data antiga. <strong>Perdido o prazo, não há reabertura.</strong> O benefício daquele ano se perde inteiro, e retificar a declaração sem o formulário correspondente é convite à autuação.</p>
-    <p class="t">A análise é feita por comitês técnicos, com dois avaliadores independentes por projeto e um terceiro em caso de divergência, e o resultado sai <strong>projeto a projeto</strong> — daí ser comum a empresa ter parte recomendada e parte não. Cabe contestação em 30 dias corridos e recurso em 10 dias, dirigido ao Secretário da SETEC, que é a última instância administrativa.</p>
+    <p class="t">O prazo passou de 31 de julho para <strong>31 de agosto</strong>, por força da Portaria MCTI nº 9.563, de 3 de novembro de 2025, material desatualizado ainda repete a data antiga. <strong>Perdido o prazo, não há reabertura.</strong> O benefício daquele ano se perde inteiro, e retificar a declaração sem o formulário correspondente é convite à autuação.</p>
+    <p class="t">A análise é feita por comitês técnicos, com dois avaliadores independentes por projeto e um terceiro em caso de divergência, e o resultado sai <strong>projeto a projeto</strong>, daí ser comum a empresa ter parte recomendada e parte não. Cabe contestação em 30 dias corridos e recurso em 10 dias, dirigido ao Secretário da SETEC, que é a última instância administrativa.</p>
   </section>
 
   <div class="warn">
     <h3>A fiscalização apertou, e a prova tem de ser feita durante o ano.</h3>
     <p>O Tribunal de Contas da União, no Acórdão nº 447/2025, encontrou cerca de <strong>R$ 936 milhões em divergências</strong> entre os salários que as empresas informaram ao Ministério e os dados de RAIS e Caged, apontou 7.227 análises pendentes referentes a 2018 a 2022 e determinou o cruzamento sistemático dessas bases com a Receita Federal. Em um dos lotes de avaliação divulgados, cerca de 45% dos projetos não foram recomendados.</p>
-    <p>As glosas mais frequentes da Receita são formais e evitáveis: falta de <strong>contas contábeis específicas</strong> para o desenvolvimento — a mais recorrente de todas no CARF —, certidão vencida, pessoal administrativo lançado como pesquisador, equipamento que não era de uso exclusivo e ausência de apontamento de horas por projeto.</p>
-    <p>A recusa mais comum do Ministério é dizer que a atividade foi <strong>engenharia, e não pesquisa</strong>. Essa fronteira se defende descrevendo o que havia de tecnicamente novo e qual obstáculo foi superado — não com linguagem de catálogo, do tipo "produto mais moderno" ou "maior eficiência".</p>
-    <p>Na prática, o que sustenta o benefício é um conjunto que se monta ao longo do ano: ficha de projeto aberta no início, com objetivo, elemento novo, obstáculo e cronograma; apontamento mensal de horas por pesquisador e por projeto; registro dos ensaios e relatórios de andamento — <strong>inclusive dos que deram errado, que são a melhor prova de que havia risco técnico</strong>; notas fiscais e contratos com objeto vinculado ao projeto, nunca genéricos; e a conciliação, no fechamento, entre o que a equipe técnica fez e o que a contabilidade registrou.</p>
+    <p>As glosas mais frequentes da Receita são formais e evitáveis: falta de <strong>contas contábeis específicas</strong> para o desenvolvimento, a mais recorrente de todas no CARF, , certidão vencida, pessoal administrativo lançado como pesquisador, equipamento que não era de uso exclusivo e ausência de apontamento de horas por projeto.</p>
+    <p>A recusa mais comum do Ministério é dizer que a atividade foi <strong>engenharia, e não pesquisa</strong>. Essa fronteira se defende descrevendo o que havia de tecnicamente novo e qual obstáculo foi superado, não com linguagem de catálogo, do tipo "produto mais moderno" ou "maior eficiência".</p>
+    <p>Na prática, o que sustenta o benefício é um conjunto que se monta ao longo do ano: ficha de projeto aberta no início, com objetivo, elemento novo, obstáculo e cronograma; apontamento mensal de horas por pesquisador e por projeto; registro dos ensaios e relatórios de andamento, <strong>inclusive dos que deram errado, que são a melhor prova de que havia risco técnico</strong>; notas fiscais e contratos com objeto vinculado ao projeto, nunca genéricos; e a conciliação, no fechamento, entre o que a equipe técnica fez e o que a contabilidade registrou.</p>
     <p>Nada disso se monta na véspera da fiscalização. É trabalho de ano inteiro, de advogado e contador junto com quem toca a produção.</p>
   </div>
 
@@ -957,6 +957,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

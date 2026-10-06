@@ -63,7 +63,7 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -422,7 +422,7 @@ footer::before{content:'';position:absolute;top:-1px;left:0;width:140px;height:2
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
 
-/* Calculadora dentro do artigo — bloco autônomo (não usa classes genéricas .calc-*) */
+/* Calculadora dentro do artigo, bloco autônomo (não usa classes genéricas .calc-*) */
 .rc-calc{
   display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;margin:40px 0;
   border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
@@ -699,11 +699,11 @@ footer::before{background:#7fb0bc!important;}
     <div class="util-card-wrap standalone-calc reveal-up">
       <div class="util-card-head">
         <h2>Lei do Bem</h2>
-        <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo — além da despesa que já é deduzida normalmente. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
+        <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo, além da despesa que já é deduzida normalmente. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
       </div>
       <h2>Quanto isso representa na sua empresa</h2>
     <div class="calc">
-      <label for="ldb-fat">Quanto sua empresa gastou no último ano desenvolvendo produtos e processos — equipe técnica, ensaios, protótipos, materiais</label>
+      <label for="ldb-fat">Quanto sua empresa gastou no último ano desenvolvendo produtos e processos, equipe técnica, ensaios, protótipos, materiais</label>
       <div class="money"><span>R$</span><input id="ldb-fat" inputmode="numeric" value="1.200.000"></div>
 
       <div class="result">
@@ -715,7 +715,7 @@ footer::before{background:#7fb0bc!important;}
         </div>
       </div>
 
-      <p class="fine">Exclusão adicional de 60% no cenário padrão e de 80% com aumento superior a 5% no número de pesquisadores exclusivos, aplicada sobre alíquota conjunta de 34% — imposto de renda de 15% mais adicional de 10% e contribuição social de 9%. O resultado real depende de quanto do gasto é efetivamente enquadrável e do lucro apurado no período. Números de referência, não promessa de resultado.</p>
+      <p class="fine">Exclusão adicional de 60% no cenário padrão e de 80% com aumento superior a 5% no número de pesquisadores exclusivos, aplicada sobre alíquota conjunta de 34%, imposto de renda de 15% mais adicional de 10% e contribuição social de 9%. O resultado real depende de quanto do gasto é efetivamente enquadrável e do lucro apurado no período. Números de referência, não promessa de resultado.</p>
     </div>
       <p class="rc-note"><a href="lei-do-bem.html" class="gold-underline">Leia o artigo completo →</a></p>
       <div class="util-cta">
@@ -726,7 +726,7 @@ footer::before{background:#7fb0bc!important;}
     <div class="util-card-wrap standalone-calc reveal-up">
       <div class="util-card-head">
         <h2>Equiparação hospitalar</h2>
-        <p>A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor — na prática, cerca de um terço do imposto. E, diferente da maioria das discussões tributárias, aqui não é preciso ir à Justiça.</p>
+        <p>A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor, na prática, cerca de um terço do imposto. E, diferente da maioria das discussões tributárias, aqui não é preciso ir à Justiça.</p>
       </div>
       <h2>Quanto isso representa na sua clínica</h2>
     <div class="calc">
@@ -753,14 +753,14 @@ footer::before{background:#7fb0bc!important;}
     <div class="util-card-wrap standalone-calc reveal-up">
       <div class="util-card-head">
         <h2>INSS acima do teto</h2>
-        <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é R$ 988,09 por mês — e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
+        <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é R$ 988,09 por mês, e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
       </div>
       <h2>Quanto pode estar sobrando</h2>
     <div class="calc">
       <label for="inss-clt">Quanto você recebe por mês no emprego de carteira assinada</label>
       <div class="money"><span>R$</span><input id="inss-clt" inputmode="numeric" value="14.000"></div>
 
-      <label for="inss-out">Quanto você recebe por mês nos outros trabalhos — plantões, sua clínica, atendimentos avulsos</label>
+      <label for="inss-out">Quanto você recebe por mês nos outros trabalhos, plantões, sua clínica, atendimentos avulsos</label>
       <div class="money"><span>R$</span><input id="inss-out" inputmode="numeric" value="12.000"></div>
 
       <div class="result">

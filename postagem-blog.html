@@ -59,7 +59,7 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -416,7 +416,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
 
-/* Calculadora dentro do artigo — bloco autônomo (não usa classes genéricas .calc-*) */
+/* Calculadora dentro do artigo, bloco autônomo (não usa classes genéricas .calc-*) */
 .rc-calc{
   display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;margin:40px 0;
   border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
@@ -756,6 +756,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

@@ -42,7 +42,7 @@ body{position:relative;}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 15% 0%, rgba(31,55,65,.05), transparent 40%),radial-gradient(circle at 100% 30%, rgba(31,55,65,.035), transparent 35%);}
 header,section,footer{position:relative;z-index:1;}
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 20px 16px 64px;background:transparent;color:#f5f4f2;transition:background .3s ease, box-shadow .3s ease, color .3s ease;}
 header.scrolled{background:#fff;border-bottom:4px solid #cc9a3f;box-shadow:0 6px 24px -12px rgba(0,0,0,.18);color:#1a1a1a;}
@@ -391,6 +391,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="orcamentoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="orcamento-wrap reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de orçamento para curso">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

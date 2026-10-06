@@ -58,7 +58,7 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -250,14 +250,14 @@ nav a:hover::after{transform:scaleX(1);}
 .faq-item.open .faq-a{max-height:300px;padding:0 4px 24px;}
 
 /* BLOG */
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:28px;row-gap:36px;align-items:stretch;}
 @media(max-width:960px){.blog-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.blog-grid{grid-template-columns:1fr;}}
-.blog-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;display:flex;flex-direction:column;height:100%;}
+@media(max-width:640px){.blog-grid{grid-template-columns:1fr;row-gap:28px;}}
+.blog-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;display:flex;flex-direction:column;}
 .blog-card:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
 .blog-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3;}
 .blog-card:hover::before{transform:scaleX(1);}
-.blog-card .thumb{height:190px;background-size:cover;background-position:center;}
+.blog-card .thumb{display:block;width:100%;height:190px;object-fit:cover;background-size:cover;background-position:center;}
 .blog-card .body{padding:24px 26px 28px;display:flex;flex:1;flex-direction:column;}
 .blog-card .tag{font-family:'Montserrat';font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
 .blog-card h3{font-size:17px;margin:12px 0 10px;line-height:1.4;}
@@ -270,7 +270,7 @@ nav a:hover::after{transform:scaleX(1);}
 .blog-featured:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
 .stretched-link::after{content:'';position:absolute;inset:0;z-index:10;}
 
-@media(max-width:860px){.blog-featured{grid-template-columns:1fr;}}
+@media(max-width:860px){.blog-featured{grid-template-columns:1fr;margin-bottom:28px;}}
 .blog-featured .thumb{height:100%;min-height:300px;background-size:cover;background-position:center;}
 .blog-featured .body{padding:40px 44px 40px 0;}
 @media(max-width:860px){.blog-featured .body{padding:8px 30px 36px;}}
@@ -538,7 +538,7 @@ footer::before{background:#7fb0bc!important;}
       <div class="body">
         <span class="tag">Para clínicas médicas e odontológicas</span>
         <h3 style="font-size:26px;margin:14px 0 16px;">Clínica que faz procedimento não precisa pagar imposto de consultório. São quase três vezes a diferença.</h3>
-        <p style="font-size:15px;color:#4a4a46;line-height:1.8;margin-bottom:0;">A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor — na prática, cerca de <strong>um terço do imposto</strong>. E, diferente da maioria das discussões tributárias, aqui <strong>não é preciso ir à Justiça</strong>.</p>
+        <p style="font-size:15px;color:#4a4a46;line-height:1.8;margin-bottom:0;">A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor, na prática, cerca de <strong>um terço do imposto</strong>. E, diferente da maioria das discussões tributárias, aqui <strong>não é preciso ir à Justiça</strong>.</p>
         <span class="meta" style="display:block;margin-top:18px;">Quege Advogados</span>
         <a href="equiparacao-hospitalar.html" class="readmore stretched-link" style="display:block;margin-top:14px;">Ler artigo completo</a>
       </div>
@@ -546,29 +546,29 @@ footer::before{background:#7fb0bc!important;}
 
     <div class="blog-grid">
       <article class="blog-card reveal-up">
-        <div class="thumb" style="background-image:url('imagens/recuperacaodecreditos.jpg')" role="img" aria-label="Recuperação de INSS pago acima do teto"></div>
+        <img class="thumb" src="imagens/recuperacaodecreditos.jpg" alt="Recuperação de INSS pago acima do teto" width="800" height="500" loading="lazy" decoding="async">
         <div class="body">
           <span class="tag">Para médicos que recebem de mais de um lugar</span>
           <h3>Quem recebe de dois lugares paga INSS a mais todo mês. E esse dinheiro não vira aposentadoria maior.</h3>
-          <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é <strong>R$ 988,09 por mês</strong> — e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
+          <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é <strong>R$ 988,09 por mês</strong>, e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
           <span class="meta">Quege Advogados</span>
           <a href="inss-acima-do-teto.html" class="readmore stretched-link">Ler artigo completo</a>
         </div>
       </article>
 
       <article class="blog-card reveal-up">
-        <div class="thumb" style="background-image:url('imagens/planejamentotributario.jpg')" role="img" aria-label="Planejamento tributário e Lei do Bem"></div>
+        <img class="thumb" src="imagens/planejamentotributario.jpg" alt="Planejamento tributário e Lei do Bem" width="800" height="500" loading="lazy" decoding="async">
         <div class="body">
           <span class="tag">Para indústria e comércio no Lucro Real</span>
           <h3>Melhorou um processo, desenvolveu um produto, testou até dar certo? A lei deixa deduzir isso duas vezes.</h3>
-          <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo — <strong>além da despesa que já é deduzida normalmente</strong>. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
+          <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo, <strong>além da despesa que já é deduzida normalmente</strong>. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
           <span class="meta">Quege Advogados</span>
           <a href="lei-do-bem.html" class="readmore stretched-link">Ler artigo completo</a>
         </div>
       </article>
 
       <article class="blog-card reveal-up">
-        <div class="thumb" style="background-image:url('imagens/revendadecarros.jpg')" role="img" aria-label="Revenda de veículos usados"></div>
+        <img class="thumb" src="imagens/revendadecarros.jpg" alt="Revenda de veículos usados" width="800" height="500" loading="lazy" decoding="async">
         <div class="body">
           <span class="tag">Tributário</span>
           <h3>Revender carro usado é comércio, e o imposto cobrado hoje é maior do que deveria</h3>
@@ -617,6 +617,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

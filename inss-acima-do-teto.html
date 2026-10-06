@@ -59,7 +59,7 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -416,7 +416,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
 
-/* Calculadora dentro do artigo — bloco autônomo (não usa classes genéricas .calc-*) */
+/* Calculadora dentro do artigo, bloco autônomo (não usa classes genéricas .calc-*) */
 .rc-calc{
   display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;margin:40px 0;
   border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
@@ -684,14 +684,14 @@ footer::before{background:#7fb0bc!important;}
 </div>
 
 <article class="post-body source-article reveal-up">
-<p class="t lead">O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é <strong>R$ 988,09 por mês</strong> — e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
+<p class="t lead">O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é <strong>R$ 988,09 por mês</strong>, e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
 
   <section>
     <h2>Por que isso é quase regra entre médicos</h2>
     <p class="t">A rotina típica já basta para estourar o limite:</p>
-    <p class="t">— o <strong>hospital</strong> desconta sobre o salário e, sozinho, já costuma bater o teto;<br>
-    — a <strong>sua clínica</strong> desconta 11% do pró-labore;<br>
-    — cada <strong>plantão</strong> pago por PJ ou cooperativa desconta outros 11%, sobre outra base.</p>
+    <p class="t">• o <strong>hospital</strong> desconta sobre o salário e, sozinho, já costuma bater o teto;<br>
+    • a <strong>sua clínica</strong> desconta 11% do pró-labore;<br>
+    • cada <strong>plantão</strong> pago por PJ ou cooperativa desconta outros 11%, sobre outra base.</p>
     <p class="t">Esses 11% são cobrados cheios, sem desconto e sem escalonamento. Nenhuma dessas fontes enxerga as outras, e o sistema do governo não junta automaticamente os valores entre empresas diferentes. O desconto a mais sai do seu bolso todo mês, sem aviso.</p>
     <p class="t">É dinheiro que não compra nada: o valor da sua aposentadoria é calculado até o teto, e nem um centavo a mais aumenta o benefício.</p>
   </section>
@@ -702,7 +702,7 @@ footer::before{background:#7fb0bc!important;}
       <label for="clt">Quanto você recebe por mês no emprego de carteira assinada</label>
       <div class="money"><span>R$</span><input id="clt" inputmode="numeric" value="14.000"></div>
 
-      <label for="out">Quanto você recebe por mês nos outros trabalhos — plantões, sua clínica, atendimentos avulsos</label>
+      <label for="out">Quanto você recebe por mês nos outros trabalhos, plantões, sua clínica, atendimentos avulsos</label>
       <div class="money"><span>R$</span><input id="out" inputmode="numeric" value="12.000"></div>
 
       <div class="result">
@@ -720,7 +720,7 @@ footer::before{background:#7fb0bc!important;}
   </section>
 
   <section>
-    <h2>Dá para pedir de volta — e sem depender de ninguém</h2>
+    <h2>Dá para pedir de volta, e sem depender de ninguém</h2>
     <p class="t">A própria Receita Federal reconhece a situação. O pedido é feito pelo portal e-CAC, com o seu login gov.br, e <strong>não precisa de autorização do hospital, da clínica ou de quem quer que seja</strong>. Ninguém fica sabendo, e nenhuma empresa precisa corrigir nada.</p>
     <p class="t">O prazo é de <strong>cinco anos para trás</strong>, com correção pela Selic. Mas ele corre mês a mês: cada mês que passa, você perde o mês mais antigo. Quem deixa para depois perde dinheiro que já era seu.</p>
     <p class="t">O que torna o trabalho chato é o formato: <strong>é um pedido separado para cada mês</strong>. Cinco anos são sessenta pedidos, cada um com sua conta própria, e o documento não pode ser corrigido depois que a Receita o intima.</p>
@@ -728,7 +728,7 @@ footer::before{background:#7fb0bc!important;}
 
   <section>
     <h2>E para parar de pagar a mais daqui para frente</h2>
-    <p class="t">Existe uma declaração simples, prevista na Instrução Normativa RFB nº 2.110/2022, que você entrega a cada fonte pagadora informando que há outras e definindo qual delas desconta primeiro. A partir daí, as demais só descontam a diferença até o teto — e o excesso deixa de existir.</p>
+    <p class="t">Existe uma declaração simples, prevista na Instrução Normativa RFB nº 2.110/2022, que você entrega a cada fonte pagadora informando que há outras e definindo qual delas desconta primeiro. A partir daí, as demais só descontam a diferença até o teto, e o excesso deixa de existir.</p>
     <p class="t">Quase ninguém usa. Recuperar o passado sem implantar esse controle é voltar a perder dinheiro no mês seguinte.</p>
   </section>
 
@@ -737,7 +737,7 @@ footer::before{background:#7fb0bc!important;}
     <p><strong>O extrato do INSS não serve de base.</strong> O que aparece no CNIS é a remuneração declarada, não o valor que foi efetivamente descontado de você. É de onde saem os pedidos de R$ 80 mil que a Receita paga como R$ 2 mil. A conta certa se faz pelos contracheques, informes de rendimentos e comprovantes de retenção.</p>
     <p><strong>Médico com cargo público tem regra própria.</strong> A contribuição do regime do servidor não se soma ao teto do INSS. São regimes separados, com limites separados, e misturar os dois derruba o pedido.</p>
     <p><strong>A parte paga pela empresa não é sua.</strong> O que se pede de volta é só o que foi descontado de você.</p>
-    <p>Vale registrar, com honestidade: não existe decisão de tribunal superior fixando a questão em caráter definitivo. O direito é elementar, a Receita reconhece a hipótese e as decisões de primeira e segunda instâncias são favoráveis — o Tribunal Regional Federal da 3ª Região já decidiu nesse sentido no processo nº 0013862-61.2014.4.03.6100 —, mas quem apresenta o assunto como tese já pacificada está repetindo citação equivocada que circula na internet.</p>
+    <p>Vale registrar, com honestidade: não existe decisão de tribunal superior fixando a questão em caráter definitivo. O direito é elementar, a Receita reconhece a hipótese e as decisões de primeira e segunda instâncias são favoráveis, o Tribunal Regional Federal da 3ª Região já decidiu nesse sentido no processo nº 0013862-61.2014.4.03.6100, , mas quem apresenta o assunto como tese já pacificada está repetindo citação equivocada que circula na internet.</p>
   </div>
 
   <a class="cta" id="cta" href="https://wa.me/5547984033110?text=Vi%20a%20nota%20sobre%20INSS%20pago%20a%20mais%20e%20quero%20entender%20o%20meu%20caso." target="_blank" rel="noopener">Falar com um advogado tributarista</a>
@@ -800,6 +800,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

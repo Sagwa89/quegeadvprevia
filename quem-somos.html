@@ -61,7 +61,7 @@ body::before{
 header,section,footer{position:relative;z-index:1;}
 
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -492,7 +492,7 @@ footer::before{background:#7fb0bc!important;}
           <span class="role">OAB/PR 98.268</span>
           <p class="bio">Advogada tributarista com experiência em assessoria empresarial, contencioso tributário e gestão de riscos fiscais, com atuação na advocacia privada, Administração Pública e em funções institucionais junto à OAB.</p>
           <ul class="team-highlights">
-            <li>Vice-Presidente da Comissão da Advocacia Iniciante e Secretária da Comissão de Fiscalização Profissional, ambas da OAB/PR – Campo Largo</li>
+            <li>Vice-Presidente da Comissão da Advocacia Iniciante e Secretária da Comissão de Fiscalização Profissional, ambas da OAB/PR, Campo Largo</li>
             <li>Membro Relatora de Direito Tributário e Desportivo da OAB/PR</li>
             <li>Pós-graduada em Direito Tributário pela Universidade Positivo e em Direito do Consumidor pela Faculdade Legale</li>
             <li>Especialização em andamento em Direito Ambiental e do Agronegócio pela PUC/PR</li>
@@ -539,6 +539,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

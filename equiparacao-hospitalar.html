@@ -59,7 +59,7 @@ header,section,footer{position:relative;z-index:1;}
 
 /* HEADER */
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -416,7 +416,7 @@ header.scrolled{background:rgba(244,243,240,.92);border-bottom:1px solid var(--l
 .post-related{padding:80px 0;}
 @media(max-width:640px){.post-cover img{height:220px;}.post-body{padding-top:40px;}}
 
-/* Calculadora dentro do artigo — bloco autônomo (não usa classes genéricas .calc-*) */
+/* Calculadora dentro do artigo, bloco autônomo (não usa classes genéricas .calc-*) */
 .rc-calc{
   display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;margin:40px 0;
   border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(31,55,65,.35);
@@ -684,7 +684,7 @@ footer::before{background:#7fb0bc!important;}
 </div>
 
 <article class="post-body source-article reveal-up">
-<p class="t lead">A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor — na prática, cerca de <strong>um terço do imposto</strong>. E, diferente da maioria das discussões tributárias, aqui <strong>não é preciso ir à Justiça</strong>.</p>
+<p class="t lead">A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor, na prática, cerca de <strong>um terço do imposto</strong>. E, diferente da maioria das discussões tributárias, aqui <strong>não é preciso ir à Justiça</strong>.</p>
 
   <section>
     <h2>A diferença, em números</h2>
@@ -695,9 +695,9 @@ footer::before{background:#7fb0bc!important;}
   <section>
     <h2>O que mudou em setembro</h2>
     <p class="t">A Receita Federal publicou em <strong>18 de setembro de 2026</strong> a Instrução Normativa nº 2.343, que derrubou três travas antigas:</p>
-    <p class="t">— quem presta o serviço <strong>dentro da estrutura de outro</strong> deixou de estar automaticamente excluído;<br>
-    — o <strong>atendimento domiciliar</strong> deixou de estar excluído;<br>
-    — a <strong>anestesiologia</strong> passou a constar expressamente entre as atividades contempladas.</p>
+    <p class="t">• quem presta o serviço <strong>dentro da estrutura de outro</strong> deixou de estar automaticamente excluído;<br>
+    • o <strong>atendimento domiciliar</strong> deixou de estar excluído;<br>
+    • a <strong>anestesiologia</strong> passou a constar expressamente entre as atividades contempladas.</p>
     <p class="t">Em troca, a Receita apertou a exigência de que a clínica seja de fato uma empresa organizada, e deixou claro o que continua fora: empresário individual, sociedade simples, consulta médica simples e médico que apenas cede o próprio trabalho ao hospital.</p>
   </section>
 
@@ -723,28 +723,28 @@ footer::before{background:#7fb0bc!important;}
   <section>
     <h2>Quem se enquadra</h2>
     <p class="t">São quatro condições, e todas precisam estar presentes ao mesmo tempo:</p>
-    <p class="t"><strong>O que a clínica faz.</strong> Procedimentos, exames, terapias — o que a norma sanitária classifica como atendimento ambulatorial, hospital-dia, atendimento imediato, internação ou apoio a diagnóstico e terapia. Consulta pura e simples fica de fora.</p>
-    <p class="t"><strong>O tipo de empresa.</strong> Precisa estar registrada na Junta Comercial e funcionar como empresa de verdade — com estrutura, equipamentos e equipe. Sociedade registrada em cartório não serve. Empresa de um sócio só serve, desde que tenha essa estrutura.</p>
+    <p class="t"><strong>O que a clínica faz.</strong> Procedimentos, exames, terapias, o que a norma sanitária classifica como atendimento ambulatorial, hospital-dia, atendimento imediato, internação ou apoio a diagnóstico e terapia. Consulta pura e simples fica de fora.</p>
+    <p class="t"><strong>O tipo de empresa.</strong> Precisa estar registrada na Junta Comercial e funcionar como empresa de verdade, com estrutura, equipamentos e equipe. Sociedade registrada em cartório não serve. Empresa de um sócio só serve, desde que tenha essa estrutura.</p>
     <p class="t"><strong>Licença sanitária</strong> válida, em nome da clínica.</p>
     <p class="t"><strong>Lucro Presumido</strong>, com as receitas separadas por tipo de procedimento. O benefício vale procedimento a procedimento, nunca sobre o faturamento inteiro.</p>
   </section>
 
   <section>
     <h2>E os últimos cinco anos?</h2>
-    <p class="t">O que foi pago a mais nos últimos cinco anos pode ser recuperado, com correção pela Selic, por via administrativa — sem processo judicial. Mas o pedido retroativo é o que mais chama fiscalização, e só deve ser feito com a documentação toda levantada antes.</p>
+    <p class="t">O que foi pago a mais nos últimos cinco anos pode ser recuperado, com correção pela Selic, por via administrativa, sem processo judicial. Mas o pedido retroativo é o que mais chama fiscalização, e só deve ser feito com a documentação toda levantada antes.</p>
   </section>
 
   <div class="warn">
     <h3>Dentista em Santa Catarina e no Paraná: atenção.</h3>
     <p>O Tribunal Regional Federal da 4ª Região, que decide para SC, PR e RS, fixou no processo nº 5013739-89.2018.4.04.7205 que <strong>ortodontia não entra</strong>. Esse entendimento vincula a região.</p>
-    <p>O que continua defensável é a parte cirúrgica e de diagnóstico: implante, cirurgia buco-maxilo-facial, extração complexa, enxerto ósseo e gengival, cirurgia de gengiva e — a mais segura de todas — a radiologia e a tomografia odontológica. O próprio acórdão do TRF4 ressalvou as cirurgias buco-maxilares.</p>
+    <p>O que continua defensável é a parte cirúrgica e de diagnóstico: implante, cirurgia buco-maxilo-facial, extração complexa, enxerto ósseo e gengival, cirurgia de gengiva e, a mais segura de todas, a radiologia e a tomografia odontológica. O próprio acórdão do TRF4 ressalvou as cirurgias buco-maxilares.</p>
     <p>O Superior Tribunal de Justiça vai decidir a questão para todo o país no processo nº 2.223.487/RS, afetado em 2026 como Tema 1427. Até lá, clínica odontológica que aplica o percentual reduzido sobre tudo, incluindo ortodontia e procedimentos de rotina, está correndo risco de autuação.</p>
   </div>
 
   <div class="warn">
     <h3>O erro que mais custa caro: mexer no papel sem mexer na estrutura.</h3>
-    <p>Trocar o CNAE e alterar o contrato social não transforma, sozinho, uma clínica em empresa para esse fim. Em 2026 o CARF decidiu, no processo nº 13971.723938/2013-99, que a clínica registrada como sociedade simples perde o benefício por inteiro — mesmo tendo estrutura, equipe multidisciplinar e farmácia própria.</p>
-    <p>Autuação nesse tema vem com multa de 75% sobre o imposto, que pode dobrar, mais juros sobre cinco anos. O caminho seguro começa pelo levantamento: contrato registrado, licença sanitária, equipamentos, folha de pagamento, notas fiscais discriminadas por procedimento, e a separação das receitas. Contador e advogado trabalham juntos — a apuração continua sendo do contador, o enquadramento e a defesa são do advogado.</p>
+    <p>Trocar o CNAE e alterar o contrato social não transforma, sozinho, uma clínica em empresa para esse fim. Em 2026 o CARF decidiu, no processo nº 13971.723938/2013-99, que a clínica registrada como sociedade simples perde o benefício por inteiro, mesmo tendo estrutura, equipe multidisciplinar e farmácia própria.</p>
+    <p>Autuação nesse tema vem com multa de 75% sobre o imposto, que pode dobrar, mais juros sobre cinco anos. O caminho seguro começa pelo levantamento: contrato registrado, licença sanitária, equipamentos, folha de pagamento, notas fiscais discriminadas por procedimento, e a separação das receitas. Contador e advogado trabalham juntos, a apuração continua sendo do contador, o enquadramento e a defesa são do advogado.</p>
   </div>
 
   <a class="cta" id="cta" href="https://wa.me/5547984033110?text=Vi%20a%20nota%20sobre%20imposto%20de%20cl%C3%ADnicas%20e%20quero%20saber%20se%20a%20minha%20se%20enquadra." target="_blank" rel="noopener">Falar com um advogado tributarista</a>
@@ -807,6 +807,7 @@ footer::before{background:#7fb0bc!important;}
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">

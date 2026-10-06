@@ -8,9 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preload" as="image" href="imagens/damadajustica2.webp">
-<link rel="preload" as="image" href="imagens/felipequege.webp">
-<link rel="preload" as="image" href="imagens/marcelo-optimized.webp">
-<link rel="preload" as="image" href="imagens/paola-optimized.webp">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -66,7 +63,7 @@ header,section,footer{position:relative;z-index:1;}
 .scroll-progress-bar{width:100%;height:0;background:var(--gold);box-shadow:0 0 8px rgba(0,0,0,.25);}
 
 .side-maze-strip{position:fixed;left:0;top:0;bottom:0;width:44px;z-index:55;background-image:url('imagens/labirintovertical.webp');background-repeat:repeat-y;background-size:100% auto;background-position:top;pointer-events:none;}
-@media(max-width:1199px){.side-maze-strip{width:14px;}}
+@media(max-width:1199px){.side-maze-strip{display:none;}}
 @media(min-width:1200px){.container{padding-left:48px;}}
 
 /* HEADER */
@@ -163,7 +160,7 @@ nav a:hover::after{transform:scaleX(1);}
 .destaque-row+.destaque-row{margin-top:90px;}
 .destaque-row.reverse .destaque-img{order:2;}
 .destaque-row.reverse .destaque-text{order:1;}
-.destaque-img{height:360px;border-radius:8px;background-size:cover;background-position:center;box-shadow:var(--shadow-soft);}
+.destaque-img{width:100%;height:360px;border-radius:8px;object-fit:cover;background-size:cover;background-position:center;box-shadow:var(--shadow-soft);}
 .destaque-text h3{font-size:26px;line-height:1.3;margin:10px 0 18px;}
 .destaque-text p{margin-bottom:26px;}
 @media(max-width:860px){
@@ -290,6 +287,7 @@ nav a:hover::after{transform:scaleX(1);}
 .quote p{font-size:clamp(22px,3vw,34px);line-height:1.6;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:400;}
 @media(max-width:760px){
   .quote{padding:90px 0;text-align:center;}
+  .quote-aurora{inset:0;}
   .quote-inner{padding:0 32px;}
   .quote p{font-size:16px;line-height:1.65;}
 }
@@ -325,20 +323,20 @@ nav a:hover::after{transform:scaleX(1);}
 .faq-item.open .faq-a{max-height:300px;padding:0 4px 24px;}
 
 /* BLOG */
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:28px;row-gap:36px;align-items:stretch;}
 @media(max-width:960px){.blog-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.blog-grid{grid-template-columns:1fr;}}
-.blog-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;}
+@media(max-width:640px){.blog-grid{grid-template-columns:1fr;row-gap:28px;}}
+.blog-card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;position:relative;display:flex;flex-direction:column;}
 .blog-card:hover{transform:translateY(-6px);border-color:rgba(31,55,65,.35);box-shadow:var(--shadow-soft);}
 .blog-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3;}
 .blog-card:hover::before{transform:scaleX(1);}
-.blog-card .thumb{height:190px;background-size:cover;background-position:center;}
-.blog-card .body{padding:24px 26px 28px;}
+.blog-card .thumb{display:block;width:100%;height:190px;object-fit:cover;background-size:cover;background-position:center;}
+.blog-card .body{padding:24px 26px 28px;display:flex;flex:1;flex-direction:column;}
 .blog-card .tag{font-family:'Montserrat';font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
 .blog-card h3{font-size:17px;margin:12px 0 10px;line-height:1.4;}
-.blog-card p{font-size:14px;color:#cfcdc9;line-height:1.65;margin-bottom:16px;}
+.blog-card p{font-size:14px;color:#cfcdc9;line-height:1.65;margin-bottom:18px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;}
 .blog-card .meta{font-size:12.5px;color:var(--muted);}
-.blog-card .readmore{display:inline-block;margin-top:14px;font-family:'Montserrat';font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);}
+.blog-card .readmore{display:inline-block;margin-top:auto;font-family:'Montserrat';font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);}
 .blog-card.em-breve .thumb{filter:grayscale(35%);}
 .soon-badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--gold);color:#f5f4f2;font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,.25);}
 .blog-featured{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:60px;}
@@ -514,6 +512,7 @@ footer::before{background:#7fb0bc!important;}
 .footer-about,.footer-heading,.footer-links a,.footer-links a svg,.footer-contact p,.footer-contact p svg,.footer-contact a,.footer-contact .office-address,.footer-bottom p{color:#fff!important;}
 .footer-bottom{border-top-color:rgba(255,255,255,.14)!important;}
 </style>
+<noscript><style>.reveal-up{opacity:1!important;transform:none!important;}</style></noscript>
 <title>Quege Sociedade de Advocacia | Direito Tributário em SC e PR</title>
 <meta name="description" content="Quege Sociedade de Advocacia: assessoria em direito tributário, planejamento fiscal e contencioso. Sede em Três Barras/SC e filial em Curitiba/PR.">
 <link rel="canonical" href="https://www.quege.adv.br/">
@@ -747,7 +746,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
     <div class="areas-head reveal-up">
       <span class="eyebrow">Áreas de atuação</span>
       <h2>O Direito como vetor de segurança, estratégia e soluções para a dinâmica empresarial.</h2>
-      <p>Da consultoria estratégica ao contencioso de alta complexidade, entregamos assessoria jurídica empresarial personalizada — incluindo suporte à adaptação à Reforma Tributária (IBS/CBS) — aliando profundidade técnica, visão analítica e soluções seguras.</p>
+      <p>Da consultoria estratégica ao contencioso de alta complexidade, entregamos assessoria jurídica empresarial personalizada, incluindo suporte à adaptação à Reforma Tributária (IBS/CBS), aliando profundidade técnica, visão analítica e soluções seguras.</p>
     </div>
     <div class="faq-list reveal-up" id="faq-list">
       <div class="faq-item open">
@@ -777,11 +776,11 @@ if(!location.hash){window.scrollTo(0,0);}</script>
 <section class="section" id="destaques-home">
   <div class="container">
     <div class="destaque-row reveal-up">
-      <div class="destaque-img" style="background-image:url('imagens/palestra-optimized.webp');"></div>
+      <img class="destaque-img" src="imagens/palestra-optimized.webp" alt="Palestra sobre a Reforma Tributária" width="1200" height="675" loading="lazy" decoding="async">
       <div class="destaque-text">
         <span class="eyebrow">Cursos</span>
         <h3>Sua equipe entende mesmo o que muda com a Reforma Tributária?</h3>
-        <p>O IBS e a CBS vão substituir tributos que sua empresa usa há décadas. Nos nossos cursos você aprende, na prática, como isso muda o seu preço, sua margem e o crédito que você tem direito a recuperar — do jeito que só quem vive contencioso tributário todo dia consegue explicar.</p>
+        <p>O IBS e a CBS vão substituir tributos que sua empresa usa há décadas. Nos nossos cursos você aprende, na prática, como isso muda o seu preço, sua margem e o crédito que você tem direito a recuperar, do jeito que só quem vive contencioso tributário todo dia consegue explicar.</p>
         <a href="cursos.html" class="btn-outline">Conhecer os Cursos<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
     </div>
@@ -790,7 +789,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
       <div class="destaque-text">
         <span class="eyebrow">Ferramentas</span>
         <h3>Revenda de veículos usados: sua empresa pode estar pagando IRPJ e CSLL a mais</h3>
-        <p>Uma tese já validada pelo STJ permite reduzir a tributação de revendas de veículos usados, tratando a operação como comércio e não como serviço. Simule agora, em segundos, quanto sua empresa pode recuperar dos últimos 5 anos — corrigido pela Selic.</p>
+        <p>Uma tese já validada pelo STJ permite reduzir a tributação de revendas de veículos usados, tratando a operação como comércio e não como serviço. Simule agora, em segundos, quanto sua empresa pode recuperar dos últimos 5 anos, corrigido pela Selic.</p>
         <a href="utilitarios.html" class="btn-outline">Simular Agora<svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
     </div>
@@ -805,12 +804,30 @@ if(!location.hash){window.scrollTo(0,0);}</script>
     </div>
     <div class="blog-grid">
       <div class="blog-card reveal-up">
-        <div class="thumb" style="background-image:url('imagens/revendadecarros.webp')"></div>
+        <img class="thumb" src="imagens/consultoriacontinua.jpg" alt="Tributação de clínicas médicas e odontológicas" width="800" height="500" loading="lazy" decoding="async">
         <div class="body">
-          <span class="tag">Tributário</span>
-          <h3>Revender carro usado é comércio, e o imposto cobrado hoje é maior do que deveria</h3>
-          <p>O STJ vem decidindo que a revenda de veículos usados é atividade de comércio, reduzindo o IRPJ e a CSLL das revendas. Entenda e simule o impacto.</p>
-          <a href="postagem-blog.html" class="readmore">Ler mais →</a>
+          <span class="tag">Para clínicas médicas e odontológicas</span>
+          <h3>Clínica que faz procedimento não precisa pagar imposto de consultório. São quase três vezes a diferença.</h3>
+          <p>A maior parte das clínicas no Lucro Presumido recolhe IRPJ e CSLL como prestadora de serviço comum. Mas a lei prevê, para quem faz procedimento e exame, uma conta bem menor, na prática, cerca de <strong>um terço do imposto</strong>. E, diferente da maioria das discussões tributárias, aqui <strong>não é preciso ir à Justiça</strong>.</p>
+          <a href="equiparacao-hospitalar.html" class="readmore">Ler mais →</a>
+        </div>
+      </div>
+      <div class="blog-card reveal-up">
+        <img class="thumb" src="imagens/recuperacaodecreditos.jpg" alt="Recuperação de INSS pago acima do teto" width="800" height="500" loading="lazy" decoding="async">
+        <div class="body">
+          <span class="tag">Para médicos que recebem de mais de um lugar</span>
+          <h3>Quem recebe de dois lugares paga INSS a mais todo mês. E esse dinheiro não vira aposentadoria maior.</h3>
+          <p>O desconto do INSS tem um limite mensal. Em 2026, o máximo que se paga é <strong>R$ 988,09 por mês</strong>, e esse limite é da pessoa, não do emprego. O problema é que quem te paga não sabe quanto os outros já descontaram. Cada um desconta como se fosse o único. Tudo o que passa do limite é dinheiro perdido: a aposentadoria continua limitada ao mesmo teto.</p>
+          <a href="inss-acima-do-teto.html" class="readmore">Ler mais →</a>
+        </div>
+      </div>
+      <div class="blog-card reveal-up">
+        <img class="thumb" src="imagens/planejamentotributario.jpg" alt="Planejamento tributário e Lei do Bem" width="800" height="500" loading="lazy" decoding="async">
+        <div class="body">
+          <span class="tag">Para indústria e comércio no Lucro Real</span>
+          <h3>Melhorou um processo, desenvolveu um produto, testou até dar certo? A lei deixa deduzir isso duas vezes.</h3>
+          <p>A Lei do Bem permite abater do IRPJ e da CSLL um valor adicional de 60% a 100% do que a empresa gastou desenvolvendo produto ou processo, <strong>além da despesa que já é deduzida normalmente</strong>. No ano-base 2024, 4.252 empresas em todo o país usaram o benefício, num universo de dezenas de milhares de empresas no Lucro Real. O motivo de quase todas as ausências é o mesmo: o dono acha que "inovação" é assunto de empresa de tecnologia.</p>
+          <a href="lei-do-bem.html" class="readmore">Ler mais →</a>
         </div>
       </div>
     </div>
@@ -855,6 +872,7 @@ if(!location.hash){window.scrollTo(0,0);}</script>
     </div>
 
     <form id="contatoForm" action="https://formsubmit.co/contato@quege.adv.br" method="POST" class="reveal-up">
+      <input type="hidden" name="_next" value="https://wa.me/5547984033110?text=Ol%C3%A1%2C%20enviei%20uma%20mensagem%20pelo%20site%20e%20gostaria%20de%20conversar%20com%20a%20equipe%20da%20Quege.">
       <input type="hidden" name="_subject" value="Nova solicitação de contato pelo site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -1002,10 +1020,19 @@ if(menuBtn && mobileNav){
 // REVEAL ON SCROLL
 const revealEls = document.querySelectorAll('.reveal-up');
 if(revealEls.length){
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible'); });
-  }, {threshold:.15});
-  revealEls.forEach(el => io.observe(el));
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.01, rootMargin:'0px 0px 160px 0px'});
+    revealEls.forEach(el => io.observe(el));
+  }else{
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
 }
 
 // FAQ ACCORDION (áreas de atuação)
